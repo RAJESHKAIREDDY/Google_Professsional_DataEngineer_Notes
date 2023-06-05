@@ -234,6 +234,3 @@ Cloud Composer is a managed service that implements Apache Airflow, a popular wo
 
 By leveraging Apache Airflow's capabilities, Cloud Composer provides a rich set of features for workflow management, including task scheduling, dependency management, parallel execution, and task monitoring. It enables you to define complex data processing pipelines with ease and ensures the reliable execution of tasks according to specified dependencies and schedules.
 
-Cloud Composer integrates seamlessly with other Google Cloud services, allowing you to leverage a wide range of data processing, storage, and analysis tools within your workflows. It provides a scalable and flexible solution for managing and automating complex data workflows.
-
-These services offer powerful capabilities for data processing and workflow management, enabling you to build robust and efficient data pipelines in the Google Cloud environment. For comprehensive guidance, best practices, and detailed documentation, please refer to the official documentation provided by Google Cloud.
