@@ -3,7 +3,7 @@
 - **viewer role**:- grants read-only access.
 - **Editor role**:- Viewer permissions +  ability to modify the state of a resource.
 - **Owner role**:- Editor permissions + permissions to manage roles along with setting up billing for a project.
-**Note**:- 
+- **Note**:- 
 - Primitive roles are acceptable only for Coarse-grained access controls[access is primarily determined by the assigned role rather than specific permissions or attributes]. Permissions are broader and less granular.
 - If primitive roles are used in a project, they grant viewer, editor, and owner access to objects in Cloud Storage	
 
@@ -39,7 +39,7 @@ Access controls for Cloud Bigtable can be configured at the project, instance, o
 
 **Encryption in Transit(motion)**:- GCP uses a combination of authenticating sources and encryption to protect data in transit
 
-**Points TO Remember**
+**Points to Remember**
 - Data within the boundaries of the Google network is authenticated but may not be encrypted. 
 - Data moving into and out of the physical boundaries of the Google network is encrypted
 - Google uses Application Layer Transport Security (ALTS) for authentication and encryption within the Google CLoud Infrastructure.
