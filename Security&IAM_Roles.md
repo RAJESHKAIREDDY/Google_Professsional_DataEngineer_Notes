@@ -1,4 +1,4 @@
-## IAM Roles
+# IAM Roles
 **1.Primitive Roles**:- Prior to Cloud IAM, primitive roles like Owner, Editor, and Viewer existed at the project level, providing coarse-grained access controls. 
 - **viewer role**:- grants read-only access.
 - **Editor role**:- Viewer permissions +  ability to modify the state of a resource.
@@ -21,7 +21,7 @@ ACLs define the permissions that a user or group has to perform specific actions
 **Hash-based Message Authentication Code** (HMAC) keys are used to authenticate access to Cloud Storage. The permissions for 
 HMAC keys include creating, deleting, and listing keys as well as getting and updating metadata
 
-## Bigtable and IAM
+### Bigtable and IAM
 Access controls for Cloud Bigtable can be configured at the project, instance, or table level.
 
 - Predefined roles for Cloud Bigtable include:
@@ -30,16 +30,15 @@ Access controls for Cloud Bigtable can be configured at the project, instance, o
   - **Reader Role**: Allows for read-only access to data in tables.
   - **Viewer Role**: Restricted to accessing the GCP console for Bigtable.
 
-## Encryption at Rest
+### Encryption at Rest
 
 - Data at rest is encrypted by default in Google Cloud Platform.
 - Data is encrypted at multiple levels, including the application, infrastructure, and device levels.
 - Data is encrypted in chunks. Each chunk has its own encryption key, which is called a data encryption key.
 - Data encryption keys are themselves encrypted using a key encryption key.
 
-**Encryption in Transit(motion)**:- GCP uses a combination of authenticating sources and encryption to protect data in transit
-
-**Points to Remember**
+### Encryption in Transit(motion):-
+- GCP uses a combination of authenticating sources and encryption to protect data in transit
 - Data within the boundaries of the Google network is authenticated but may not be encrypted. 
 - Data moving into and out of the physical boundaries of the Google network is encrypted
 - Google uses Application Layer Transport Security (ALTS) for authentication and encryption within the Google CLoud Infrastructure.
