@@ -3,7 +3,7 @@
 - **viewer role**:- grants read-only access.
 - **Editor role**:- Viewer permissions +  ability to modify the state of a resource.
 - **Owner role**:- Editor permissions + permissions to manage roles along with setting up billing for a project.
-- **Note**:- 
+#### Note:- 
 - Primitive roles are acceptable only for Coarse-grained access controls[access is primarily determined by the assigned role rather than specific permissions or attributes]. Permissions are broader and less granular.
 - If primitive roles are used in a project, they grant viewer, editor, and owner access to objects in Cloud Storage	
 
@@ -41,12 +41,12 @@ Access controls for Cloud Bigtable can be configured at the project, instance, o
 - GCP uses a combination of authenticating sources and encryption to protect data in transit
 - Data within the boundaries of the Google network is authenticated but may not be encrypted. 
 - Data moving into and out of the physical boundaries of the Google network is encrypted
-- Google uses Application Layer Transport Security (ALTS) for authentication and encryption within the Google CLoud Infrastructure.
+- Google uses Application Layer Transport Security (ALTS) for authentication and encryption within the Google Cloud Infrastructure.
 - GCP offers encryption at rest and encryption in transit by default
 
 **Server-side encryption**: Server-side encryption is a method where the encryption and decryption processes are handled by the cloud service provider (GCP) on the server side.When server-side encryption is enabled, GCP automatically encrypts the data at rest, meaning the data stored on disks or in backups.
 GCP provides multiple options for server-side encryption, including:	
-**1.Google-managed encryption keys**: GCP generates and manages the encryption keys used to encrypt the data.
+- **1.Google-managed encryption keys**: GCP generates and manages the encryption keys used to encrypt the data.
 
 **2.Customer-supplied encryption keys (CSEK)**: The encryption keys are generated and managed entirely by the customer including storage, who is responsible for providing the keys during encryption and retaining them for decryption.The keys are passed as arguments in API calls and stored in memory, but customer-supplied keys are not written to storage.
 
@@ -56,8 +56,8 @@ GCP provides multiple options for server-side encryption, including:
 
 
 **Data Loss Prevention(DLP) API**:- It is a service that can detect sensitive information in text and images, redact or mask sensitive information, and perform risk analysis. Two types of Data Loss Prevention jobs: 
-- Inspection jobs scan content for sensitive information using InfoTypes that you specify and generate reports on the location and type of sensitive information found.
-- Risk analysis jobs calculate the likelihood that data could be re-identified.
+- **Inspection jobs** scan content for sensitive information using InfoTypes that you specify and generate reports on the location and type of sensitive information found.
+- **Risk analysis jobs** calculate the likelihood that data could be re-identified.
 
 **Health Insurance Portability and Accountability Act (HIPAA)**:-It is a federal law in the United States that protects individuals’ healthcare information.
 
