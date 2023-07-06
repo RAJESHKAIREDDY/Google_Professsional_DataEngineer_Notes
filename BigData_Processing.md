@@ -1,4 +1,7 @@
 # BigData Tools
+- Cloud DataFlow
+- Cloud DataProc
+- Cloud Pub/Sub
 
 ## Cloud DataFlow
 - It is a managed stream and batch processing service.
@@ -11,24 +14,24 @@ service.
 - **Processing time**:- It is the time that data arrives at the endpoint where data is ingested.
 
 **Cloud Dataflow Concepts**:-
-■ **Pipelines**:- A Dataflow pipeline is a directed acyclic graph (DAG) that represents the data processing tasks and their dependencies. 
+- **Pipelines**:- A Dataflow pipeline is a directed acyclic graph (DAG) that represents the data processing tasks and their dependencies. 
 - It consists of a series of transformations applied to input data to produce the desired output. 
 - Pipelines represent a job that can be run repeatedly
-■ **PCollection**:- PCollection stands for **Processing Collection**, which represents a **distributed, immutable dataset** in a Dataflow pipeline. 
+- **PCollection**:- PCollection stands for **Processing Collection**, which represents a **distributed, immutable dataset** in a Dataflow pipeline. 
 - It can be seen as a collection of elements that flow through the pipeline during processing.
 - PCollections can be created from data sources or as the output of transformations.
 - In the case of batch processing, the PCollection contains a fixed set of data. In the case of streaming data, the PCollection is unbounded
-■ **Transforms**:- Transformations are the operations applied to data within a Dataflow pipeline.Transforms operate on one or more PCollections as input and can produce one or more output
+- **Transforms**:- Transformations are the operations applied to data within a Dataflow pipeline.Transforms operate on one or more PCollections as input and can produce one or more output
 - PCollections They can include operations like filtering, aggregating, joining, mapping, and more.Transformations take input data, perform computations, and generate output data.
-■ **ParDo**:- ParDo is a parallel processing operation that runs a user-specified function on each element in a PCollection. ParDo transforms data in parallel.
+- **ParDo**:- ParDo is a parallel processing operation that runs a user-specified function on each element in a PCollection. ParDo transforms data in parallel.
 - ParDo can receive additional inputs from other PCollections through side inputs.Side inputs enable performing joins and accessing data from multiple PCollections within a ParDo.
 - ParDo produces a main output PCollection, but it can also generate additional output collections using side outputs.
 - Side outputs are useful for creating additional processing paths or handling data that doesn't meet certain criteria, such as using a side output for data that fails a validation check
-■ **Pipeline I/O**:-These are transforms for reading data into a pipeline from a source and writing data to a sink
-■ **Aggregation**: It is the process of computing a result from multiple input values
-■ **User-defined functions**:-UDF are user-specified code for performing some operation, typically using a ParDo
-■ **Runner**:- Runners are software that executes pipelines as jobs. Dataflow supports different runners that execute the pipeline, including the Dataflow service in GCP, Apache Flink, and Apache Spark. The runner manages the pipeline execution, resource allocation, and fault tolerance.
-■ **Triggers**:- Triggers define when and how often computations are performed on data within windows. They determine when to produce intermediate or final results based on event time progress or data arrival. 
+- **Pipeline I/O**:-These are transforms for reading data into a pipeline from a source and writing data to a sink
+- **Aggregation**: It is the process of computing a result from multiple input values
+- **User-defined functions**:-UDF are user-specified code for performing some operation, typically using a ParDo
+- **Runner**:- Runners are software that executes pipelines as jobs. Dataflow supports different runners that execute the pipeline, including the Dataflow service in GCP, Apache Flink, and Apache Spark. The runner manages the pipeline execution, resource allocation, and fault tolerance.
+- **Triggers**:- Triggers define when and how often computations are performed on data within windows. They determine when to produce intermediate or final results based on event time progress or data arrival. 
 - Triggers enable fine-grained control over the processing behavior within windows
 
 - when running a Dataflow pipeline, it usually operates in 2 modes:-
