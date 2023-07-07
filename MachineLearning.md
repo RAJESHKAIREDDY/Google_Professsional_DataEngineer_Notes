@@ -1,6 +1,6 @@
 # Types of MachineLearning
 
-## supervised ML:-
+## Supervised ML:-
 - It is used to make predictions.It learn from labelled data.
 - ML model is used to predict a discrete value-->**Classification Model**.
 - Eg:-Support Vector Machine(SVM),Decision Tree,Logistic Regression
@@ -19,7 +19,10 @@
 - It is especially useful in robotics and game playing.
 - Eg:- Q-Learning,Monte Carlo Tree Search
 
-- **Deep Learning**:It is not a kind of problem but a way to solve ML problems. It can be used with any of the three types of ML problems.
+## Deep Learning:
+- It is not a kind of problem but a way to solve ML problems. It can be used with any of the three types of ML problems.
+
+## ML Glossary
 
 - The function that maps from inputs to outputs is known as an **activation function**
 - eg:- Rectified Linear Unit(RELU),hyperbolic tangent function,Sigmoid Function.
