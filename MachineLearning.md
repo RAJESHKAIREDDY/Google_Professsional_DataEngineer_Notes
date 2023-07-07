@@ -1,9 +1,9 @@
 # Types of MachineLearning
-- Supervised ML
-- Unsupervised ML
-- Reinforced ML
+## Supervised ML
+## Unsupervised ML
+## Reinforced ML
 
-- **supervised ML**:-It is used to make predictions.It learn from labelled data.
+**supervised ML**:-It is used to make predictions.It learn from labelled data.
 - ML model is used to predict a discrete value-->**Classification Model**.
 - Eg:-Support Vector Machine(SVM),Decision Tree,Logistic Regression
 - ML model is used to predict a continuous value-->**Regression Model**.
@@ -13,7 +13,7 @@
 salient features, such as groups or clusters, and anomalies in a data stream.
 - Eg:- K-means Clusering,K-Nearest Neighbour,Principal Component Analysis,Anomaly Detection Algorithms
     - **Clustering**: It is the process of grouping instances together based on common features.
-    - **Anamoly Detection**: It is a process of identifying unexpected patterns ins data.
+    - **Anomaly Detection**: It is a process of identifying unexpected patterns ins data.
     - **Collaborative Filtering**: It is widely used in recommendation systems such as netflix,google to provide personalized recommendations to users based on their past behavior and preferences.
 
 - **Reinforcement Learning**:-It trains a model by interacting with it's environment & receiving feedback on the decision that it makes.
