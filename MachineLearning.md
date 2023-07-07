@@ -1,22 +1,21 @@
 # Types of MachineLearning
-## Supervised ML
-## Unsupervised ML
-## Reinforced ML
 
-**supervised ML**:-It is used to make predictions.It learn from labelled data.
+## supervised ML:-
+- It is used to make predictions.It learn from labelled data.
 - ML model is used to predict a discrete value-->**Classification Model**.
 - Eg:-Support Vector Machine(SVM),Decision Tree,Logistic Regression
 - ML model is used to predict a continuous value-->**Regression Model**.
 - Eg:- Linear Regression,Lasso & Ridge Regression,Random Forest Regression, Gradient Boost Regression(XGBoost)
 
-- **Unsupervised Learning**:- These algorithms learn by starting with unlabeled data and then identifying 
-salient features, such as groups or clusters, and anomalies in a data stream.
+## Unsupervised Learning:- 
+- These algorithms learn by starting with unlabeled data and then identifying salient features, such as groups or clusters, and anomalies in a data stream.
 - Eg:- K-means Clusering,K-Nearest Neighbour,Principal Component Analysis,Anomaly Detection Algorithms
     - **Clustering**: It is the process of grouping instances together based on common features.
     - **Anomaly Detection**: It is a process of identifying unexpected patterns ins data.
     - **Collaborative Filtering**: It is widely used in recommendation systems such as netflix,google to provide personalized recommendations to users based on their past behavior and preferences.
 
-- **Reinforcement Learning**:-It trains a model by interacting with it's environment & receiving feedback on the decision that it makes.
+## Reinforcement Learning:-
+- It trains a model by interacting with it's environment & receiving feedback on the decision that it makes.
 - It is especially useful in robotics and game playing.
 - Eg:- Q-Learning,Monte Carlo Tree Search
 
@@ -50,9 +49,9 @@ with high variance tend to overfit training data.
 
 - **Overfitting** occurs when an ML model is trained too well on a particulart dataset & unable to generalize new data.This happens when 
 there is noise in the data and the model fits the noise as well as the correct data points.To solve the overfitting problem in the scenario, you need to:
-- Increase the training set.
-- Decrease features parameters.
-- Increase regularization.
+ - Increase the training set.
+ - Decrease features parameters.
+ - Increase regularization.
 
 - **L1 regularization** calculates a penalty based on the absolute value of the weights.L1 regularization should be used when you want less relevant features to have weights close to zero.
 
@@ -64,9 +63,9 @@ be used when you want outlier instances to have weights close to zero, which is 
 
 - **Gradient Descent**: It is an optimization algorithm to find the minimal value of a function. Gradient descent is used to find the minimal RMSE or cost function.
 - **Cost Function** : It measures the error between predicted output of the model and the actual output.
-- Cost Function & Loss Function are often interchangeable terms in ML.
-- Cost Function more commonly used in ML.
-- Loss Function more commonly used in Deep Learning.
+ - Cost Function & Loss Function are often interchangeable terms in ML.
+ - Cost Function more commonly used in ML.
+ - Loss Function more commonly used in Deep Learning.
 
 ## Evaluation models:-
 
@@ -74,10 +73,10 @@ be used when you want outlier instances to have weights close to zero, which is 
   - Accuracy = (TP + TN) / (TP + TN + FP + FN)
 
 - **Precision**:It focuses on the accuracy of positive predictions made by the model. It measures how often the model correctly predicts positive instances out of all the instances it predicted as positive.
-	Precision = TP / (TP + FP)
+	- Precision = TP / (TP + FP)
 
 - **Recall**: It is a measure of how many actual positive predictions are identified.Recall is also known as sensitivity.
-- Recall = TP / (TP + FN)
+  - Recall = TP / (TP + FN)
 
 - **F1 Score**: It is harmonic mean of precision & recall.F1 scores are useful when you want to optimize a model to have balanced precision and 
 recall.
