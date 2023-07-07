@@ -52,9 +52,9 @@ with high variance tend to overfit training data.
 
 - **Overfitting** occurs when an ML model is trained too well on a particulart dataset & unable to generalize new data.This happens when 
 there is noise in the data and the model fits the noise as well as the correct data points.To solve the overfitting problem in the scenario, you need to:
- - Increase the training set.
- - Decrease features parameters.
- - Increase regularization.
+  -  Increase the training set.
+  -  Decrease features parameters.
+  -  Increase regularization.
 
 - **L1 regularization** calculates a penalty based on the absolute value of the weights.L1 regularization should be used when you want less relevant features to have weights close to zero.
 
@@ -66,9 +66,9 @@ be used when you want outlier instances to have weights close to zero, which is 
 
 - **Gradient Descent**: It is an optimization algorithm to find the minimal value of a function. Gradient descent is used to find the minimal RMSE or cost function.
 - **Cost Function** : It measures the error between predicted output of the model and the actual output.
- - Cost Function & Loss Function are often interchangeable terms in ML.
- - Cost Function more commonly used in ML.
- - Loss Function more commonly used in Deep Learning.
+ -  Cost Function & Loss Function are often interchangeable terms in ML.
+ -  Cost Function more commonly used in ML.
+ -  Loss Function more commonly used in Deep Learning.
 
 ## Evaluation models:-
 

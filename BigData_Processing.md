@@ -57,7 +57,10 @@ service.
 - master node manages the cluster and delegates tasks to the worker nodes, which handle the actual data processing operations.Cluster mode determines the configuration of master and worker nodes in a dataproc cluster. 
 - In standard mode, there is one master node and multiple worker nodes. In single mode, there is only one master node and no worker nodes.
 
+## Ephemeral Clusters vs AutoScaling Clusters
 ![Alt text](image-1.png)
+
+## Standard VS High Availability
 ![Alt text](image-2.png)
 
 **Note**:- 
