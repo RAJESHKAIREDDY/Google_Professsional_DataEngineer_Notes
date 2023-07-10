@@ -1,6 +1,6 @@
 # Google_Professsional_DataEngineer_Notes
 - [GCP_Storage](GCP_Storage.md)
-  - [Cloud Storage](/cloud-storage/README.md)
+  - [Cloud Storage](GCP_Storage.md/Cloud Storage/)
   - [Cloud SQL](/cloud-sql/README.md)
   - [Datastore](/datastore/README.md)
   - [Bigtable](/bigtable/README.md)
