@@ -153,7 +153,7 @@ BigQuery requires data to be encoded in UTF-8. If a CSV file is not in UTF-8, Bi
 - Manually deleting data: Removing data manually from the Redis instance can free up memory space and alleviate memory pressure.
 - By default, Redis evicts the least recently used keys with TTLs set
 
-## Cloud Storage:-
+## <a id="cloud-storage"></a>Cloud Storage
 - Cloud Storage is a specialized storage system that primarily deals with unstructured data, including files, images, videos, backups, and various other types of data.
 - In Cloud Storage, data is organized and stored as individual objects, which are treated as atomic units. 
 - This means that each object is independent and self-contained, allowing for efficient storage and retrieval of unstructured data.
