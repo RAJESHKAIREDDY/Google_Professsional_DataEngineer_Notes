@@ -124,12 +124,12 @@ service.
 - Cron jobs are used for automating repetitive tasks, such as backups, log rotations, data updates, or other periodic activities.
 - Eg:- Cloud Scheduler
 
-- Google Cloud Platform offers a number of tools and services for orchestration:
-      - **Cloud Scheduler** for schedule driven single-service orchestration.
+### Google Cloud Platform offers a number of tools and services for orchestration:
+ **Cloud Scheduler** for schedule driven single-service orchestration.
 
-      - **Workflows**:- It is for complex multi-service orchestration(HTTP services).Worklows enables you to automate the execution of HTTP-based services running on Cloud Functions and Cloud Run, as well as external services and APIs. Use either YAML or JSON to express your workflow.
+ **Workflows**:- It is for complex multi-service orchestration(HTTP services).Worklows enables you to automate the execution of HTTP-based services running on Cloud Functions and Cloud Run, as well as external services and APIs. Use either YAML or JSON to express your workflow.
 
-      - **Cloud Composer**:- It is a managed service implementing Apache Airflow, which is used for scheduling and managing workflows. It automates the scheduling and monitoring of workflows. It can be used as a managed workflow orchestration of your data workloads(ETL/ELT)
+ **Cloud Composer**:- It is a managed service implementing Apache Airflow, which is used for scheduling and managing workflows. It automates the scheduling and monitoring of workflows. It can be used as a managed workflow orchestration of your data workloads(ETL/ELT)
 
 ## Cloud Composer vs workflows
 ![Alt text](CloudComposerVsWorkflows.png)
