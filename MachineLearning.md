@@ -66,9 +66,9 @@ be used when you want outlier instances to have weights close to zero, which is 
 
 - **Gradient Descent**: It is an optimization algorithm to find the minimal value of a function. Gradient descent is used to find the minimal RMSE or cost function.
 - **Cost Function** : It measures the error between predicted output of the model and the actual output.
- -  Cost Function & Loss Function are often interchangeable terms in ML.
- -  Cost Function more commonly used in ML.
- -  Loss Function more commonly used in Deep Learning.
+ -   Cost Function & Loss Function are often interchangeable terms in ML.
+ -   Cost Function more commonly used in ML.
+ -   Loss Function more commonly used in Deep Learning.
 
 ## Evaluation models:-
 
@@ -85,3 +85,62 @@ be used when you want outlier instances to have weights close to zero, which is 
 recall.
 -  It is also a good metric to use when evaluating models built with imbalanced training sets.
 	- F1 Score = 2 * [(Precision * Recall) / (Precision + Recall)]
+
+
+
+
+## ML API's
+
+ **Vision**:- Allows you to derive insights from static images in the cloud or at edge,
+- Cloud Vision API
+- Cloud Video Intelligence API
+
+**Translation**:-
+- Cloud Translation API
+- Cloud Natural Language API
+
+**Conversation**:-
+- Cloud Text-to-Speech API
+- Speech-to-text
+- Dialogflow
+
+## GCP Options for Deploying ML Pipeline:
+-  Cloud Auto ML
+-  BigQuery ML 
+-  Kubeflow 
+- Spark ML
+
+**Cloud Auto ML** :- It is a machine learning service designed for developers who want to incorporate machine learning in their applications without having to learn many of the details of ML. 
+- It is  good to use when pre-trained API models are not sufficient for the task and need to train a model for a specific problem.
+-->**Several ML products**:-
+- **AutoML Vision** :This service enables users to train their own machine learning models to classify images
+- **AutoML Video Intelligence**:It can be used to train machine learning models to classify segments of video using a custom set of labels.It can detect and track multiple objects through video segments.
+- **AutoML Natural Language**: It enables developers to deploy machine learning applications that can analyze documents and classify them, identify entities in the text, and determine sentiment or attitudes from text
+- **AutoML Translation**:It is used to create custom tranlsation models.
+- **AutoML Tables**: It builds machine learning models based on structured data.provide info on missing data,correlation,cardinalities
+
+- **BigQuery ML** enables users of the analytical database to build machine learning models using SQL and data in BigQuery datasets.
+-->It can be accesssed through BigQuery webUI,REST API,bq command-tool, External tools including Jupyter Notebooks
+-->It supports ML algorithms including Linear regression,Binary logistic regression,Multiple logistic regression,K-means clustering and TensorFlow.
+Note:-
+- AutoML Tables is a suitable choice when you want to optimize your model without extensive experimentation by automating feature engineering tasks and testing various algorithms.
+- If minimizing model generation time is a priority, BigQueryML is a better option as it provides faster results by focusing on utilizing BigQuery's capabilities.
+
+1.Kubeflow is an open source project for developing, orchestrating, and deploying scalable and portable machine learning workloads.Kubeflow is designed for the Kubernetes platform.
+2.Kubeflow originally began life as a tool to help run TensorFlow jobs on Kubernetes, but it expanded to a multicloud framework for running ML pipelines. 
+3.Kubeflow can be used to run machine learning workloads in multiple clouds or in a hybrid cloud environment.
+
+Note:- 
+- Kubeflow is an ideal option for running machine learning workloads if you are familiar with Kubernetes Engine and have prior experience in building machine learning models.
+- While Kubeflow enables scalable usage of machine learning models, it does not offer the same level of features as AutoML or the simplicity of BigQuery ML.
+
+Spark MLib is a comprehensive set of machine learning tools that can be used when deploying Cloud Dataproc clusters.
+
+Note:-
+1.Cloud AutoML is designed for developers who want to build on existing machine learning models and tools that automate some machine learning tasks, like feature engineering.
+2.BigQuery ML allows SQL users to build models within BigQuery and avoid having to export data and develop models using Python or Java.
+3.Kubeflow supports deploying scalable ML pipelines in Kubernete
+4.If you need an algorithm not available in other GCP machine learning services, consider using Spark MLib
+5.Cloud Vision offers both pretrained models via an API and the ability to build custom models using AutoML Vision to provide flexibility depending on your use case.
+6.Cloud ML Engine is used to deploy models. It does not help to build the models.
+Deep and wide models are ideal for a recommendation application.Wide models are used for memorization. Deep models are for generalization.

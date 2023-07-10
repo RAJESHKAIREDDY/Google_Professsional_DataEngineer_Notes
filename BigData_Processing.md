@@ -57,18 +57,18 @@ service.
 - master node manages the cluster and delegates tasks to the worker nodes, which handle the actual data processing operations.Cluster mode determines the configuration of master and worker nodes in a dataproc cluster. 
 - In standard mode, there is one master node and multiple worker nodes. In single mode, there is only one master node and no worker nodes.
 
-## Ephemeral Clusters vs AutoScaling Clusters
+## Ephemeral Clusters VS AutoScaling Clusters
 ![Alt text](image-1.png)
 
 ## Standard VS High Availability
 ![Alt text](image-2.png)
 
 **Note**:- 
-	1.Only the number of worker nodes and preemptible worker nodes can change—master nodes are fixed
-	2. AutoScaling can cause problems and become unstable when used with high availability clusters, and it is not allowed to be used on a single node.
-	3.When using auto scaling, it's better to use cloud storage instead of HDFS storage. However, if you are using HDFS, make sure you have sufficient storage on your primary workers.
-	4.Spark Structured streaming not supported by autoscaling  because the underlying architecture of Spark Structured Streaming does not easily allow for dynamic scaling of resources based on the workload.
-	5. Outputs can be automatically pushed to BigQuery,CloudStorage and BigTable.
+- Only the number of worker nodes and preemptible worker nodes can change—master nodes are fixed
+- AutoScaling can cause problems and become unstable when used with high availability clusters, and it is not allowed to be used on a single node.
+- When using auto scaling, it's better to use cloud storage instead of HDFS storage. However, if you are using HDFS, make sure you have sufficient storage on your primary workers.
+- Spark Structured streaming not supported by autoscaling  because the underlying architecture of Spark Structured Streaming does not easily allow for dynamic scaling of resources based on the workload.
+- Outputs can be automatically pushed to BigQuery,CloudStorage and BigTable.
 
 ## Cloud Pub/sub
 - Cloud Pub/Sub is a managed real-time messaging service.It supports both push and pull subscription models.
