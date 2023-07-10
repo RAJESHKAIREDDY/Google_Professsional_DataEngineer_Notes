@@ -176,7 +176,8 @@ BigQuery requires data to be encoded in UTF-8. If a CSV file is not in UTF-8, Bi
 - Data that is accessed less than once a year is a good candidate for **Coldline storage**
 - All storage classes have the same latency to return the first byte of data, but the costs to access data and 
 the per-operation costs are higher than regional storage.
--**Coldline storage** is best used for archival storage, but multi-regional storage may be the best option for uploading 
+
+**Coldline storage** is best used for archival storage, but multi-regional storage may be the best option for uploading 
 user data, especially if users are geographically dispersed.
 
 
