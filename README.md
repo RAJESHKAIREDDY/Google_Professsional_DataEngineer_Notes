@@ -13,7 +13,7 @@
   - [Cloud Datalab](/cloud-datalab/README.md)
   - [Cloud Pub/Sub](/cloud-pubsub/README.md)
 
-- [Machine Learning](Machine Learning:.md)
+- [Machine Learning](MachineLearning.md)
   - [Vision API](/vision-api/README.md)
   - [Speech API](/speech-api/README.md)
   - [Natural Language API](/natural-language-api/README.md)
