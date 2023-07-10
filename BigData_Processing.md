@@ -15,7 +15,7 @@ service.
 
  **Processing time**:- It is the time that data arrives at the endpoint where data is ingested.
 
-**Cloud Dataflow Concepts**:-
+## Cloud Dataflow Concepts:-
 
  **Pipelines**:- A Dataflow pipeline is a directed acyclic graph (DAG) that represents the data processing tasks and their dependencies. 
 - It consists of a series of transformations applied to input data to produce the desired output. 
@@ -43,7 +43,6 @@ service.
  **Runner**:- Runners are software that executes pipelines as jobs. Dataflow supports different runners that execute the pipeline, including the Dataflow service in GCP, Apache Flink, and Apache Spark. The runner manages the pipeline execution, resource allocation, and fault tolerance.
 
  **Triggers**:- Triggers define when and how often computations are performed on data within windows. They determine when to produce intermediate or final results based on event time progress or data arrival. 
-
 - Triggers enable fine-grained control over the processing behavior within windows
 
 - when running a Dataflow pipeline, it usually operates in 2 modes:-
@@ -53,7 +52,6 @@ service.
 **Drain mode**: Pipeline continues processing remaining data, even without new arrivals.
 
 **drain flag**: Enables drain mode, ensuring all available data is processed before shutdown.
-
 - Useful for handling intermittent or delayed data arrivals gracefully.
 
 ## Cloud DataProc
@@ -68,7 +66,7 @@ service.
 - Cloud Dataproc clusters consist of **two types** of nodes: master nodes and worker nodes
 
 	**Master node**: It is responsible for distributing and managing workload distribution.They manage cluster resources, schedule tasks, and oversee the execution of jobs. do not participate directly in data processing.
-	
+
 	**Worker Nodes**: Worker nodes, also known as worker instances, are responsible for executing data processing tasks. They are the primary workhorses of the cluster, performing tasks such as data ingestion, storage, processing, and analysis. 
     - They distribute and parallelize the workload across the cluster to achieve high performance and scalability.
 
