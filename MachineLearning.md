@@ -35,7 +35,8 @@
 calculate weight adjustments.
 
  **Learning rate**:- It is a hyperparameter that controls how much weights of a neural network are adjusted with each iteration during training.
-- **Note**:-
+
+ **Note**:-
 1. Smaller learning rate can lead to longer training times.
 2. learning rate that are too large can ignore optimal weights.
 
@@ -61,10 +62,10 @@ there is noise in the data and the model fits the noise as well as the correct d
  **L2 regularization** calculates a penalty based on the sum-of-the-squares of the weights. L2 regularization should 
 be used when you want outlier instances to have weights close to zero, which is especially useful when working with linear models.
 
-
  **Dropout Regularization**: It is a regularization method to remove a random selection of the fixed number of units in a neural network layer. More units dropped out, the stronger the regularization.
 
  **Gradient Descent**: It is an optimization algorithm to find the minimal value of a function. Gradient descent is used to find the minimal RMSE or cost function.
+
  **Cost Function** : It measures the error between predicted output of the model and the actual output.
  -   Cost Function & Loss Function are often interchangeable terms in ML.
  -   Cost Function more commonly used in ML.
@@ -136,13 +137,13 @@ recall.
 - Kubeflow originally began life as a tool to help run TensorFlow jobs on Kubernetes, but it expanded to a multicloud framework for running ML pipelines. 
 - Kubeflow can be used to run machine learning workloads in multiple clouds or in a hybrid cloud environment.
 
-- **Note**:- 
+**Note**:- 
 - Kubeflow is an ideal option for running machine learning workloads if you are familiar with Kubernetes Engine and have prior experience in building machine learning models.
 - While Kubeflow enables scalable usage of machine learning models, it does not offer the same level of features as AutoML or the simplicity of BigQuery ML.
 
  **Spark MLib** is a comprehensive set of machine learning tools that can be used when deploying Cloud Dataproc clusters.
 
-- **Note**:-
+ **Note**:-
 - Cloud AutoML is designed for developers who want to build on existing machine learning models and tools that automate some machine learning tasks, like feature engineering.
 - BigQuery ML allows SQL users to build models within BigQuery and avoid having to export data and develop models using Python or Java.
 - Kubeflow supports deploying scalable ML pipelines in Kubernete
