@@ -27,45 +27,45 @@
 - The function that maps from inputs to outputs is known as an **activation function**
 - eg:- Rectified Linear Unit(RELU),hyperbolic tangent function,Sigmoid Function.
 
-- **Feature engineering** is the process of identifying which features are useful for building models. It also includes adding new features derived from existing features.
+ **Feature engineering** is the process of identifying which features are useful for building models. It also includes adding new features derived from existing features.
 
 - An **epoch** is the term used to describe one full pass over a training dataset by the training algorithm.
 
-- **Backpropagation** is the most widely used algorithm for training neural networks, and it uses the error and the rate of change in the error to 
+ **Backpropagation** is the most widely used algorithm for training neural networks, and it uses the error and the rate of change in the error to 
 calculate weight adjustments.
 
-- **Learning rate**:- It is a hyperparameter that controls how much weights of a neural network are adjusted with each iteration during training.
+ **Learning rate**:- It is a hyperparameter that controls how much weights of a neural network are adjusted with each iteration during training.
 - **Note**:-
 1. Smaller learning rate can lead to longer training times.
 2. learning rate that are too large can ignore optimal weights.
 
-- **Regularization**:- It is used to prevent overfitting & improve the generalization performance of a model. It helps to reduce the complexity of model, preventing overfitting which will improve accuracy & robustness of ML models.
+ **Regularization**:- It is used to prevent overfitting & improve the generalization performance of a model. It helps to reduce the complexity of model, preventing overfitting which will improve accuracy & robustness of ML models.
 
-- **Bias** is the difference between the average prediction of a model and the correct prediction of a model.Models with high bias tend to have oversimplified representations of the process that generates the training data; this is underfitting the model
+ **Bias** is the difference between the average prediction of a model and the correct prediction of a model.Models with high bias tend to have oversimplified representations of the process that generates the training data; this is underfitting the model
 
-- **Variance** is the variability in model predictions. It helps to understand how model prediction differs across multiple training datasets.Models 
+ **Variance** is the variability in model predictions. It helps to understand how model prediction differs across multiple training datasets.Models 
 with high variance tend to overfit training data.
 
 - models should have both **low bias and low variance**, and this is achieved by **lowering the mean squared error (MSE)** of the model by working through multiple training datasets.
 
-- **Underfitting** creates a model that is not able to predict values of training data correctly or new data that was not used during training.
+ **Underfitting** creates a model that is not able to predict values of training data correctly or new data that was not used during training.
 
-- **Overfitting** occurs when an ML model is trained too well on a particulart dataset & unable to generalize new data.This happens when 
+ **Overfitting** occurs when an ML model is trained too well on a particulart dataset & unable to generalize new data.This happens when 
 there is noise in the data and the model fits the noise as well as the correct data points.To solve the overfitting problem in the scenario, you need to:
   -  Increase the training set.
   -  Decrease features parameters.
   -  Increase regularization.
 
-- **L1 regularization** calculates a penalty based on the absolute value of the weights.L1 regularization should be used when you want less relevant features to have weights close to zero.
+ **L1 regularization** calculates a penalty based on the absolute value of the weights.L1 regularization should be used when you want less relevant features to have weights close to zero.
 
-- **L2 regularization** calculates a penalty based on the sum-of-the-squares of the weights. L2 regularization should 
+ **L2 regularization** calculates a penalty based on the sum-of-the-squares of the weights. L2 regularization should 
 be used when you want outlier instances to have weights close to zero, which is especially useful when working with linear models.
 
 
-- **Dropout Regularization**: It is a regularization method to remove a random selection of the fixed number of units in a neural network layer. More units dropped out, the stronger the regularization.
+ **Dropout Regularization**: It is a regularization method to remove a random selection of the fixed number of units in a neural network layer. More units dropped out, the stronger the regularization.
 
-- **Gradient Descent**: It is an optimization algorithm to find the minimal value of a function. Gradient descent is used to find the minimal RMSE or cost function.
-- **Cost Function** : It measures the error between predicted output of the model and the actual output.
+ **Gradient Descent**: It is an optimization algorithm to find the minimal value of a function. Gradient descent is used to find the minimal RMSE or cost function.
+ **Cost Function** : It measures the error between predicted output of the model and the actual output.
  -   Cost Function & Loss Function are often interchangeable terms in ML.
  -   Cost Function more commonly used in ML.
  -   Loss Function more commonly used in Deep Learning.
