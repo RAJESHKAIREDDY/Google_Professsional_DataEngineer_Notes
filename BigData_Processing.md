@@ -101,7 +101,7 @@ service.
 
 ## Cloud Composer
 
-- Orchestration often refers to the automated configuration, coordination, and management of multiple interdependent computer systems and services.Orchestration jobs are used to manage and streamline complex processes involving multiple steps, dependencies, and interactions between various components or services. 
+ Orchestration often refers to the automated configuration, coordination, and management of multiple interdependent computer systems and services.Orchestration jobs are used to manage and streamline complex processes involving multiple steps, dependencies, and interactions between various components or services. 
 - Eg:- Cloud Composer
 
 - Cron jobs are scheduled tasks that run at predetermined intervals or specific times on a recurring basis.
@@ -110,9 +110,11 @@ service.
 - Eg:- Cloud Scheduler
 
 - Google Cloud Platform offers a number of tools and services for orchestration:
-      1.**Cloud Scheduler** for schedule driven single-service orchestration
-      2.**Workflows**:- It is for complex multi-service orchestration(HTTP services).Worklows enables you to automate the execution of HTTP-based services running on Cloud Functions and Cloud Run, as well as external services and APIs. Use either YAML or JSON to express your workflow.
-      3.**Cloud Composer**:- It is a managed service implementing Apache Airflow, which is used for scheduling and managing workflows. It automates the scheduling and monitoring of workflows. It can be used as a managed workflow orchestration of your data workloads(ETL/ELT)
+      **Cloud Scheduler** for schedule driven single-service orchestration.
+
+      **Workflows**:- It is for complex multi-service orchestration(HTTP services).Worklows enables you to automate the execution of HTTP-based services running on Cloud Functions and Cloud Run, as well as external services and APIs. Use either YAML or JSON to express your workflow.
+
+      **Cloud Composer**:- It is a managed service implementing Apache Airflow, which is used for scheduling and managing workflows. It automates the scheduling and monitoring of workflows. It can be used as a managed workflow orchestration of your data workloads(ETL/ELT)
 
 ## Cloud Composer vs workflows
 ![Alt text](CloudComposerVsWorkflows.png)
