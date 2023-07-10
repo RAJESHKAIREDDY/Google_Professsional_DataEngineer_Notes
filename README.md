@@ -1,7 +1,4 @@
 # Google_Professsional_DataEngineer_Notes
-
-[Big Data Processing](BigData_Processing.md)
-
 - [GCP_Storage](GCP_Storage.md)
   - [Cloud Storage](/cloud-storage/README.md)
   - [Cloud SQL](/cloud-sql/README.md)
@@ -22,5 +19,3 @@
   - [Natural Language API](/natural-language-api/README.md)
   - [Translation API](/translation-api/README.md)
   - [TensorFlow](/tensorflow/README.md)
-
-Note: Each heading above corresponds to a separate file with detailed information on the respective topic.
