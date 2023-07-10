@@ -42,7 +42,7 @@ majority when voting.
   - Data is being ingested periodically.
 - BigQuery maintains a seven-day history of changes so that you can query a point-intime snapshot of data
 
-- **Streaming inserts** in BigQuery provide best effort de-duplication. By including an insertID that uniquely identifies a record, BigQuery can detect duplicates and prevent them from being inserted. However, if no insertID is provided, BigQuery does not attempt to de-duplicate the data.
+ **Streaming inserts** in BigQuery provide best effort de-duplication. By including an insertID that uniquely identifies a record, BigQuery can detect duplicates and prevent them from being inserted. However, if no insertID is provided, BigQuery does not attempt to de-duplicate the data.
 - BigQuery supports both batch and streaming data processing.Batching data to BigQuery is free, while streaming data is charged based on size.
 Federated queries on protobuf message fields from Bigtable cannot be performed using BigQuery.
 - Wildcard tables support built-in BigQuery storage only. You cannot use wildcards when querying an external table or a view.
@@ -61,7 +61,7 @@ Federated queries on protobuf message fields from Bigtable cannot be performed u
 - Logs are useful for understanding who is performing actions in BigQuery, whereas monitoring is useful for understanding how your queries and jobs are performing.
 - Logs are maintained in Stackdriver for a specific period of time known as the retention period.If you want to keep them longer, you will need to export the logs before the end of the retention period.
 - Admin activity audit logs, system event audit logs, and access transparency logs are kept for 400 days. Data access audit logs and other logs not related to auditing are kept 30 days.
-- **Stackdriver Trace** is a distributed tracing system designed to collect data on how long it takes to process requests to services. It is available in Compute Engine, Kubernetes Engine. It useful when you’re using microservices architectures.
+ **Stackdriver Trace** is a distributed tracing system designed to collect data on how long it takes to process requests to services. It is available in Compute Engine, Kubernetes Engine. It useful when you’re using microservices architectures.
 
 **Partitioning**:-
 Partitioning and clustering can be effective strategies to improve query performance in BigQuery. Partitioning involves dividing a large table into smaller and more manageable pieces based on a specified column, such as date or region. This allows queries to only scan the relevant partitions, rather than scanning the entire table, which can significantly reduce query time and cost.
@@ -81,6 +81,66 @@ Clustering, on the other hand, involves grouping related rows in a table togethe
 BigQuery requires data to be encoded in UTF-8. If a CSV file is not in UTF-8, BigQuery attempts to convert it, but the conversion may not always be accurate, leading to differences in some bytes. To ensure proper loading, specify the correct encoding. Similarly, JSON files need to be in UTF-8 encoding when loading into BigQuery.
 - **AVRO**:-It is the recommended format for data loading in BigQuery due to its ability to read data blocks in parallel, even when the file is compressed. Unlike CSV files, Avro does not have encoding issues, making it a preferred choice for efficient and reliable data loading.
 - **PARQUET**:-It is another data storage format that utilizes a columnar model. Uncompressed CSV and JSON files can be loaded faster compared to compressed files because they can be loaded in parallel. However, loading uncompressed files in parallel can result in higher storage costs when using Cloud Storage.
+
+## Cloud Firestore
+
+- Google Cloud Datastore is a NoSQL document database built for automatic scaling, high performance, and ease of application development and integrating well with App Engine.
+- Cloud Firestore is the managed document database that is replacing Cloud Datastore.Document databases are used when the structure of data can vary from one record to another.
+- It store highly structured objects in a document database, with support for ACID transactions and SQL-like queries. Cloud Firestore operates in one of two modes: 
+	
+**Native Mode**:- the new data model, realtime updates, and mobile and web client library features are available only in Native Mode
+**Cloud Datastore Mode**:- In Datastore mode, Firestore offers strong consistency and removes the limitations of 25 entity groups and one write per second to an entity group that were present in Datastore.
+
+- Indexes are used when querying and must exist for any property referenced in filters
+- Cloud Firestore uses two kinds of indexes:
+
+**built-in indexes**:- Built-in indexes are created by default for each property in an eyntity. 
+**composite indexes**:- They are used when there are multiple filter conditions in a query. They are defined in a configuration file called index.yaml
+
+- Cloud Firestore in Datastore Mode is a managed document database that is well suited for applications that require semi-structured data but that do not require low-latency writes (< 10 ms).
+- When low-latency writes are needed, Bigtable is a better option Firestore is a suitable choice if you need to store well-organized data in a document database, ensuring transactional integrity and the ability to perform SQL-like queries.
+- Datastore is designed for web applications of a small scale.
+
+## Cloud Big Table:-
+- Bigtable provides a scalable, fully-managed NoSQL wide-column database that is suitable for both real-time access and analytics workloads.
+- Cloud Bigtable is a wide-column NoSQL database used for high-volume databases that require low millisecond (ms) latency.
+- Cloud Bigtable is used for IoT, time-series, finance, and similar applications.Bigtable is a managed service, but it is not a NoOps service: like Cloud SQL and Cloud Spanner.
+- Bigtable also excels as a storage engine for batch MapReduce operations, stream processing/analytics, and machine-learning applications.
+- Data is stored in Bigtable lexicographically by row-key, which is the one indexed column in a Bigtable table.
+- goal when designing a row-key is to take advantage of the fact that Bigtable stores data in a sorted order.
+
+- Bigtable provides eventual consistency, which means that the data in clusters may not be the same sometimes, but they eventually will have the same data
+- When creating a Cloud Bigtable instance and cluster, the choice between SSD or HDD storage for the cluster is permanent and cannot be changed using the Google Cloud Platform Console.
+- If you need to convert an existing HDD cluster to SSD, or vice-versa, you can export the data from the existing instance and import it into a new instance.
+- Alternatively, you can use a Cloud Dataflow or Hadoop MapReduce job to copy the data from one instance to another.
+- It's important to note that migrating an entire instance takes time, and you may need to add nodes to your Cloud Bigtable clusters before initiating the migration.
+- The dataset location cannot be changed once created. The dataset needs to be copied using Cloud Storage.
+- preemptible nodes can have persistent disks. Dataproc handles the addition and removal of preemptible nodes.preemptible workers cannot store the data. 	
+- Production instances have clusters with a minimum of three nodes; development instances have a single node and do not provide for high availability.
+
+## Characteristics of a good row-key:-
+- Using a prefix for multitenancy isolates data from different customers, making scans and reads more efficient by ensuring that data blocks contain data from one customer only, allowing customers to query only their own data.
+- Columns that are not frequently updated, such as a user ID or a timestamp
+- Nonsequential value in the first part of the row-key, which helps avoid hotspots
+- To avoid hotspots, never use a timestamp value as a row key prefix.
+- Field promotion is a recommended practice as it helps prevent hotspotting and simplifies the design of a row key for efficient querying.
+
+- Key Visualizer is a tool that helps you analyze your Bigtable usage patterns. It generates visual reports for your tables that break down your usage based on the row keys that you access.
+- Bigtable does not have secondary indexes
+
+**Best Practices**:-
+- Bigtable has a limit of 1,000 tables per instance.
+- Limit table to around 100 column families to avoid performance issues.
+- Limit row size to 100 MB or less to maintain optimal read performance.
+- Keep cell size below 10 MB and use shorter row keys(4 KB or less) to optimize memory, storage, and response times in Cloud Bigtable.
+-  Minimum 1TB is required to store the data in bigtable
+
+**Note**:-
+- Failover in cloud computing is the process of automatically transferring workloads from a failed or failing primary resource to a secondary resource in order to minimize downtime and ensure continuity of service.
+- Hotspots can be caused by a number of factors, such as a heavily used table or an inefficient query that repeatedly touches the same data.
+- They can also result from the database architecture itself, such as data being stored in a manner that causes read or write operations to be heavily concentrated in certain areas.
+- Primary index is always based on the primary key of a table, which is a unique identifier for each row. 
+- Secondary indexes, on the other hand, can be created on any column or set of columns in the table.
 
 
 
