@@ -143,6 +143,41 @@ BigQuery requires data to be encoded in UTF-8. If a CSV file is not in UTF-8, Bi
 - Secondary indexes, on the other hand, can be created on any column or set of columns in the table.
 
 
+## Cloud Memory Store:-
+- Cloud Memorystore is a managed Redis service, which is commonly used for caching.
+- In Redis, if the memory usage surpasses 80 percent of the system memory, the instance is deemed to be under memory pressure. To alleviate this, several actions can be taken: 
+-  Scaling up the instance: Increasing the resources allocated to the Redis instance can help accommodate higher memory requirements.
+-  Lowering the maximum memory limit: Reducing the maximum memory limit for Redis can prevent excessive memory usage.
+- Modifying the eviction policy: Changing the eviction policy determines how Redis selects which keys to remove when memory is full.
+- Setting time-to-live (TTL) parameters: Applying TTL parameters to volatile keys specifies the duration for which a key should be retained in the cache before it becomes eligible for eviction.
+- Manually deleting data: Removing data manually from the Redis instance can free up memory space and alleviate memory pressure.
+- By default, Redis evicts the least recently used keys with TTLs set
+
+## Cloud Storage:-
+- Cloud Storage is a specialized storage system that primarily deals with unstructured data, including files, images, videos, backups, and various other types of data.
+- In Cloud Storage, data is organized and stored as individual objects, which are treated as atomic units. 
+- This means that each object is independent and self-contained, allowing for efficient storage and retrieval of unstructured data.
+- Google Cloud Storage is not suitable to handle real time streaming data.
+- A bucket is a group of objects that share access controls at the bucket level.Cloud Storage service does not use a filesystem.
+- Cloud Storage can be used as both the staging area for storing data immediately after ingestion and also as a long-term store for transformed data
+
+**Bucket Naming**:-
+- Do not use sequential names or timestamps if uploading files in parallel.
+-  Files with sequentially close names will likely be assigned to the same server. 
+- This can create a hotspot when writing files to Cloud Storage.
+
+### four types of Cloud Storage:-
+
+**Regional storage** stores multiple copies of an object in multiple zones in one region
+
+**Multi-regional storage** mitigates the risk of a regional outage by storing replicas of objects in multiple regions
+
+- Data that is accessed less than once in 30 days is a good candidate for **Nearline storage**
+- Data that is accessed less than once a year is a good candidate for **Coldline storage**
+- All storage classes have the same latency to return the first byte of data, but the costs to access data and 
+the per-operation costs are higher than regional storage.
+-**Coldline storage** is best used for archival storage, but multi-regional storage may be the best option for uploading 
+user data, especially if users are geographically dispersed.
 
 
 
