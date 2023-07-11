@@ -36,7 +36,9 @@
 - Cloud Spanner uses a voting mechanism to determine writes.Regional instances use only read-only replicas; multi-regional instances use all three types:
 
 **Read-write replicas**:- maintain full copies of data and serve read operations, and they can vote on write operations
+
 **Read-only replicas**:-  maintain full copies of data and serve read operations, but they do not vote on write operation
+
 **Witness replicas**:- Witness replicas do not keep full copies of data but do participate in write votes. Witness replicas are helpful in achieving a majority when voting.
 - Avoid hotspots by not using consecutive values for primary keys.  
 
@@ -50,7 +52,7 @@
 - BigQuery is fully managed, petabyte-scale, low-cost analytics data warehouse databases.
 - Standard SQL supports advanced SQL features, such as correlated subqueries, ARRAY and STRUCT data types, as well as complex join expressions.
 - BigQuery supports nested and repeated structures in rows. Nested data is represented in STRUCT type in SQL, and repeated types are represented in ARRAY types in SQL.
-- 
+
 **Data Warehouses**: These are centralized, organized repositories of analytical data for an organization.
 
 **Data Marts**: These are subsets of data warehouses that focus on particular business lines or departments.
@@ -70,7 +72,7 @@
   - Perform ETL operations on data.
   - Frequently changed data.
   - Data is being ingested periodically.
-  -Temporary tables will be available for approximately 24 hours.
+  - Temporary tables will be available for approximately 24 hours.
 - BigQuery maintains a **seven-day** history of changes so that you can query a point-intime snapshot of data
 
  **Streaming inserts** in BigQuery provide best effort de-duplication. By including an insertID that uniquely identifies a record, BigQuery can detect duplicates and prevent them from being inserted. However, if no insertID is provided, BigQuery does not attempt to de-duplicate the data.
