@@ -128,7 +128,7 @@ recall.
 
  **BigQuery ML** enables users of the analytical database to build machine learning models using SQL and data in BigQuery datasets.
 - It can be accesssed through BigQuery webUI,REST API,bq command-tool, External tools including Jupyter Notebooks
-- It supports ML algorithms including Linear regression,Binary logistic regression,Multiple logistic regression,K-means clustering and TensorFlow.
+- It supports ML algorithms including **Linear regression,Binary logistic regression,Multiple logistic regression,K-means clustering and TensorFlow**.
 - **Note**:-
 - AutoML Tables is a suitable choice when you want to optimize your model without extensive experimentation by automating feature engineering tasks and testing various algorithms.
 - If minimizing model generation time is a priority, BigQueryML is a better option as it provides faster results by focusing on utilizing BigQuery's capabilities.

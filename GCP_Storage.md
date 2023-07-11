@@ -16,23 +16,53 @@
 **Failover replica**: A secondary replica database that automatically takes over as the primary in the event of a failure, ensuring high availability and minimal downtime.
 
 ## Cloud Spanner
-- Cloud Spanner is Google’s relational, horizontally scalable, global database. It also manages automatic replication.Cloud Spanner is suitable for read/write operations.
-- Google recommends keeping CPU utilization below 65 percent in regional instances and below 45 percent in multi-regional instances. Also, each node can store up to 2 TB of data.
-- Spanner can compromise (A)Availability from CAP theorem 
-- Cloud Spanner uses a voting mechanism to determine writes.Regional instances use only read-only replicas; multi-regional instances use all three 
-types
+- Cloud Spanner is Google’s relational, horizontally scalable, global database. It also manages automatic replication.
+- Cloud Spanner is suitable for read/write operations.
+- Google recommends keeping CPU utilization **below 65 percent in regional instances** and **below 45 percent in multi-regional instances**. Also, each node can store up to 2 TB of data.
+- Spanner can compromise (A)Availability from CAP theorem.
+- Cloud Spanner **supports** both **primary and secondary indexes**.
+- Cloud Spanner provides for secondary indexes on columns or groups of columns other than the primary key.
+-  An index is automatically created for the primary key, but you have to define any secondary indexes specifically.
+- Secondary indexes are useful when filtering in a query using a WHERE clause.
+- Cloud Spanner is its ability to **interleave** data from related tables. This is done through a **parent-child relationship** in which parent data, such as a row from the order table, is stored with child data, such as order line items.
+- It  supports up to **seven layers** of interleaved tables.
+- Interleaving is used when tables are frequently joined which reduces I/O operations.
+- Cloud Spanner breaks data into chunks known as **splits**. Splits are up to about **4 GB** in size and move independently of one another.
+- Rows in a split are ordered by primary key, and the first and last keys are known as the split boundaries.
+- Rows that are interleaved are kept with their parent row.otherwise it could cause more than 4 GB of data to be interleaved which it can lead to degraded performance.
+- Cloud Spanner creates splits to **alleviate hotspots**.
+
+
+- Cloud Spanner uses a voting mechanism to determine writes.Regional instances use only read-only replicas; multi-regional instances use all three types:
+
 **Read-write replicas**:- maintain full copies of data and serve read operations, and they can vote on write operations
 **Read-only replicas**:-  maintain full copies of data and serve read operations, but they do not vote on write operation
-**Witness replicas**:- Witness replicas do not keep full copies of data but do participate in write votes. Witness replicas are helpful in achieving a 
-majority when voting.
+**Witness replicas**:- Witness replicas do not keep full copies of data but do participate in write votes. Witness replicas are helpful in achieving a majority when voting.
 - Avoid hotspots by not using consecutive values for primary keys.  
 
+**Recommended ways to avoid hotspots for a primary key**:
+- Using a Hash of the Natural Key.
+- Swapping the Order of Columns in Keys to Promote Higher-Cardinality Attributes.
+- Using a Universally Unique Identifier (UUID), Specifically Version 4 or Later.
+- Using Bit-Reverse Sequential Values.
+
 ## BigQuery
-- BigQuery is fully managed, petabyte-scale, low-cost analytics data warehouse databases.Standard SQL supports advanced SQL features, such as correlated subqueries, ARRAY and STRUCT data types, as well as complex join expressions.
-- BigQuery supports nested and repeated structures in rows. Nested data is represented in STRUCT type in SQL, and repeated types are represented in ARRAY types in SQL
+- BigQuery is fully managed, petabyte-scale, low-cost analytics data warehouse databases.
+- Standard SQL supports advanced SQL features, such as correlated subqueries, ARRAY and STRUCT data types, as well as complex join expressions.
+- BigQuery supports nested and repeated structures in rows. Nested data is represented in STRUCT type in SQL, and repeated types are represented in ARRAY types in SQL.
+- 
+**Data Warehouses**: These are centralized, organized repositories of analytical data for an organization.
 
+**Data Marts**: These are subsets of data warehouses that focus on particular business lines or departments.
 
-**BigQuery Data Transfer Service**:- It is a fully managed service that automates the transfer of data from SaaS applications like Google Analytics, into BigQuery. This service simplifies the process of importing data from Google Analytics and provides features like scheduling, monitoring, and error handling.It automate the data movement from data sources such as Google Ads and Google AD Manager.
+**Data Lakes**: These are less structured data stores for raw and lightly processed data.
+
+- **BigQuery** is designed to support **data warehouses and data marts**.
+- **Data lakes** may be implemented using object storage, such as **Cloud Storage**, or NoSQL databases, such as **Cloud Bigtable**.
+
+**BigQuery Data Transfer Service**:- It is a fully managed service that automates the transfer of data from SaaS applications like Google Analytics, into BigQuery. 
+- This service simplifies the process of importing data from Google Analytics and provides features like scheduling, monitoring, and error handling.
+- It automate the data movement from data sources such as Google Ads and Google AD Manager.
 
 - Cloud Scheduler is a fully managed enterprise-grade cron job scheduler. It is not an multi-cloud orchestration tool.
 - Federated storage is used to query data stored in Cloud Storage, Bigtable, or Google Drive
@@ -40,14 +70,15 @@ majority when voting.
   - Perform ETL operations on data.
   - Frequently changed data.
   - Data is being ingested periodically.
-- BigQuery maintains a seven-day history of changes so that you can query a point-intime snapshot of data
+  -Temporary tables will be available for approximately 24 hours.
+- BigQuery maintains a **seven-day** history of changes so that you can query a point-intime snapshot of data
 
  **Streaming inserts** in BigQuery provide best effort de-duplication. By including an insertID that uniquely identifies a record, BigQuery can detect duplicates and prevent them from being inserted. However, if no insertID is provided, BigQuery does not attempt to de-duplicate the data.
 - BigQuery supports both batch and streaming data processing.Batching data to BigQuery is free, while streaming data is charged based on size.
 Federated queries on protobuf message fields from Bigtable cannot be performed using BigQuery.
 - Wildcard tables support built-in BigQuery storage only. You cannot use wildcards when querying an external table or a view.
 
-### Caching
+**Caching** :Caching is the process of storing frequently accessed data in a temporary storage area so that it can be quickly retrieved at a later time without having to go back to the original source.
 - predictive (pre-fetch) cache is only active for data sources that use the owner’s credentials to access the underlying data.
 - Data Studio caching maximum period is 12 hours.
 - BigQuery writes query results to a table, either a destination table specified by the user or a temporary, cached results table.Temporary, cached results tables incur no storage costs and are maintained per-user, per-project; whereas storing query results in a permanent table will result in storage charges.
@@ -63,22 +94,39 @@ Federated queries on protobuf message fields from Bigtable cannot be performed u
 - Admin activity audit logs, system event audit logs, and access transparency logs are kept for 400 days. Data access audit logs and other logs not related to auditing are kept 30 days.
  **Stackdriver Trace** is a distributed tracing system designed to collect data on how long it takes to process requests to services. It is available in Compute Engine, Kubernetes Engine. It useful when you’re using microservices architectures.
 
-**Partitioning**:-
-Partitioning and clustering can be effective strategies to improve query performance in BigQuery. Partitioning involves dividing a large table into smaller and more manageable pieces based on a specified column, such as date or region. This allows queries to only scan the relevant partitions, rather than scanning the entire table, which can significantly reduce query time and cost.
+- BigQuery does **not** have **indexes** like relational databases or document databases, but it **does** support **partitioning and clustering** both of which can help limit the amount of data scanned during queries.
 
-**Clustering**:-
-Clustering, on the other hand, involves grouping related rows in a table together based on one or more columns, such as product or category. This can improve query performance by reducing the amount of data that needs to be scanned within a partition, since the related data will be physically located closer together.
+**Partitioning**:-Partitioning involves dividing a large table into smaller and more manageable pieces based on a specified column, such as date or region.
+- BigQuery provides query cost estimates before the query is run on a partitioned table.
+- BigQuery has a limit of **4,000 partitions** per table.
+- This allows queries to only scan the relevant partitions, rather than scanning the entire table, which can significantly reduce query time and cost.
+- BigQuery has **3** partition types:
+    - **Ingestion time partitioned tables** : Tables are partitioned based on the timestamp when BigQuery ingests the data.
+    - **Timestamp partitioned tables**: Tables are partitioned based on a time value such as timestamps or dates.
+    - **Integer range partitioned tables**: Tables are partitioned based on an integer column's range.
+
+- **_PARTITIONTIME and _PARTITIONDATE** are available only in ingestion-time partitioned tables. Partitioned tables do not have pseudo columns.
+- Rows with null values in the DATE or TIMESTAMP column are stored in a __NULL__ partition, and rows that have dates outside the allowed range are stored in a partition called __UNPARTITIONED__.
+
+**Clustering**:-It is the ordering of data in its stored format. This can improve query performance by reducing the amount of data that needs to be scanned within a partition, since the related data will be physically located closer together.
+- Clustering is supported only on partitioned tables, and it is used when filters or aggregations are frequently used.
+- BigQuery has a limit of **4 cluster columns** per table. clustering columns cannot be changed
+- cost of queries over clustered tables can only be determined **after** the query is run.
+
+**Partioning vs Clustering**
+- Use **partitioning** when you have large datasets and frequently query subsets of the data based on specific criteria like time ranges, date-based filters, or integer ranges.
+- Use **clustering** when you have data with strong correlation patterns and want to optimize query performance by physically reordering the data based on one or more columns.
+
 
 **Points to Remember**:-
-- sharding is a method of dividing a database into multiple, smaller databases, while partitioning is a method of dividing a single, large table into smaller, more manageable pieces.
+- **sharding** is a method of dividing a database into multiple, smaller databases, while partitioning is a method of dividing a single, large table into smaller, more manageable pieces.
 - splitting data by date or timestamp, you can use partitions, and to split data into multiple tables by other attributes, you can try sharding
 - **SLA** stands for **Service Level Agreement**. It is a commitment or guarantee made by a service provider to its users or customers regarding the level of service availability or performance they can expect
 - Wildcards cannot be used with views or external tables.
-- Caching is the process of storing frequently accessed data in a temporary storage area so that it can be quickly retrieved at a later time without having to go back to the original source.
 - cluster nodes can download the dependencies from Cloud Storage from internal IPs.
 - Dataproc has a BigQuery connector library which allows it directly interface with BigQuery.BigQuery connector is a Java library that enables Hadoop to process data from BigQuery using abstracted versions of the Apache Hadoop InputFormat and OutputFormat classes.
-- **_PARTITIONTIME and _PARTITIONDATE** are available only in ingestion-time partitioned tables. Partitioned tables do not have pseudo columns.
-BigQuery requires data to be encoded in UTF-8. If a CSV file is not in UTF-8, BigQuery attempts to convert it, but the conversion may not always be accurate, leading to differences in some bytes. To ensure proper loading, specify the correct encoding. Similarly, JSON files need to be in UTF-8 encoding when loading into BigQuery.
+- BigQuery requires data to be encoded in UTF-8. If a CSV file is not in UTF-8, BigQuery attempts to convert it, but the conversion may not always be accurate, leading to differences in some bytes.
+-  To ensure proper loading, specify the correct encoding. Similarly, JSON files need to be in UTF-8 encoding when loading into BigQuery.
 - **AVRO**:-It is the recommended format for data loading in BigQuery due to its ability to read data blocks in parallel, even when the file is compressed. Unlike CSV files, Avro does not have encoding issues, making it a preferred choice for efficient and reliable data loading.
 - **PARQUET**:-It is another data storage format that utilizes a columnar model. Uncompressed CSV and JSON files can be loaded faster compared to compressed files because they can be loaded in parallel. However, loading uncompressed files in parallel can result in higher storage costs when using Cloud Storage.
 
@@ -103,13 +151,14 @@ BigQuery requires data to be encoded in UTF-8. If a CSV file is not in UTF-8, Bi
 
 ## Cloud Big Table:-
 - Bigtable provides a scalable, fully-managed NoSQL wide-column database that is suitable for both real-time access and analytics workloads.
-- Cloud Bigtable is a wide-column NoSQL database used for high-volume databases that require low millisecond (ms) latency.
-- Cloud Bigtable is used for IoT, time-series, finance, and similar applications.Bigtable is a managed service, but it is not a NoOps service: like Cloud SQL and Cloud Spanner.
-- Bigtable also excels as a storage engine for batch MapReduce operations, stream processing/analytics, and machine-learning applications.
+- Cloud Bigtable supports up to **4 replicated clusters**.
+- Cloud Bigtable is a **wide-column NoSQL database** used for **high-volume databases** that require **low millisecond (ms) latency**.
+- Cloud Bigtable is used for **IoT, time-series, finance**, and similar applications.
+- Bigtable is a **managed service**, but it is not a NoOps service: like Cloud SQL and Cloud Spanner.
+- Bigtable also excels as a storage engine for batch MapReduce operations, stream processing/analytics,and machine-learning applications.
 - Data is stored in Bigtable lexicographically by row-key, which is the one indexed column in a Bigtable table.
 - goal when designing a row-key is to take advantage of the fact that Bigtable stores data in a sorted order.
-
-- Bigtable provides eventual consistency, which means that the data in clusters may not be the same sometimes, but they eventually will have the same data
+- Bigtable provides **eventual consistency**, which means that the data in clusters may not be the same sometimes, but they eventually will have the same data.
 - When creating a Cloud Bigtable instance and cluster, the choice between SSD or HDD storage for the cluster is permanent and cannot be changed using the Google Cloud Platform Console.
 - If you need to convert an existing HDD cluster to SSD, or vice-versa, you can export the data from the existing instance and import it into a new instance.
 - Alternatively, you can use a Cloud Dataflow or Hadoop MapReduce job to copy the data from one instance to another.
@@ -118,29 +167,41 @@ BigQuery requires data to be encoded in UTF-8. If a CSV file is not in UTF-8, Bi
 - preemptible nodes can have persistent disks. Dataproc handles the addition and removal of preemptible nodes.preemptible workers cannot store the data. 	
 - Production instances have clusters with a minimum of three nodes; development instances have a single node and do not provide for high availability.
 
+**Key Visualizer** is a Cloud Bigtable tool for understanding usage patterns in a Cloud Bigtable database.
+- It generates visual reports for your tables that break down your usage based on the row keys that you access. 
+- This tool helps you identify the following:
+  - Where hotspots exist
+  - Rows that may contain too much data
+  - The distribution of workload across all rows in a table
+
 ## Characteristics of a good row-key:-
 - Using a prefix for multitenancy isolates data from different customers, making scans and reads more efficient by ensuring that data blocks contain data from one customer only, allowing customers to query only their own data.
-- Columns that are not frequently updated, such as a user ID or a timestamp
+-  when a using a **multitenant Cloud Bigtable database**, it is a good practice to use a **tenant prefix** in the row-key.In this situation, the **first part of the rowkey could be a customer ID or other customer-specific code**.
+- String identifiers, such as a **customer ID or a sensor ID**, are good candidates for a rowkey.
+- **Timestamps** may be used as part of a row-key, but they should **not be the entire row-key or the start of the row-key**.
 - Nonsequential value in the first part of the row-key, which helps avoid hotspots
 - To avoid hotspots, never use a timestamp value as a row key prefix.
-- Field promotion is a recommended practice as it helps prevent hotspotting and simplifies the design of a row key for efficient querying.
-
-- Key Visualizer is a tool that helps you analyze your Bigtable usage patterns. It generates visual reports for your tables that break down your usage based on the row keys that you access.
-- Bigtable does not have secondary indexes
+- Moving timestamps from the front of a row-key so that another attribute is the first part of the row-key is an example of **field  promotion**
+- Field promotion is a recommended practice as it helps **prevent hotspotting** and simplifies the design of a row key for efficient querying.
+- Another way to avoid hotspots is to use salting, which is the process of adding a derived value to the key to make writes noncontiguous.
+- **Domain names,Sequential numeric IDs,Frequently updated identifiers,Hashed values** are anti-patterns which are not to be used for designing the row-key.
 
 **Best Practices**:-
 - Bigtable has a limit of 1,000 tables per instance.
 - Limit table to around 100 column families to avoid performance issues.
 - Limit row size to 100 MB or less to maintain optimal read performance.
 - Keep cell size below 10 MB and use shorter row keys(4 KB or less) to optimize memory, storage, and response times in Cloud Bigtable.
--  Minimum 1TB is required to store the data in bigtable
+-  Minimum 1TB is required to store the data in bigtable.
 
 **Note**:-
 - Failover in cloud computing is the process of automatically transferring workloads from a failed or failing primary resource to a secondary resource in order to minimize downtime and ensure continuity of service.
 - Hotspots can be caused by a number of factors, such as a heavily used table or an inefficient query that repeatedly touches the same data.
 - They can also result from the database architecture itself, such as data being stored in a manner that causes read or write operations to be heavily concentrated in certain areas.
 - Primary index is always based on the primary key of a table, which is a unique identifier for each row. 
-- Secondary indexes, on the other hand, can be created on any column or set of columns in the table.
+- Secondary indexes, on the other hand, can be created on any column or set of columns in the table. 
+- Bigtable does **not** have **secondary indexes**.
+- By default, Bigtable returns the value in the cell with the **latest timestamp**
+- Cloud Bigtable tables are sparse—that is, if there is no data for a particular row/column/cell combination, then no storage is used.
 
 
 ## Cloud Memory Store:-
