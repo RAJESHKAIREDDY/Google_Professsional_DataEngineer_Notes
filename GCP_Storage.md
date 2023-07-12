@@ -3,17 +3,22 @@
 
 ## Cloud SQL
  - Cloud SQL is a **fully managed relational database** service that supports **MySQL, PostgreSQL, and SQL Server** databases.
- - Cloud SQL is well suited for **regional applications** that do not need to store more than **30 TB** of data in a single instance
- - Automatic replication,Managed backups
+ - Cloud SQL is well suited for **regional applications** that do not need to store more than **30 TB** of data in a single instance.
+ - Automatic replication,Managed backups.
  - It facilitates **Vertical** & **Horizontal** Scaling.
  - Cloud SQL is similar to **Amazon RDS**.
 
  ### Read Replicas:- 
+ - A read replica is a copy of a primary database that is **asynchronously replicated** from the *primary database*.
  - A replica database that enables parallel read operations, improving read performance and scalability by offloading read traffic from the primary database. Read replicas must be in the same region as the primary instance
- - It is a copy of the primary instance’s data that is maintained in the same region as the primary instance. Binary logging must be enabled to support read replicas. we  cannot perform backups on a read replica.
-- It's important to note that read replicas are not intended for high availability or disaster recovery purposes. They are primarily used for scaling read workloads and improving performance.
+ - Read replicas are not intended for failover purposes and do not automatically take over in case of a primary database failure.
+ 
+  **Binary logging** must be enabled to support read replicas. we  **cannot perform* backups on a read replica.
+- It's important to note that read replicas are **not** *intended for high availability or disaster recovery purposes*. They are primarily used for **scaling read workloads and improving performance,scalability**.
 
-**Failover replica**: A secondary replica database that automatically takes over as the primary in the event of a failure, ensuring high availability and minimal downtime.
+**Failover replica**: 
+- A failover replica is a standby replica that is kept in sync with the primary database in real-time or near-real-time.
+- A secondary replica database that automatically takes over as the primary in the event of a failure, ensuring high availability and minimal downtime.
 
 ## Cloud Spanner
 - Cloud Spanner is Google’s relational, horizontally scalable, global database. It also manages automatic replication.
@@ -223,8 +228,9 @@
 
 
 ## Cloud Memory Store:-
-- Cloud Memorystore is a managed Redis service, which is commonly used for caching.
+- Cloud Memorystore is a fully managed Redis service, which is commonly used for caching.you can store data in key-value format.
 - In Redis, if the memory usage surpasses 80 percent of the system memory, the instance is deemed to be under memory pressure. To alleviate this, several actions can be taken: 
+
     **Scaling up the instance**: Increasing the resources allocated to the Redis instance can help accommodate higher memory requirements.
   
     **Lowering the maximum memory limit**: Reducing the maximum memory limit for Redis can prevent excessive memory usage.
