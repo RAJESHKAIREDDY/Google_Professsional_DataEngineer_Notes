@@ -31,7 +31,8 @@
 - Rows in a split are ordered by primary key, and the first and last keys are known as the split boundaries.
 - Rows that are interleaved are kept with their parent row.otherwise it could cause more than 4 GB of data to be interleaved which it can lead to degraded performance.
 - Cloud Spanner creates **splits** to **alleviate hotspots**.
--  STORING clause allows you to specify additional columns to store in an index but not include those columns as part of the index
+
+**STORING clause** allows you to specify additional columns to store in an index but not include those columns as part of the index
 
 - Cloud Spanner uses a voting mechanism to determine writes.Regional instances use only read-only replicas; multi-regional instances use all three types:
 
@@ -73,32 +74,38 @@
   - Frequently changed data.
   - Data is being ingested periodically.
   - Temporary tables will be available for approximately 24 hours.
-- BigQuery maintains a **seven-day** history of changes so that you can query a point-intime snapshot of data
+- BigQuery maintains a **seven-day** history of changes so that you can query a past snapshot(versions) of data.
+
 
  **Streaming inserts** in BigQuery provide best effort de-duplication. By including an insertID that uniquely identifies a record, BigQuery can detect duplicates and prevent them from being inserted. However, if no insertID is provided, BigQuery does not attempt to de-duplicate the data.
-- BigQuery supports both batch and streaming data processing.Batching data to BigQuery is free, while streaming data is charged based on size.
-Federated queries on protobuf message fields from Bigtable cannot be performed using BigQuery.
+- BigQuery supports both **batch and streaming data processing**.*Batching data* to BigQuery is **free**, while *streaming data* is **charged** based on size.
+- Federated queries on protobuf message fields from Bigtable cannot be performed using BigQuery due to differences in data structures and query capabilities between the two systems.
+- To query data from Bigtable in BigQuery, it is recommended to export the data from Bigtable to a compatible format such as Avro or Parquet, and then load it into BigQuery for querying.
 - Wildcard tables support built-in BigQuery storage only. You cannot use wildcards when querying an external table or a view.
 
 **Caching** : It is the process of storing frequently accessed data in a temporary storage area so that it can be quickly retrieved at a later time without having to go back to the original source.
 - predictive (pre-fetch) cache is only active for data sources that use the owner’s credentials to access the underlying data.
 - Data Studio caching maximum period is 12 hours.
-- BigQuery writes query results to a table, either a destination table specified by the user or a temporary, cached results table.Temporary, cached results tables incur no storage costs and are maintained per-user, per-project; whereas storing query results in a permanent table will result in storage charges.
+- BigQuery writes query results to a table, either a destination table specified by the user or a temporary, cached results table.**Temporary, cached results tables** incur **no storage costs** and are maintained per-user, per-project; whereas storing query results in a **permanent table** will result in **storage charges**.
 - Temporary, cached results tables are created in an "anonymous dataset" with restricted access.Access to anonymous datasets is limited to the dataset owner.
-- Anonymous datasets are hidden and their names start with an underscore, not appearing in the datasets list in the GCP Console or the classic BigQuery web UI.Listing anonymous datasets and auditing access controls can be done using the CLI or the API.
+- Anonymous datasets are hidden and their names start with an underscore, not appearing in the datasets list in the GCP Console or the classic BigQuery web UI.
+- Listing anonymous datasets and auditing access controls can be done using the CLI or the API.
 
 ### StackDriver
-- Stackdriver Monitoring is utilized for tracking performance metrics in BigQuery, including query counts and query execution time.
+
+**Stackdriver Monitoring** is utilized for tracking performance metrics in BigQuery, including query counts and query execution time.
 - The data collected by Stackdriver Monitoring can be viewed on Stackdriver Monitoring dashboards and used for alerting.
-- Stackdriver Logging is employed to monitor events such as job executions or table creations in BigQuery.
+
+**Stackdriver Logging** is employed to monitor events such as job executions or table creations in BigQuery.
 - Logs are useful for understanding who is performing actions in BigQuery, whereas monitoring is useful for understanding how your queries and jobs are performing.
 - Logs are maintained in Stackdriver for a specific period of time known as the retention period.If you want to keep them longer, you will need to export the logs before the end of the retention period.
 - Admin activity audit logs, system event audit logs, and access transparency logs are kept for 400 days. Data access audit logs and other logs not related to auditing are kept 30 days.
- **Stackdriver Trace** is a distributed tracing system designed to collect data on how long it takes to process requests to services. It is available in Compute Engine, Kubernetes Engine. It useful when you’re using microservices architectures.
+
+**Stackdriver Trace** is a distributed tracing system designed to collect data on how long it takes to process requests to services. It is available in Compute Engine, Kubernetes Engine. It useful when you’re using microservices architectures.
 
 - BigQuery does **not** have **indexes** like relational databases or document databases, but it **does** support **partitioning and clustering** both of which can help limit the amount of data scanned during queries.
 
-**Partitioning**:-Partitioning involves dividing a large table into smaller and more manageable pieces based on a specified column, such as date or region.
+**Partitioning**:-It involves dividing a large table into smaller and more manageable pieces based on a specified column, such as date or region.
 - BigQuery provides query cost estimates before the query is run on a partitioned table.
 - BigQuery has a limit of **4,000 partitions** per table.
 - This allows queries to only scan the relevant partitions, rather than scanning the entire table, which can significantly reduce query time and cost.
@@ -111,7 +118,8 @@ Federated queries on protobuf message fields from Bigtable cannot be performed u
 - Rows with null values in the DATE or TIMESTAMP column are stored in a __NULL__ partition, and rows that have dates outside the allowed range are stored in a partition called __UNPARTITIONED__.
 
 **Clustering**:-It is the ordering of data in its stored format. This can improve query performance by reducing the amount of data that needs to be scanned within a partition, since the related data will be physically located closer together.
-- Clustering is supported only on partitioned tables, and it is used when filters or aggregations are frequently used.
+
+**Clustering is supported only on partitioned tables**, and it is used when filters or aggregations are frequently used.
 - BigQuery has a limit of **4 cluster columns** per table. clustering columns cannot be changed
 - cost of queries over clustered tables can only be determined **after** the query is run.
 
@@ -138,17 +146,21 @@ Federated queries on protobuf message fields from Bigtable cannot be performed u
 - Cloud Firestore is the managed document database that is replacing Cloud Datastore.Document databases are used when the structure of data can vary from one record to another.
 - It store highly structured objects in a document database, with support for ACID transactions and SQL-like queries. Cloud Firestore operates in one of two modes: 
 	
-**Native Mode**:- the new data model, realtime updates, and mobile and web client library features are available only in Native Mode
-**Cloud Datastore Mode**:- In Datastore mode, Firestore offers strong consistency and removes the limitations of 25 entity groups and one write per second to an entity group that were present in Datastore.
+**Native Mode**:- the new data model, realtime updates, and mobile and web client library features are available only in Native Mode.
+
+**Cloud Datastore Mode**:- In Datastore mode, Firestore offers **strong consistency** and removes the limitations of 25 entity groups and one write per second to an entity group that were present in Datastore.
 
 - Indexes are used when querying and must exist for any property referenced in filters
 - Cloud Firestore uses two kinds of indexes:
 
-**built-in indexes**:- Built-in indexes are created by default for each property in an eyntity. 
+**built-in indexes**:- Built-in indexes are created by default for each property in an entity. 
+
 **composite indexes**:- They are used when there are multiple filter conditions in a query. They are defined in a configuration file called index.yaml
 
 - Cloud Firestore in Datastore Mode is a managed document database that is well suited for applications that require semi-structured data but that do not require low-latency writes (< 10 ms).
-- When low-latency writes are needed, Bigtable is a better option Firestore is a suitable choice if you need to store well-organized data in a document database, ensuring transactional integrity and the ability to perform SQL-like queries.
+- When *low-latency writes* are needed, **Bigtable** is a better option.
+
+**Firestore** is a suitable choice if you need to store well-organized data in a document database, ensuring transactional integrity and the ability to perform SQL-like queries.
 - Datastore is designed for web applications of a small scale.
 
 ## Cloud Big Table:-
@@ -188,9 +200,10 @@ Federated queries on protobuf message fields from Bigtable cannot be performed u
 - Nonsequential value in the first part of the row-key, which helps avoid hotspots
 - To avoid hotspots, never use a timestamp value as a row key prefix.
 - Moving timestamps from the front of a row-key so that another attribute is the first part of the row-key is an example of **field  promotion**
-- Field promotion is a recommended practice as it helps **prevent hotspotting** and simplifies the design of a row key for efficient querying.
-- Another way to avoid hotspots is to use salting, which is the process of adding a derived value to the key to make writes noncontiguous.
-- **Domain names,Sequential numeric IDs,Frequently updated identifiers,Hashed values** are anti-patterns which are not to be used for designing the row-key.
+- *Field promotion* is a recommended practice as it helps **prevent hotspotting** and simplifies the design of a row key for efficient querying.
+- Another way to avoid hotspots is to use **salting**, which is the process of adding a derived value to the key to make writes noncontiguous.
+
+ **Domain names,Sequential numeric IDs,Frequently updated identifiers,Hashed values** are *anti-patterns* which are not to be used for designing the row-key.
 
 **Best Practices**:-
 - Bigtable has a limit of 1,000 tables per instance.
@@ -200,11 +213,10 @@ Federated queries on protobuf message fields from Bigtable cannot be performed u
 -  Minimum 1TB is required to store the data in bigtable.
 
 **Note**:-
-- Failover in cloud computing is the process of automatically transferring workloads from a failed or failing primary resource to a secondary resource in order to minimize downtime and ensure continuity of service.
+**Failover** in cloud computing is the process of automatically transferring workloads from a failed or failing primary resource to a secondary resource in order to minimize downtime and ensure continuity of service.
 - Hotspots can be caused by a number of factors, such as a heavily used table or an inefficient query that repeatedly touches the same data.
 - They can also result from the database architecture itself, such as data being stored in a manner that causes read or write operations to be heavily concentrated in certain areas.
-- Primary index is always based on the primary key of a table, which is a unique identifier for each row. 
-- Secondary indexes, on the other hand, can be created on any column or set of columns in the table. 
+- Primary index is always based on the primary key of a table, which is a unique identifier for each row.  
 - Bigtable does **not** have **secondary indexes**.
 - By default, Bigtable returns the value in the cell with the **latest timestamp**
 - Cloud Bigtable tables are sparse—that is, if there is no data for a particular row/column/cell combination, then no storage is used.
@@ -213,11 +225,15 @@ Federated queries on protobuf message fields from Bigtable cannot be performed u
 ## Cloud Memory Store:-
 - Cloud Memorystore is a managed Redis service, which is commonly used for caching.
 - In Redis, if the memory usage surpasses 80 percent of the system memory, the instance is deemed to be under memory pressure. To alleviate this, several actions can be taken: 
--  Scaling up the instance: Increasing the resources allocated to the Redis instance can help accommodate higher memory requirements.
--  Lowering the maximum memory limit: Reducing the maximum memory limit for Redis can prevent excessive memory usage.
-- Modifying the eviction policy: Changing the eviction policy determines how Redis selects which keys to remove when memory is full.
-- Setting time-to-live (TTL) parameters: Applying TTL parameters to volatile keys specifies the duration for which a key should be retained in the cache before it becomes eligible for eviction.
-- Manually deleting data: Removing data manually from the Redis instance can free up memory space and alleviate memory pressure.
+    **Scaling up the instance**: Increasing the resources allocated to the Redis instance can help accommodate higher memory requirements.
+  
+    **Lowering the maximum memory limit**: Reducing the maximum memory limit for Redis can prevent excessive memory usage.
+
+    **Modifying the eviction policy**: Changing the eviction policy determines how Redis selects which keys to remove when memory is full.
+
+    **Setting time-to-live (TTL) parameters**: Applying TTL parameters to volatile keys specifies the duration for which a key should be retained in the cache before it becomes eligible for eviction.
+
+   **Manually deleting data**: Removing data manually from the Redis instance can free up memory space and alleviate memory pressure.
 - By default, Redis evicts the least recently used keys with TTLs set
 
 ## <a id="cloud-storage"></a>Cloud Storage
