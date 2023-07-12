@@ -30,8 +30,8 @@
 - Cloud Spanner breaks data into chunks known as **splits**. Splits are up to about **4 GB** in size and move independently of one another.
 - Rows in a split are ordered by primary key, and the first and last keys are known as the split boundaries.
 - Rows that are interleaved are kept with their parent row.otherwise it could cause more than 4 GB of data to be interleaved which it can lead to degraded performance.
-- Cloud Spanner creates splits to **alleviate hotspots**.
-
+- Cloud Spanner creates **splits** to **alleviate hotspots**.
+-  STORING clause allows you to specify additional columns to store in an index but not include those columns as part of the index
 
 - Cloud Spanner uses a voting mechanism to determine writes.Regional instances use only read-only replicas; multi-regional instances use all three types:
 
@@ -80,7 +80,7 @@
 Federated queries on protobuf message fields from Bigtable cannot be performed using BigQuery.
 - Wildcard tables support built-in BigQuery storage only. You cannot use wildcards when querying an external table or a view.
 
-**Caching** :Caching is the process of storing frequently accessed data in a temporary storage area so that it can be quickly retrieved at a later time without having to go back to the original source.
+**Caching** : It is the process of storing frequently accessed data in a temporary storage area so that it can be quickly retrieved at a later time without having to go back to the original source.
 - predictive (pre-fetch) cache is only active for data sources that use the owner’s credentials to access the underlying data.
 - Data Studio caching maximum period is 12 hours.
 - BigQuery writes query results to a table, either a destination table specified by the user or a temporary, cached results table.Temporary, cached results tables incur no storage costs and are maintained per-user, per-project; whereas storing query results in a permanent table will result in storage charges.
@@ -154,20 +154,24 @@ Federated queries on protobuf message fields from Bigtable cannot be performed u
 ## Cloud Big Table:-
 - Bigtable provides a scalable, fully-managed NoSQL wide-column database that is suitable for both real-time access and analytics workloads.
 - Cloud Bigtable supports up to **4 replicated clusters**.
-- Cloud Bigtable is a **wide-column NoSQL database** used for **high-volume databases** that require **low millisecond (ms) latency**.
+- Cloud Bigtable is used for **high-volume databases** that require **low millisecond (ms) latency**.
 - Cloud Bigtable is used for **IoT, time-series, finance**, and similar applications.
 - Bigtable is a **managed service**, but it is not a NoOps service: like Cloud SQL and Cloud Spanner.
-- Bigtable also excels as a storage engine for batch MapReduce operations, stream processing/analytics,and machine-learning applications.
+- Bigtable also excels as a **storage engine** for **batch MapReduce operations, stream processing/analytics,and machine-learning applications**.
 - Data is stored in Bigtable lexicographically by row-key, which is the one indexed column in a Bigtable table.
-- goal when designing a row-key is to take advantage of the fact that Bigtable stores data in a sorted order.
+- goal when designing a row-key is to take advantage of the fact that **Bigtable stores data in a sorted order**.
 - Bigtable provides **eventual consistency**, which means that the data in clusters may not be the same sometimes, but they eventually will have the same data.
-- When creating a Cloud Bigtable instance and cluster, the choice between SSD or HDD storage for the cluster is permanent and cannot be changed using the Google Cloud Platform Console.
+- When creating a Cloud Bigtable instance and cluster, the **choice between SSD or HDD storage for the cluster is permanent** and cannot be changed using the Google Cloud Platform Console.
 - If you need to convert an existing HDD cluster to SSD, or vice-versa, you can export the data from the existing instance and import it into a new instance.
 - Alternatively, you can use a Cloud Dataflow or Hadoop MapReduce job to copy the data from one instance to another.
 - It's important to note that migrating an entire instance takes time, and you may need to add nodes to your Cloud Bigtable clusters before initiating the migration.
-- The dataset location cannot be changed once created. The dataset needs to be copied using Cloud Storage.
+- The **dataset location cannot be changed** once created. The dataset needs to be copied using Cloud Storage.
 - preemptible nodes can have persistent disks. Dataproc handles the addition and removal of preemptible nodes.preemptible workers cannot store the data. 	
-- Production instances have clusters with a minimum of three nodes; development instances have a single node and do not provide for high availability.
+- **Production instances** have clusters with a minimum of **three nodes**; *development instances* have a **single node** and do not provide for high availability.
+
+**App profiles** are configurations for handling client requests in Cloud Bigtable.
+- For strong consistency, specify single-cluster routing in the app configuration and avoid using other clusters except for failover.
+- To enable automatic failover in Cloud Bigtable when one region becomes unreachable, use multicluster routing.
 
 **Key Visualizer** is a Cloud Bigtable tool for understanding usage patterns in a Cloud Bigtable database.
 - It generates visual reports for your tables that break down your usage based on the row keys that you access. 
