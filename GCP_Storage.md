@@ -13,11 +13,11 @@
  - A replica database that enables parallel read operations, improving read performance and scalability by offloading read traffic from the primary database. Read replicas must be in the same region as the primary instance
  - Read replicas are not intended for failover purposes and do not automatically take over in case of a primary database failure.
  
-  **Binary logging** must be enabled to support read replicas. we  **cannot perform* backups on a read replica.
+  **Binary logging** must be enabled to support read replicas. we  *cannot perform* backups on a read replica.
 - It's important to note that read replicas are **not** *intended for high availability or disaster recovery purposes*. They are primarily used for **scaling read workloads and improving performance,scalability**.
 
 **Failover replica**: 
-- A failover replica is a standby replica that is kept in sync with the primary database in real-time or near-real-time.
+- A failover replica is a standby replica that is kept **in sync** with the primary database in real-time or near-real-time.
 - A secondary replica database that automatically takes over as the primary in the event of a failure, ensuring high availability and minimal downtime.
 
 ## Cloud Spanner
@@ -243,10 +243,10 @@
 - By default, Redis evicts the least recently used keys with TTLs set
 
 ## <a id="cloud-storage"></a>Cloud Storage
-- Cloud Storage is a specialized storage system that primarily deals with unstructured data, including files, images, videos, backups, and various other types of data.
+- Cloud Storage is a specialized storage system that primarily deals with **unstructured data**, including files, images, videos, backups, and various other types of data.
 - In Cloud Storage, data is organized and stored as individual objects, which are treated as atomic units. 
 - This means that each object is independent and self-contained, allowing for efficient storage and retrieval of unstructured data.
-- Google Cloud Storage is not suitable to handle real time streaming data.
+- Google Cloud Storage is **not suitable** to handle **real time streaming data**.
 - A bucket is a group of objects that share access controls at the bucket level.Cloud Storage service does not use a filesystem.
 - Cloud Storage can be used as both the staging area for storing data immediately after ingestion and also as a long-term store for transformed data
 

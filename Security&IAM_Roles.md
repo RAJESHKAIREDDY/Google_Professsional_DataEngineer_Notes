@@ -5,18 +5,20 @@
 - **Owner role**:- Editor permissions + permissions to manage roles along with setting up billing for a project.
 #### Note:- 
 - Primitive roles are acceptable only for Coarse-grained access controls[access is primarily determined by the assigned role rather than specific permissions or attributes]. Permissions are broader and less granular.
-- If primitive roles are used in a project, they grant viewer, editor, and owner access to objects in Cloud Storage	
+- If primitive roles are used in a project, they grant viewer, editor, and owner access to objects in **Cloud Storage**	
 
-**2.Predefined Roles**:- These roles are generally associated with AppEngine or BigQuery. BigQuery uses fine-grained permissions on BigQuery resources[refer to a more granular level of access control where permissions are assigned at a detailed and specific level].
+**2.Predefined Roles**:- These roles are generally associated with **AppEngine or BigQuery**. BigQuery uses fine-grained permissions on BigQuery resources[refer to a more granular level of access control where permissions are assigned at a detailed and specific level].
 
 **3.Custom Roles**:- you can assign one or more permissions to a role and then assign that role to a user, group, or service account.
-Custom roles are especially important when implementing the principle of least privilege, which states that users should be granted the minimal set of permissions needed for them to perform their jobs.IAM is additive only. It means permissions cannot be revoked at a higher level(Folder) if they were granted at a lower level(Resource).
+Custom roles are especially important when implementing the principle of least privilege, which states that users should be granted the minimal set of permissions needed for them to perform their jobs.**IAM is additive only**. 
+- It means permissions cannot be revoked at a higher level(Folder) if they were granted at a lower level(Resource).
 - Organization---->Folders--->Projects---->Resources
 
 **Principle of least Privilege**:- It is the practice of limiting user access to only the resources and actions that are necessary for them to perform their job
 
 **Access Control Lists(ACL's)**:- They are used to control access to resources within a project or organization.
-ACLs define the permissions that a user or group has to perform specific actions on resources such as instances, disks, networks, and buckets
+ACLs define the permissions that a user or group has to perform specific actions on resources such as instances, disks, networks, and buckets.
+- when you need to control access to individual objects, you may need to use access control lists (ACLs).
 
 **Hash-based Message Authentication Code** (HMAC) keys are used to authenticate access to Cloud Storage. The permissions for 
 HMAC keys include creating, deleting, and listing keys as well as getting and updating metadata

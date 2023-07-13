@@ -119,12 +119,18 @@ recall.
 
 **Cloud Auto ML** :- It is a machine learning service designed for developers who want to incorporate machine learning in their applications without having to learn many of the details of ML. 
 - It is  good to use when pre-trained API models are not sufficient for the task and need to train a model for a specific problem.
+
  **Several ML products**:-
-- **AutoML Vision** :This service enables users to train their own machine learning models to classify images
-- **AutoML Video Intelligence**:It can be used to train machine learning models to classify segments of video using a custom set of labels.It can detect and track multiple objects through video segments.
-- **AutoML Natural Language**: It enables developers to deploy machine learning applications that can analyze documents and classify them, identify entities in the text, and determine sentiment or attitudes from text
-- **AutoML Translation**:It is used to create custom tranlsation models.
-- **AutoML Tables**: It builds machine learning models based on structured data.provide info on missing data,correlation,cardinalities
+
+ **AutoML Vision** :This service enables users to train their own machine learning models to classify images.
+
+ **AutoML Video Intelligence**:It can be used to train machine learning models to classify segments of video using a custom set of labels.It can detect and track multiple objects through video segments.
+
+ **AutoML Natural Language**: It enables developers to deploy machine learning applications that can analyze documents and classify them, identify entities in the text, and determine sentiment or attitudes from text.
+
+ **AutoML Translation**:It is used to create custom tranlsation models.
+
+ **AutoML Tables**: It builds machine learning models based on structured data.provide info on missing data,correlation,cardinalities.
 
  **BigQuery ML** enables users of the analytical database to build machine learning models using SQL and data in BigQuery datasets.
 - It can be accesssed through BigQuery webUI,REST API,bq command-tool, External tools including Jupyter Notebooks
@@ -146,8 +152,8 @@ recall.
  **Note**:-
 - Cloud AutoML is designed for developers who want to build on existing machine learning models and tools that automate some machine learning tasks, like feature engineering.
 - BigQuery ML allows SQL users to build models within BigQuery and avoid having to export data and develop models using Python or Java.
-- Kubeflow supports deploying scalable ML pipelines in Kubernete
-- If you need an algorithm not available in other GCP machine learning services, consider using Spark MLib
+- Kubeflow supports deploying scalable ML pipelines in Kubernetes.
+- If you need an algorithm not available in other GCP machine learning services, consider using Spark MLib.
 - Cloud Vision offers both pretrained models via an API and the ability to build custom models using AutoML Vision to provide flexibility depending on your use case.
 - Cloud ML Engine is used to deploy models. It does not help to build the models.
 - Deep and wide models are ideal for a recommendation application.**Wide models** are used for memorization. **Deep models** are for generalization.
