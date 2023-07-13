@@ -18,9 +18,9 @@ Custom roles are especially important when implementing the principle of least p
 
 **Access Control Lists(ACL's)**:- They are used to control access to resources within a project or organization.
 ACLs define the permissions that a user or group has to perform specific actions on resources such as instances, disks, networks, and buckets.
-- when you need to control access to individual objects, you may need to use access control lists (ACLs).
+- when you need to control access to **individual objects**, you may need to use **access control lists (ACLs)**.
 
-**Hash-based Message Authentication Code** (HMAC) keys are used to authenticate access to Cloud Storage. The permissions for 
+**Hash-based Message Authentication Code** (HMAC) keys are used to authenticate access to **Cloud Storage**. The permissions for 
 HMAC keys include creating, deleting, and listing keys as well as getting and updating metadata
 
 ### Bigtable and IAM
@@ -48,11 +48,12 @@ Access controls for Cloud Bigtable can be configured at the project, instance, o
 
 **Server-side encryption**: Server-side encryption is a method where the encryption and decryption processes are handled by the cloud service provider (GCP) on the server side.When server-side encryption is enabled, GCP automatically encrypts the data at rest, meaning the data stored on disks or in backups.
 GCP provides multiple options for server-side encryption, including:	
-- **1.Google-managed encryption keys**: GCP generates and manages the encryption keys used to encrypt the data.
 
-- **2.Customer-supplied encryption keys (CSEK)**: The encryption keys are generated and managed entirely by the customer including storage, who is responsible for providing the keys during encryption and retaining them for decryption.The keys are passed as arguments in API calls and stored in memory, but customer-supplied keys are not written to storage.
+ **1.Google-managed encryption keys**: GCP generates and manages the encryption keys used to encrypt the data.
 
-- **3.Customer-managed encryption keys (CMEK)**: The encryption keys are created and managed by the customer, who retains control over the keys but do not need keys to reside on their own key management infrastructure. while GCP handles the encryption and decryption operations. It enables customers to generate and store keys in GCP. They refer KMS based keys for the encryption. Cloud KMS keys can be destroyed, but there is a 24-hour delay as a safety measure in case of accidental deletion or malicious intent. Cloud KMS keys can be used for application-level encryption in GCP services, including Compute Engine, BigQuery, Cloud Storage, and Cloud Dataproc.
+ **2.Customer-supplied encryption keys (CSEK)**: The encryption keys are generated and managed entirely by the customer including storage, who is responsible for providing the keys during encryption and retaining them for decryption.The keys are passed as arguments in API calls and stored in memory, but customer-supplied keys are not written to storage.
+
+ **3.Customer-managed encryption keys (CMEK)**: The encryption keys are created and managed by the customer, who retains control over the keys but do not need keys to reside on their own key management infrastructure. **while GCP handles the encryption and decryption operations**. It enables customers to generate and store keys in GCP. They refer KMS based keys for the encryption. Cloud KMS keys can be destroyed, but there is a **24-hour delay** as a safety measure in case of accidental deletion or malicious intent. Cloud KMS keys can be used for application-level encryption in GCP services, including **Compute Engine, BigQuery, Cloud Storage, and Cloud Dataproc**.
 
 **Client-side encryption**: Client-side encryption is a method where the encryption and decryption processes are performed by the client (application or user) before the data is sent to the server (GCP).With client-side encryption, the data is encrypted on the client side using encryption algorithms and keys chosen by the client. Since the encryption process occurs before the data reaches the server, GCP only sees and stores the encrypted data without having access to the encryption keys or the ability to decrypt the data
 
