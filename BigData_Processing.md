@@ -5,15 +5,17 @@
 - Cloud Composer
 
 ## Cloud DataFlow
-- It is a managed stream and batch processing service.
-- Cloud Dataflow pipelines are written using the Apache Beam API.Cloud Dataflow does not require you to configure instances or clusters—it is a no-ops 
-service.
+- It is a *managed* **stream and batch processing service**.
+- Cloud Dataflow pipelines are written using the Apache Beam API.Cloud Dataflow does not require you to configure instances or clusters—it is a **no-ops service**.
 - It directly integrates with **Cloud Pub/Sub, BigQuery,Cloud ML Engine, Bigtable and Apache Kafka**.
 - Cloud Dataflow is coding transformations in one of the languages supported by Apache Beam, which are currently **Java and Python**.
 
- **Event_Time**:- Time that data element occurs is determined by timestamp on data element itself.
+ **Event_Time**:- It refers to the Time that data element occurs is determined by timestamp on data element itself.
+ - **Eg**:- if you're analyzing user activity on a website, the event time would represent the actual time when a user performed a specific action, such as clicking a button or submitting a form.
 
- **Processing time**:- It is the time that data arrives at the endpoint where data is ingested.
+ **Processing time**:- It refers to the time at which an event or data point is processed or handled by a system or application.
+ - **Eg**:- if you have a data pipeline that processes user events, the processing time would represent when the system received and processed each event
+ - Processing time can include various steps like data ingestion, transformation, analysis, and any other operations performed on the event data.
 
 ## Cloud Dataflow Concepts:-
 
