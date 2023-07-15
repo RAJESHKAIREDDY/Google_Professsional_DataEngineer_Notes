@@ -117,31 +117,32 @@
 - Handling late arriving data involves deciding how long to wait for it and whether to process it immediately or treat it as missing data
 
 **Watermark**:-
-- watermark, which is basically a timestamp indicating that no data older than that timestamp will ever appear in the stream.
-- Watermarks are used to determine the completeness of data within a specific time window, but they do not prevent the processing of late arriving data.
+- Watermarks are used to determine the completeness of data within a specific time window. They provide a reference point or timestamp that indicates when a certain time period is considered complete.
+-  Data points with timestamps earlier than the watermark are considered on-time or early arriving data, while data points with timestamps later than the watermark are considered late arriving data.
 - late arriving data refers to data points arriving after their expected time, while watermarks are timestamps used to track the progress of event time and determine the completeness of data within a time window.
 
 ## Cloud Composer
 
  Orchestration often refers to the automated configuration, coordination, and management of multiple interdependent computer systems and services.Orchestration jobs are used to manage and streamline complex processes involving multiple steps, dependencies, and interactions between various components or services. 
-- Eg:- Cloud Composer
+
+**Eg**:- Cloud Composer
 
 - Cron jobs are scheduled tasks that run at predetermined intervals or specific times on a recurring basis.
 -  They are typically used for simpler, standalone tasks that don't have complex dependencies or interactions.
 - Cron jobs are used for automating repetitive tasks, such as backups, log rotations, data updates, or other periodic activities.
-- Eg:- Cloud Scheduler
+**Eg**:- Cloud Scheduler
 
 ### Google Cloud Platform offers a number of tools and services for orchestration:
  **Cloud Scheduler** for schedule driven single-service orchestration.
 
- **Workflows**:- It is for complex multi-service orchestration(HTTP services).Worklows enables you to automate the execution of HTTP-based services running on Cloud Functions and Cloud Run, as well as external services and APIs. Use either YAML or JSON to express your workflow.
+ **Workflows**:- It is for complex multi-service orchestration(HTTP services).Worklows enables you to automate the execution of **HTTP-based services** running on Cloud Functions and Cloud Run, as well as external services and APIs. Use either **YAML or JSON** to express your workflow.
 
- **Cloud Composer**:- It is a managed service implementing Apache Airflow, which is used for scheduling and managing workflows. It automates the scheduling and monitoring of workflows. It can be used as a managed workflow orchestration of your data workloads(ETL/ELT)
+ **Cloud Composer**:- It is a managed service implementing **Apache Airflow**, which is used for scheduling and managing workflows. It automates the scheduling and monitoring of workflows. It can be used as a managed workflow orchestration of your data workloads **(ETL/ELT)**.
 
 ## Cloud Composer vs workflows
 ![Alt text](CloudComposerVsWorkflows.png)
 
 **Note**:- 
 - Composer is designed for orchestrating batch workloads that can handle a delay of a few seconds between task executions.
--  It wouldn’t be suitable if low latency was required in between tasks, whereas Workflows is designed for latency sensitive use cases. 
-- Workflows is completely serverless, eliminating the need to manage or scale infrastructure, unlike Composer where specifying the number of workers is required.
+-  It wouldn’t be suitable if low latency was required in between tasks, whereas *Workflows* is designed for **latency sensitive** use cases. 
+- **Workflows is completely serverless**, eliminating the need to manage or scale infrastructure, unlike Composer where specifying the number of workers is required.
