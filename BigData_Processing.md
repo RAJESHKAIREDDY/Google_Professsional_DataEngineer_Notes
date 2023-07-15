@@ -28,13 +28,12 @@
 - PCollections can be created from data sources or as the output of transformations.
 - In the case of *batch processing*, the PCollection contains a **fixed set of data**. In the case of *streaming data*, the PCollection is **unbounded**.
 
- **Transforms**:- Transformations are the operations applied to data within a Dataflow pipeline.Transforms operate on one or more PCollections as input and can produce one or more output.
+ **Transforms**:- Transformations are the operations applied to the PCollections to process and transform the data.Transforms operate on one or more PCollections as input and can produce one or more output.
  - Transformations define how the data is processed, transformed, or manipulated within the pipeline.
 - Transformations include operations like **filtering, aggregating, joining, mapping**, and more.
-- Transformations are the operations applied to the PCollections to process and transform the data.
 - Transformations take input data, perform computations, and generate output data.
 
- **ParDo**:- ParDo is a parallel processing operation that runs a user-specified function on each element in a PCollection. ParDo transforms data in parallel.
+ **ParDo**:- ParDo is a **parallel processing operation** that runs a user-specified function on each element in a PCollection.ParDo transforms data in *parallel*.
 - ParDo can receive additional inputs from other PCollections through side inputs.Side inputs enable performing joins and accessing data from multiple PCollections within a ParDo.
 - ParDo produces a main output PCollection, but it can also generate additional output collections using side outputs.
 - Side outputs are useful for creating additional processing paths or handling data that doesn't meet certain criteria, such as using a side output for data that fails a validation check
@@ -60,7 +59,7 @@
 - Useful for handling intermittent or delayed data arrivals gracefully.
 
 ## Cloud DataProc
-- Cloud Dataproc is a fully managed service that allows you to run Apache Hadoop and Apache Spark clusters on GCP.
+- Cloud Dataproc is a *fully managed service* that allows you to run Apache Hadoop and Apache Spark clusters on GCP.
 -  Dataproc is great choice for quickly migrating Hadoop and Spark jobs into GCP.
 
 **Advantages**:-
@@ -70,13 +69,15 @@
 
 - Cloud Dataproc clusters consist of **two types** of nodes: master nodes and worker nodes
 
-	**Master node**: It is responsible for distributing and managing workload distribution.They manage cluster resources, schedule tasks, and oversee the execution of jobs. do not participate directly in data processing.
+	**Master node**: It is responsible for distributing and managing workload distribution.They manage cluster resources, schedule tasks, and oversee the execution of jobs. **do not participate directly in data processing**.
 
 	**Worker Nodes**: Worker nodes, also known as worker instances, are responsible for executing data processing tasks. They are the primary workhorses of the cluster, performing tasks such as data ingestion, storage, processing, and analysis. 
     - They distribute and parallelize the workload across the cluster to achieve high performance and scalability.
 
-- master node manages the cluster and delegates tasks to the worker nodes, which handle the actual data processing operations.Cluster mode determines the configuration of master and worker nodes in a dataproc cluster. 
-- In standard mode, there is one master node and multiple worker nodes. In single mode, there is only one master node and no worker nodes.
+- master node manages the cluster and delegates tasks to the worker nodes, which handle the actual data processing operations.
+- Cluster mode determines the configuration of master and worker nodes in a dataproc cluster. 
+- In standard mode --->one master node and multiple worker nodes.
+-  In single mode ---> only one master node and no worker nodes.
 
 ## Ephemeral Clusters VS AutoScaling Clusters
 ![Alt text](image-1.png)
@@ -89,14 +90,14 @@
 - AutoScaling can cause problems and become unstable when used with high availability clusters, and it is not allowed to be used on a single node.
 - When using auto scaling, it's better to use cloud storage instead of HDFS storage. However, if you are using HDFS, make sure you have sufficient storage on your primary workers.
 - Spark Structured streaming not supported by autoscaling  because the underlying architecture of Spark Structured Streaming does not easily allow for dynamic scaling of resources based on the workload.
-- Outputs can be automatically pushed to BigQuery,CloudStorage and BigTable.
+- Outputs can be automatically pushed to **BigQuery,CloudStorage and BigTable**.
 
 ## Cloud Pub/sub
-- Cloud Pub/Sub is a managed real-time messaging service.It supports both push and pull subscription models.
+- Cloud Pub/Sub is a **managed real-time messaging service**.It supports both push and pull subscription models.
 - No server or cluster provisioning is required.Automatic scaling and load partitioning are handled by Cloud Pub/Sub.
-- Messages can stay in a topic for up to seven days.For guaranteed exactly once processing, use Cloud Dataflow PubsubIO.
+- Messages can stay in a topic for up to **seven days**.For guaranteed exactly once processing, use Cloud Dataflow PubsubIO.
 - Cloud Dataflow PubsubIO de-duplicates messages based on a message ID.Cloud Dataflow can ensure that messages are processed in order.
-- Messages published to a topic before a subscription is created will not be delivered to the subscription
+- Messages published to a topic before a subscription is created will not be delivered to the subscription.
 
 ### Sliding Windows:- 
 - Windows that advance by a number of data points less than the width of the window are called sliding windows.
@@ -111,12 +112,13 @@
 **Session windows**: when interruption with flow of events which exceeds certain time period, good for irregularly distributed data wrt time.
 
 **Late arriving**:-
-- Late arriving data refers to data points that arrive after their expected or desired timestamp. 
+- Late arriving data refers to data points that arrive after their expected time or after the watermark for a specific time window. 
+- While the data points may be considered late, they can still be processed if they fall within a permissible tolerance or if the processing logic allows for handling late arrivals.
 - Handling late arriving data involves deciding how long to wait for it and whether to process it immediately or treat it as missing data
 
 **Watermark**:-
 - watermark, which is basically a timestamp indicating that no data older than that timestamp will ever appear in the stream.
-- Any data with timestamps earlier than the watermark is considered on-time, while data with timestamps later than the watermark is considered late.
+- Watermarks are used to determine the completeness of data within a specific time window, but they do not prevent the processing of late arriving data.
 - late arriving data refers to data points arriving after their expected time, while watermarks are timestamps used to track the progress of event time and determine the completeness of data within a time window.
 
 ## Cloud Composer
