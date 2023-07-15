@@ -24,13 +24,15 @@
 - Pipelines represent a job that can be run *repeatedly*.
 
  **PCollection**:- PCollection stands for **Processing Collection**, which represents a **distributed, immutable dataset** in a Dataflow pipeline. 
-- It can be seen as a collection of elements that flow through the pipeline during processing.
+- PCollections are the data elements that flow through the pipeline during processing.
 - PCollections can be created from data sources or as the output of transformations.
 - In the case of *batch processing*, the PCollection contains a **fixed set of data**. In the case of *streaming data*, the PCollection is **unbounded**.
 
  **Transforms**:- Transformations are the operations applied to data within a Dataflow pipeline.Transforms operate on one or more PCollections as input and can produce one or more output.
  - Transformations define how the data is processed, transformed, or manipulated within the pipeline.
-- Transformations They can include operations like **filtering, aggregating, joining, mapping**, and more.Transformations take input data, perform computations, and generate output data.
+- Transformations include operations like **filtering, aggregating, joining, mapping**, and more.
+- Transformations are the operations applied to the PCollections to process and transform the data.
+- Transformations take input data, perform computations, and generate output data.
 
  **ParDo**:- ParDo is a parallel processing operation that runs a user-specified function on each element in a PCollection. ParDo transforms data in parallel.
 - ParDo can receive additional inputs from other PCollections through side inputs.Side inputs enable performing joins and accessing data from multiple PCollections within a ParDo.
