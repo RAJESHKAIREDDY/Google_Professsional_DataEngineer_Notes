@@ -14,22 +14,23 @@
  - **Eg**:- if you're analyzing user activity on a website, the event time would represent the actual time when a user performed a specific action, such as clicking a button or submitting a form.
 
  **Processing time**:- It refers to the time at which an event or data point is processed or handled by a system or application.
- - **Eg**:- if you have a data pipeline that processes user events, the processing time would represent when the system received and processed each event
+ - **Eg**:- if you have a data pipeline that processes user events, the processing time would represent when the system received and processed each event.
  - Processing time can include various steps like data ingestion, transformation, analysis, and any other operations performed on the event data.
 
 ## Cloud Dataflow Concepts:-
 
- **Pipelines**:- A Dataflow pipeline is a directed acyclic graph (DAG) that represents the data processing tasks and their dependencies. 
+ **Pipelines**:- A Dataflow pipeline is a **directed acyclic graph (DAG)** that represents the data processing tasks and their dependencies. 
 - It consists of a series of transformations applied to input data to produce the desired output. 
-- Pipelines represent a job that can be run repeatedly
+- Pipelines represent a job that can be run *repeatedly*.
 
  **PCollection**:- PCollection stands for **Processing Collection**, which represents a **distributed, immutable dataset** in a Dataflow pipeline. 
 - It can be seen as a collection of elements that flow through the pipeline during processing.
 - PCollections can be created from data sources or as the output of transformations.
-- In the case of batch processing, the PCollection contains a fixed set of data. In the case of streaming data, the PCollection is unbounded.
+- In the case of *batch processing*, the PCollection contains a **fixed set of data**. In the case of *streaming data*, the PCollection is **unbounded**.
 
- **Transforms**:- Transformations are the operations applied to data within a Dataflow pipeline.Transforms operate on one or more PCollections as input and can produce one or more output
-- PCollections They can include operations like filtering, aggregating, joining, mapping, and more.Transformations take input data, perform computations, and generate output data.
+ **Transforms**:- Transformations are the operations applied to data within a Dataflow pipeline.Transforms operate on one or more PCollections as input and can produce one or more output.
+ - Transformations define how the data is processed, transformed, or manipulated within the pipeline.
+- Transformations They can include operations like **filtering, aggregating, joining, mapping**, and more.Transformations take input data, perform computations, and generate output data.
 
  **ParDo**:- ParDo is a parallel processing operation that runs a user-specified function on each element in a PCollection. ParDo transforms data in parallel.
 - ParDo can receive additional inputs from other PCollections through side inputs.Side inputs enable performing joins and accessing data from multiple PCollections within a ParDo.
