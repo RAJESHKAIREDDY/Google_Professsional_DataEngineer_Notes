@@ -111,6 +111,9 @@ recall.
 - Speech-to-text
 - Dialogflow
 
+**Speech-to-Text** can be used to convert short duration audio in **synchronous** calls. As well as it is recommended **not to re-sample** the data, if it is coming at a lower sampling rate from the source.
+- To process a speech recognition request for *long audio*, use **Asynchronous** Speech Recognition.
+
 ## GCP Options for Deploying ML Pipeline:
 -  Cloud Auto ML
 -  BigQuery ML 
@@ -134,7 +137,8 @@ recall.
 
  **BigQuery ML** enables users of the analytical database to build machine learning models using SQL and data in BigQuery datasets.
 - It can be accesssed through BigQuery webUI,REST API,bq command-tool, External tools including Jupyter Notebooks
-- It supports ML algorithms including **Linear regression,Binary logistic regression,Multiple logistic regression,K-means clustering and TensorFlow**.
+- It supports ML algorithms including **Linear regression,Binary logistic regression,K-means clustering, TensorFlow, Multiclass logistic regression for classification, DeepNeuralNetwork(DNN),MatrixFactorization(recommendation Systems) and PCA**
+
 - **Note**:-
 - AutoML Tables is a suitable choice when you want to optimize your model without extensive experimentation by automating feature engineering tasks and testing various algorithms.
 - If minimizing model generation time is a priority, BigQueryML is a better option as it provides faster results by focusing on utilizing BigQuery's capabilities.
