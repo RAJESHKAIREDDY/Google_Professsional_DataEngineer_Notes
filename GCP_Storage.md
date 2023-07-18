@@ -58,6 +58,7 @@
 - BigQuery is fully managed, petabyte-scale, low-cost analytics data warehouse databases.
 - Standard SQL supports advanced SQL features, such as correlated subqueries, ARRAY and STRUCT data types, as well as complex join expressions.
 - BigQuery supports nested and repeated structures in rows. Nested data is represented in STRUCT type in SQL, and repeated types are represented in ARRAY types in SQL.
+- BigQuery provides **2 metrics** for *Slots*. **Slots Allocated** to the project and **Slots Available** for the project.
 
 **Data Warehouses**: These are centralized, organized repositories of analytical data for an organization.
 
@@ -114,6 +115,7 @@
 - BigQuery provides query cost estimates before the query is run on a partitioned table.
 - BigQuery has a limit of **4,000 partitions** per table.
 - This allows queries to only scan the relevant partitions, rather than scanning the entire table, which can significantly reduce query time and cost.
+- As the number of partitions increases, the amount of metadata overhead increases.
 - BigQuery has **3** partition types:
     - **Ingestion time partitioned tables** : Tables are partitioned based on the timestamp when BigQuery ingests the data.
     - **Timestamp partitioned tables**: Tables are partitioned based on a time value such as timestamps or dates.

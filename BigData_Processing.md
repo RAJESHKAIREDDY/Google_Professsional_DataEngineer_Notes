@@ -94,10 +94,11 @@
 
 ## Cloud Pub/sub
 - Cloud Pub/Sub is a **managed real-time messaging service**.It supports both push and pull subscription models.
-- No server or cluster provisioning is required.Automatic scaling and load partitioning are handled by Cloud Pub/Sub.
+- No server or cluster provisioning is required.**Automatic scaling** and **load partitioning** are handled by Cloud Pub/Sub.
 - Messages can stay in a topic for up to **seven days**.For guaranteed exactly once processing, use Cloud Dataflow PubsubIO.
-- Cloud Dataflow PubsubIO de-duplicates messages based on a message ID.Cloud Dataflow can ensure that messages are processed in order.
+- Cloud Dataflow **PubsubIO de-duplicates messages based on a message ID**.Cloud Dataflow can ensure that messages are processed in order.
 - Messages published to a topic before a subscription is created will not be delivered to the subscription.
+- Cloud Pub/Sub **does not** maintain the **order of the messages**, and it is recommended to have it **timestamped or watermarked** from the publisher and ordered using Dataflow.
 
 ### Sliding Windows:- 
 - Windows that advance by a number of data points less than the width of the window are called sliding windows.
@@ -109,7 +110,12 @@
 - windows that advance by the length of the window are tumbling windows.
 - Tumbling windows are used when you want to aggregate data over a fixed period of time, for example, for the last one minute
 
-**Session windows**: when interruption with flow of events which exceeds certain time period, good for irregularly distributed data wrt time.
+**Session windows**: A session window function defines windows that contain elements that are within a certain gap duration of another element.
+- It applies on a per-key basis and is useful for data that is irregularly distributed with respect to time.
+- Session windowing is useful when you want to understand how users are interacting with your platform over time, such as measuring session durations, identifying inactive or active periods, or analyzing user behavior within a specific session window.
+
+**Eg**: data stream representing user mouse activity may have long periods of idle time interspersed with high concentrations of clicks. If data arrives after the minimum specified gap duration time, this initiates the start of a new window.
+
 
 **Late arriving**:-
 - Late arriving data refers to data points that arrive after their expected time or after the watermark for a specific time window. 
