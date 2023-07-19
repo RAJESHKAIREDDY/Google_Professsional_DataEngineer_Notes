@@ -6,6 +6,8 @@
  - Cloud SQL is well suited for **regional applications** that do not need to store more than **30 TB** of data in a single instance.
  - Automatic replication,Managed backups.
  - It facilitates **Vertical** & **Horizontal** Scaling.
+
+   **Cloud SQL Proxy**, which provides secure access to Second Generation instances without having to create allow lists or to configure SSL. The proxy manages **authentication and automatically encrypts data**.
  - Cloud SQL is similar to **Amazon RDS**.
 
  ### Read Replicas:- 
@@ -134,6 +136,11 @@
 - Use **partitioning** when you have large datasets and frequently query subsets of the data based on specific criteria like time ranges, date-based filters, or integer ranges.
 - Use **clustering** when you have data with strong correlation patterns and want to optimize query performance by physically reordering the data based on one or more columns.
 
+**BigQuery BI Engine**
+- BigQuery BI Engine is an **in-memory analysis** service for Google BigQuery, designed to accelerate business intelligence (BI) workloads and enhance query performance.
+- It provides high-speed analytics capabilities by caching and processing data in-memory, reducing query response times significantly.
+Purpose:
+
 
 **Points to Remember**:-
 - **sharding** is a method of dividing a database into multiple, smaller databases, while partitioning is a method of dividing a single, large table into smaller, more manageable pieces.
@@ -227,10 +234,12 @@
 - Bigtable does **not** have **secondary indexes**.
 - By default, Bigtable returns the value in the cell with the **latest timestamp**
 - Cloud Bigtable tables are sparse—that is, if there is no data for a particular row/column/cell combination, then no storage is used.
-
+- Bigtable distributes **write operations based on the row key**, not one of the GCP load balancers
 
 ## Cloud Memory Store:-
 - Cloud Memorystore is a fully managed Redis service, which is commonly used for caching.you can store data in key-value format.
+- **Memcached useCases**: Use Memcached when you need a *simple and fast caching solution* for key-value data without the need for advanced features.
+- **Redis Usecases**: Use Redis when you require a *versatile data store* with support for *complex data structures*, persistence, pub/sub messaging, and other advanced features beyond caching.
 - In Redis, if the memory usage surpasses 80 percent of the system memory, the instance is deemed to be under memory pressure. To alleviate this, several actions can be taken: 
 
     **Scaling up the instance**: Increasing the resources allocated to the Redis instance can help accommodate higher memory requirements.

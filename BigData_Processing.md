@@ -89,6 +89,7 @@
 - Only the number of worker nodes and preemptible worker nodes can change—master nodes are fixed
 - AutoScaling can cause problems and become unstable when used with high availability clusters, and it is not allowed to be used on a single node.
 - When using auto scaling, it's better to use cloud storage instead of HDFS storage. However, if you are using HDFS, make sure you have sufficient storage on your primary workers.
+- Dataproc **auto scaling** depends on **YARN metrics** - Allocated, Available and Pending memory
 - Spark Structured streaming not supported by autoscaling  because the underlying architecture of Spark Structured Streaming does not easily allow for dynamic scaling of resources based on the workload.
 - Outputs can be automatically pushed to **BigQuery,CloudStorage and BigTable**.
 
@@ -99,6 +100,8 @@
 - Cloud Dataflow **PubsubIO de-duplicates messages based on a message ID**.Cloud Dataflow can ensure that messages are processed in order.
 - Messages published to a topic before a subscription is created will not be delivered to the subscription.
 - Cloud Pub/Sub **does not** maintain the **order of the messages**, and it is recommended to have it **timestamped or watermarked** from the publisher and ordered using Dataflow.
+- Cloud Pub/Sub has a deliver **at least once**  guarantee. It does **not have** deliver **at most once** guarantee.
+- Cloud Pub/Sub accepts messages in the *standard file formats* such as  **JSON,AVRO,PROTOBUF,RawBytes**.
 
 ### Sliding Windows:- 
 - Windows that advance by a number of data points less than the width of the window are called sliding windows.
@@ -115,6 +118,10 @@
 - Session windowing is useful when you want to understand how users are interacting with your platform over time, such as measuring session durations, identifying inactive or active periods, or analyzing user behavior within a specific session window.
 
 **Eg**: data stream representing user mouse activity may have long periods of idle time interspersed with high concentrations of clicks. If data arrives after the minimum specified gap duration time, this initiates the start of a new window.
+
+**SingleGlobal window**:By default, **all data** in a PCollection is *assigned* to the **single global window**, and **late data is discarded**. 
+- If your data set is of a fixed size, you can use the global window default for your PCollection.
+- To perform aggregations on an **unbounded PCollection** that uses *global windowing*, you should specify a **non-default trigger**F for that PCollection.
 
 
 **Late arriving**:-
