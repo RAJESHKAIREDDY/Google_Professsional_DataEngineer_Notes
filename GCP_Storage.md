@@ -22,6 +22,8 @@
 - A failover replica is a standby replica that is kept **in sync** with the primary database in real-time or near-real-time.
 - A secondary replica database that automatically takes over as the primary in the event of a failure, ensuring high availability and minimal downtime.
 
+- Cloud SQL and Cloud Spanner, provide mechanisms to restrict access to **tables and views**.
+
 ## Cloud Spanner
 - Cloud Spanner is Google’s relational, horizontally scalable, global database. It also manages automatic replication.
 - Cloud Spanner is suitable for read/write operations.
@@ -56,6 +58,7 @@
 - Using a Universally Unique Identifier (UUID), Specifically Version 4 or Later.
 - Using Bit-Reverse Sequential Values.
 
+
 ## BigQuery
 - BigQuery is fully managed, petabyte-scale, low-cost analytics data warehouse databases.
 - Standard SQL supports advanced SQL features, such as correlated subqueries, ARRAY and STRUCT data types, as well as complex join expressions.
@@ -75,7 +78,8 @@
 - This service simplifies the process of importing data from Google Analytics and provides features like scheduling, monitoring, and error handling.
 - It automate the data movement from data sources such as Google Ads and Google AD Manager.
 
-- Cloud Scheduler is a fully managed enterprise-grade cron job scheduler. It is not an multi-cloud orchestration tool.
+
+- BigQuery has two different mechanisms for querying external data: **external tables and federated queries**.
 - Federated storage is used to query data stored in Cloud Storage, Bigtable, or Google Drive
 - An external data source (also known as a **federated data source**) is a data source that allows you to query directly even though the data is not stored in BigQuery.using external tables in BigQuery is useful for such cases:
   - Perform ETL operations on data.
@@ -123,7 +127,7 @@
     - **Timestamp partitioned tables**: Tables are partitioned based on a time value such as timestamps or dates.
     - **Integer range partitioned tables**: Tables are partitioned based on an integer column's range.
 
-- **_PARTITIONTIME and _PARTITIONDATE** are available only in ingestion-time partitioned tables. Partitioned tables do not have pseudo columns.
+- **_PARTITIONTIME and _PARTITIONDATE** are available only in ingestion-time partitioned tables. Partitioned tables do not have pseudo columns **not** available in non-ingestion-time partitioned tables.
 - Rows with null values in the DATE or TIMESTAMP column are stored in a __NULL__ partition, and rows that have dates outside the allowed range are stored in a partition called __UNPARTITIONED__.
 
 **Clustering**:-It is the ordering of data in its stored format. This can improve query performance by reducing the amount of data that needs to be scanned within a partition, since the related data will be physically located closer together.
@@ -150,7 +154,8 @@ Purpose:
 - cluster nodes can download the dependencies from Cloud Storage from internal IPs.
 - Dataproc has a BigQuery connector library which allows it directly interface with BigQuery.BigQuery connector is a Java library that enables Hadoop to process data from BigQuery using abstracted versions of the Apache Hadoop InputFormat and OutputFormat classes.
 - BigQuery requires data to be encoded in UTF-8. If a CSV file is not in UTF-8, BigQuery attempts to convert it, but the conversion may not always be accurate, leading to differences in some bytes.
--  To ensure proper loading, specify the correct encoding. Similarly, JSON files need to be in UTF-8 encoding when loading into BigQuery.
+- Specifying encoding ensures correct character interpretation. Explicit encoding prevents data corruptions and misinterpretations.
+-  To ensure proper loading, specify the correct encoding. Similarly, **JSON files need to be in UTF-8 encoding when loading into BigQuery**.
 - **AVRO**:-It is the recommended format for data loading in BigQuery due to its ability to read data blocks in parallel, even when the file is compressed. Unlike CSV files, Avro does not have encoding issues, making it a preferred choice for efficient and reliable data loading.
 - **PARQUET**:-It is another data storage format that utilizes a columnar model. Uncompressed CSV and JSON files can be loaded faster compared to compressed files because they can be loaded in parallel. However, loading uncompressed files in parallel can result in higher storage costs when using Cloud Storage.
 

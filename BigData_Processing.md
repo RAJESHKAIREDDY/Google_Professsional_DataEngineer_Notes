@@ -17,6 +17,7 @@
  - **Eg**:- if you have a data pipeline that processes user events, the processing time would represent when the system received and processed each event.
  - Processing time can include various steps like data ingestion, transformation, analysis, and any other operations performed on the event data.
 
+- Dataflow **developer role** grants third-party consultants access **to create and work on Dataflow pipelines** but *restricts* their access **to view the data**, ensuring user privacy.
 ## Cloud Dataflow Concepts:-
 
  **Pipelines**:- A Dataflow pipeline is a **directed acyclic graph (DAG)** that represents the data processing tasks and their dependencies. 
@@ -66,6 +67,8 @@
 - It simplifies the deployment, management, and scaling of these big data processing frameworks.
 - Cloud Dataproc allows the possibility to use “ephemeral” clusters, where a large cluster can be created to run a task and then destroyed once the task is over in order to save costs.
 - The main advantages of using Dataproc over self-managed Hadoop or Spark clusters are easy scalability, the ability to use cloud storage instead of HDFS, and convenient connectors to other GCP services like BigQuery and BigTable.
+- There are **three types of secondary workers**: spot VMs, standard preemptible VMs, and non-preemptible VMs. 
+- If you specify secondary workers for your cluster, they must be the **same type**. The **default Dataproc secondary worker type** is the **standard preemptible VM**.
 
 - Cloud Dataproc clusters consist of **two types** of nodes: master nodes and worker nodes
 
@@ -140,13 +143,14 @@
 
 **Eg**:- Cloud Composer
 
+
 - Cron jobs are scheduled tasks that run at predetermined intervals or specific times on a recurring basis.
 -  They are typically used for simpler, standalone tasks that don't have complex dependencies or interactions.
 - Cron jobs are used for automating repetitive tasks, such as backups, log rotations, data updates, or other periodic activities.
 **Eg**:- Cloud Scheduler
 
 ### Google Cloud Platform offers a number of tools and services for orchestration:
- **Cloud Scheduler** for schedule driven single-service orchestration.
+ **Cloud Scheduler** for schedule driven single-service orchestration. Cloud Scheduler is a fully managed enterprise-grade cron job scheduler. It is not an multi-cloud orchestration tool.
 
  **Workflows**:- It is for complex multi-service orchestration(HTTP services).Worklows enables you to automate the execution of **HTTP-based services** running on Cloud Functions and Cloud Run, as well as external services and APIs. Use either **YAML or JSON** to express your workflow.
 
