@@ -83,7 +83,7 @@ your instances, but you are also responsible for configuring managed instance gr
 
 **partner interconnect**, in which case data flows through a **third-party network but not over the Internet**.
 
-## The **Transfer Appliance and Storage Transfer Service** are two different solutions offered by Google Cloud for **data transfers**, each with its own use cases and benefits. Let's compare them:
+## Transfer Sevices in GCP
 
  **Transfer Appliance**:
    - Use case: Transfer large volumes of data from your on-premises infrastructure to Google Cloud Storage.It would take more than one week to upload your data over the network.
