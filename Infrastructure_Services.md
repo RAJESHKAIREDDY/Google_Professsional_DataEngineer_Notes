@@ -16,19 +16,19 @@ your instances, but you are also responsible for configuring managed instance gr
 **Kubernetes Engine**:- It is a Paas Product where it is a managed container orchestration platform that simplifies the deployment and management of containerized applications using Kubernetes.
 - Containers are increasingly used to process workloads because they have less overhead than VMs and allow for finer-grained allocation of resources than VMs.
 
-      **Pods**:- Pods are the smallest computation unit managed by Kubernetes.Pods are deployed to nodes by the scheduler.They are ephemeral and may be terminated if they are not functioning properly.
+    **Pods**:- Pods are the smallest computation unit managed by Kubernetes.Pods are deployed to nodes by the scheduler.They are ephemeral and may be terminated if they are not functioning properly.
 
-      **Services**:-It is an abstraction with a stable API endpoint and stable IP address.A service keeps track of its associated pods so that it can always route calls to a functioning pod.
+    **Services**:-It is an abstraction with a stable API endpoint and stable IP address.A service keeps track of its associated pods so that it can always route calls to a functioning pod.
 
-      **ReplicaSets**:- It is a controller that manages the number of pods running for a deployment.
+    **ReplicaSets**:- It is a controller that manages the number of pods running for a deployment.
 	
-      **Deployments**:- It is a higher-level concept that manages ReplicaSets and provides declarative updates.
+    **Deployments**:- It is a higher-level concept that manages ReplicaSets and provides declarative updates.
 
-      **PersistentVolumes**:- PersistentVolumes is Kubernetes’s way of representing storage allocated or provisioned for use by a pod. Pods acquire access to persistent volumes by creating a PersistentVolumeClaim, which is a logical way to link a pod to persistent storage.
+    **PersistentVolumes**:- PersistentVolumes is Kubernetes’s way of representing storage allocated or provisioned for use by a pod. Pods acquire access to persistent volumes by creating a PersistentVolumeClaim, which is a logical way to link a pod to persistent storage.
 	
-      **StatefulSets**:- Kubernetes uses the StatefulSets abstraction, which is used to designate pods as stateful and assign a unique identifier to them. Kubernetes uses these to track which clients are using which pods and to keep them paired.
+    **StatefulSets**:- Kubernetes uses the StatefulSets abstraction, which is used to designate pods as stateful and assign a unique identifier to them. Kubernetes uses these to track which clients are using which pods and to keep them paired.
 
-      **Ingress**:-It is an object that controls external access to services running in a Kubernetes cluster.
+    **Ingress**:-It is an object that controls external access to services running in a Kubernetes cluster.
 
 - Node pools are collections of VMs running in managed instance groups.
 - Cluster autoscaling is done at the node pool level.
@@ -83,20 +83,16 @@ your instances, but you are also responsible for configuring managed instance gr
 
 **partner interconnect**, in which case data flows through a **third-party network but not over the Internet**.
 
-- The **Transfer Appliance and Storage Transfer Service** are two different solutions offered by Google Cloud for **data transfers**, each with its own use cases and benefits. Let's compare them:
+## The **Transfer Appliance and Storage Transfer Service** are two different solutions offered by Google Cloud for **data transfers**, each with its own use cases and benefits. Let's compare them:
 
  **Transfer Appliance**:
-   
-   **Use case**: Transfer large volumes of data from your on-premises infrastructure to Google Cloud Storage.It would take more than one week to upload your data over the network.
-   
-   **How it works**: You request a Transfer Appliance from Google, load your data onto the device, and then ship it back to Google for the data to be transferred to your Google Cloud Storage account.
-   
-   **Benefits**:
+   - Use case: Transfer large volumes of data from your on-premises infrastructure to Google Cloud Storage.It would take more than one week to upload your data over the network.
+   - How it works: You request a Transfer Appliance from Google, load your data onto the device, and then ship it back to Google for the data to be transferred to your Google Cloud Storage account.
+   - Benefits:
      - Fast and efficient transfer: It can handle large datasets that might take a long time to transfer over the internet.
      - Security: Data is encrypted during transit and at rest on the appliance.
      - Offline transfer: Eliminates the need for high-speed internet connections.
-   
-   **Limitations**:
+   - Limitations:
      - One-time use: It is not designed for repeated or ongoing data transfers.
      - Physical logistics: Requires shipping the appliance back and forth, which can introduce additional time and effort.
 
