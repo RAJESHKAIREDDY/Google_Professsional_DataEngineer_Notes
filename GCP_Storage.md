@@ -54,7 +54,7 @@
 
 **Recommended ways to avoid hotspots for a primary key**:
 - Using a Hash of the Natural Key.
-- Swapping the Order of Columns in Keys to Promote Higher-Cardinality Attributes.
+- Swapping the Order of Columns in Keys to Promote Higher-Cardinality Attributes(columns that have a large number of distinct values).
 - Using a Universally Unique Identifier (UUID), Specifically Version 4 or Later.
 - Using Bit-Reverse Sequential Values.
 
@@ -80,7 +80,9 @@
 
 
 - BigQuery has two different mechanisms for querying external data: **external tables and federated queries**.
-- Federated storage is used to query data stored in Cloud Storage, Bigtable, or Google Drive
+- Query performance for **external data sources may not be as high** as querying data in a native BigQuery table.
+- If query speed is a priority, load the data into BigQuery instead of setting up an external data source. 
+- Federated storage is used to query data stored in Cloud Storage, Bigtable, or Google Drive,Cloud SQL,Cloud Spanner.
 - An external data source (also known as a **federated data source**) is a data source that allows you to query directly even though the data is not stored in BigQuery.using external tables in BigQuery is useful for such cases:
   - Perform ETL operations on data.
   - Frequently changed data.
@@ -91,8 +93,10 @@
 
  **Streaming inserts** in BigQuery provide best effort de-duplication. By including an insertID that uniquely identifies a record, BigQuery can detect duplicates and prevent them from being inserted. However, if no insertID is provided, BigQuery does not attempt to de-duplicate the data.
 - BigQuery supports both **batch and streaming data processing**.*Batching data* to BigQuery is **free**, while *streaming data* is **charged** based on size.
-- Federated queries on protobuf message fields from Bigtable cannot be performed using BigQuery due to differences in data structures and query capabilities between the two systems.
-- To query data from Bigtable in BigQuery, it is recommended to export the data from Bigtable to a compatible format such as Avro or Parquet, and then load it into BigQuery for querying.
+
+**Federated queries on protobuf message fields from Bigtable cannot be performed using BigQuery due to differences in data structures and query capabilities between the two systems**.
+
+**To query data from Bigtable in BigQuery, it is recommended to export the data from Bigtable to a compatible format such as Avro or Parquet, and then load it into BigQuery for querying**.
 - Wildcard tables support built-in BigQuery storage only. You cannot use wildcards when querying an external table or a view.
 
 **Caching** : It is the process of storing frequently accessed data in a temporary storage area so that it can be quickly retrieved at a later time without having to go back to the original source.
@@ -100,8 +104,14 @@
 - Data Studio caching maximum period is 12 hours.
 - BigQuery writes query results to a table, either a destination table specified by the user or a temporary, cached results table.**Temporary, cached results tables** incur **no storage costs** and are maintained per-user, per-project; whereas storing query results in a **permanent table** will result in **storage charges**.
 - Temporary, cached results tables are created in an "anonymous dataset" with restricted access.Access to anonymous datasets is limited to the dataset owner.
-- Anonymous datasets are hidden and their names start with an underscore, not appearing in the datasets list in the GCP Console or the classic BigQuery web UI.
+- **Anonymous datasets** are *hidden* and their names **start with an underscore, not appearing in the datasets list** in the GCP Console or the classic BigQuery web UI.
 - Listing anonymous datasets and auditing access controls can be done using the CLI or the API.
+- When an **anonymous dataset** is created, the **user** running the query job is explicitly given **"bigquery.dataOwner" access to the anonymous dataset**.
+- "bigquery.dataOwner" access gives the user who ran the query job full control over the dataset, including full control over the cached results tables in the anonymous dataset
+
+**bigquery.dataEditor**: Users with this role can **enable caching** for a dataset and **perform data editing tasks**.
+
+**bigquery.dataOwner**: Users with this role have **all the permissions of the "bigquery.dataEditor" role, plus the ability to manage access controls for the dataset**.
 
 ### StackDriver
 
@@ -225,11 +235,18 @@ Purpose:
  **Domain names,Sequential numeric IDs,Frequently updated identifiers,Hashed values** are *anti-patterns* which are not to be used for designing the row-key.
 
 **Best Practices**:-
-- Bigtable has a limit of 1,000 tables per instance.
-- Limit table to around 100 column families to avoid performance issues.
-- Limit row size to 100 MB or less to maintain optimal read performance.
-- Keep cell size below 10 MB and use shorter row keys(4 KB or less) to optimize memory, storage, and response times in Cloud Bigtable.
--  Minimum 1TB is required to store the data in bigtable.
+- Bigtable has a limit of **1,000 tables** per instance.
+- Limit **table** to around **100 column families** to avoid performance issues.
+- Limit **row size** to **100 MB or less** to maintain optimal read performance.
+- Keep **cell size below 10 MB** and use **shorter row keys(4 KB or less) to optimize memory**, storage, and response times in Cloud Bigtable.
+- **Minimum 1TB** is required to store the data in bigtable.
+- Google Cloud recommends keeping **storage utilization below 60% per node** in bigtable for low latency applications.
+
+**If you're running a performance test that depends upon Cloud Bigtable, be sure to follow these steps**
+- Use a production instance.
+- Use at least 300 GB of data. 
+- Before you test, run a heavy pre-test for several minutes
+- Run your test for at least 10 minutes.
 
 **Note**:-
 **Failover** in cloud computing is the process of automatically transferring workloads from a failed or failing primary resource to a secondary resource in order to minimize downtime and ensure continuity of service.
@@ -277,9 +294,11 @@ Purpose:
 
  **Multi-regional Storage:** To mitigate the risk of a regional outage, multi-regional storage stores replicas of objects in multiple regions. It provides greater resilience and is recommended for globally distributed applications.
 
- **Nearline Storage:** If data is accessed less than once in 30 days, Nearline storage is a suitable option. It offers cost-effective storage with slightly higher latency compared to regional storage. It is well-suited for backup and archival data.
+ **Nearline Storage:** If data is accessed less than once in 30 days, Nearline storage is a suitable option. It offers cost-effective storage with slightly higher latency compared to regional storage. It is well-suited for backup and archival data.**30days**.
 
- **Coldline Storage:** Data accessed less than once a year is a good fit for Coldline storage. It provides the most cost-effective archival storage option, although with slightly higher access latency. Coldline storage is ideal for long-term retention of infrequently accessed data.
+ **Coldline Storage:** Data accessed less than once a year is a good fit for Coldline storage. It provides the most cost-effective archival storage option, although with slightly higher access latency. Coldline storage is ideal for long-term retention of infrequently accessed data**90days**
+
+ **Cloud Storage Archive class storage** It is a storage class provided by Google Cloud Storage. It is designed for data that is accessed infrequently and requires long-term retention at a lower cost compared to other storage classes**365days**
 
 - All storage classes have the same latency to return the first byte of data, but the costs to access data and 
 the per-operation costs are higher than regional storage.

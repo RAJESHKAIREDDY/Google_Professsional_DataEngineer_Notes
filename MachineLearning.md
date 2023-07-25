@@ -64,7 +64,8 @@ be used when you want outlier instances to have weights close to zero, which is 
 
  **Dropout Regularization**: It is a regularization method to remove a random selection of the fixed number of units in a neural network layer. More units dropped out, the stronger the regularization.
 
- **Gradient Descent**: It is an optimization algorithm to find the minimal value of a function. Gradient descent is used to find the minimal RMSE or cost function.
+ **Gradient Descent**: It is an optimization algorithm that helps us find the best parameters for our model by iteratively adjusting them in the direction that reduces the prediction errors, ultimately leading to better and more accurate predictions.
+ -  Gradient descent is used to find the minimal RMSE or cost function.
 
  **Cost Function** : It measures the error between predicted output of the model and the actual output.
  -   Cost Function & Loss Function are often interchangeable terms in ML.

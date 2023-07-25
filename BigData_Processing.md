@@ -49,6 +49,10 @@
 
  **Triggers**:- Triggers define when and how often computations are performed on data within windows. They determine when to produce intermediate or final results based on event time progress or data arrival. 
 - Triggers enable fine-grained control over the processing behavior within windows
+- There are three major kinds of triggers that Dataflow supports:
+	-  Time-based triggers
+	-  Data-driven triggers:- You can set a trigger to emit results from a window when that window has received a certain number of data elements.
+	- Composite triggers:- These triggers combine multiple time-based or data-driven triggers in some logical way
 
 - when running a Dataflow pipeline, it usually operates in 2 modes:-
 
@@ -59,6 +63,14 @@
 **drain flag**: Enables drain mode, ensuring all available data is processed before shutdown.
 - Useful for handling intermittent or delayed data arrivals gracefully.
 
+**Preemptible VM's**
+- They are highly affordable, short-lived compute instances suitable for **batch jobs and fault-tolerant workloads**.
+- Preemptible VMs are significantly **cheaper than regular VMs**, making them an attractive option for cost-sensitive workloads.
+- Preemptible VMs have a maximum runtime of **24 hours**. 
+- Use Preemptible VMs only for **secondary workers as they do not run HDFS**.
+- Use **less than 30% preemptible Vm's** for secondary workers.
+- Use **Cloud Storage** for persistent storage.
+
 ## Cloud DataProc
 - Cloud Dataproc is a *fully managed service* that allows you to run Apache Hadoop and Apache Spark clusters on GCP.
 -  Dataproc is great choice for quickly migrating Hadoop and Spark jobs into GCP.
@@ -67,6 +79,7 @@
 - It simplifies the deployment, management, and scaling of these big data processing frameworks.
 - Cloud Dataproc allows the possibility to use “ephemeral” clusters, where a large cluster can be created to run a task and then destroyed once the task is over in order to save costs.
 - The main advantages of using Dataproc over self-managed Hadoop or Spark clusters are easy scalability, the ability to use cloud storage instead of HDFS, and convenient connectors to other GCP services like BigQuery and BigTable.
+- Using preemptible VMs does not always save costs since preemptions can cause longer job execution with resulting higher job cost.
 - There are **three types of secondary workers**: spot VMs, standard preemptible VMs, and non-preemptible VMs. 
 - If you specify secondary workers for your cluster, they must be the **same type**. The **default Dataproc secondary worker type** is the **standard preemptible VM**.
 
