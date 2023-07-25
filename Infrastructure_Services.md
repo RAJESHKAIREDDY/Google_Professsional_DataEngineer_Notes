@@ -1,8 +1,8 @@
 Four key compute options:
-■ Compute Engine
-■ Kubernetes Engine
-■ App Engine
-■ Cloud Functions
+- Compute Engine
+- Kubernetes Engine
+- App Engine
+- Cloud Functions
 
 **Compute Engine**:-It is a IaaS Product where users have full access to the VM's operating system.while using Compute Engine, you have the greatest level of control over 
 your instances, but you are also responsible for configuring managed instance groups, load balancers, and autoscalers. 
@@ -16,19 +16,19 @@ your instances, but you are also responsible for configuring managed instance gr
 **Kubernetes Engine**:- It is a Paas Product where it is a managed container orchestration platform that simplifies the deployment and management of containerized applications using Kubernetes.
 - Containers are increasingly used to process workloads because they have less overhead than VMs and allow for finer-grained allocation of resources than VMs.
 
-    **Pods**:- Pods are the smallest computation unit managed by Kubernetes.Pods are deployed to nodes by the scheduler.They are ephemeral and may be terminated if they are not functioning properly.
+      **Pods**:- Pods are the smallest computation unit managed by Kubernetes.Pods are deployed to nodes by the scheduler.They are ephemeral and may be terminated if they are not functioning properly.
 
-    **Services**:-It is an abstraction with a stable API endpoint and stable IP address.A service keeps track of its associated pods so that it can always route calls to a functioning pod.
+      **Services**:-It is an abstraction with a stable API endpoint and stable IP address.A service keeps track of its associated pods so that it can always route calls to a functioning pod.
 
-    **ReplicaSets**:- It is a controller that manages the number of pods running for a deployment.
+      **ReplicaSets**:- It is a controller that manages the number of pods running for a deployment.
 	
-    **Deployments**:- It is a higher-level concept that manages ReplicaSets and provides declarative updates.
+      **Deployments**:- It is a higher-level concept that manages ReplicaSets and provides declarative updates.
 
-    **PersistentVolumes**:- PersistentVolumes is Kubernetes’s way of representing storage allocated or provisioned for use by a pod. Pods acquire access to persistent volumes by creating a PersistentVolumeClaim, which is a logical way to link a pod to persistent storage.
+      **PersistentVolumes**:- PersistentVolumes is Kubernetes’s way of representing storage allocated or provisioned for use by a pod. Pods acquire access to persistent volumes by creating a PersistentVolumeClaim, which is a logical way to link a pod to persistent storage.
 	
-    **StatefulSets**:- Kubernetes uses the StatefulSets abstraction, which is used to designate pods as stateful and assign a unique identifier to them. Kubernetes uses these to track which clients are using which pods and to keep them paired.
+      **StatefulSets**:- Kubernetes uses the StatefulSets abstraction, which is used to designate pods as stateful and assign a unique identifier to them. Kubernetes uses these to track which clients are using which pods and to keep them paired.
 
-    **Ingress**:-It is an object that controls external access to services running in a Kubernetes cluster.
+      **Ingress**:-It is an object that controls external access to services running in a Kubernetes cluster.
 
 - Node pools are collections of VMs running in managed instance groups.
 - Cluster autoscaling is done at the node pool level.
@@ -44,12 +44,13 @@ your instances, but you are also responsible for configuring managed instance gr
 
 	**App Engine Standard**- It is a platform for running applications in a **language-specific serverless environment**. It supports Go,Java,PHP,Node.js and python.
     - It is available in 2 forms: 1st generation, 2nd generation. 2nd generation services offer more money and more runtime options.
+
 	**App Engine Flexible**- It runs **Docker containers**. It allows developers to customize their runtime environments in ways not available in App Engine Standard.
     -  It is a good option when you want to have the advantages of a PaaS as well as the ability to customize your runtime environment.
 
 - You can configure your service as well as supporting services by specifying three files: 
 	
-    **app.yaml**:-It has three required parameters: runtime, handlers , and threadsafe. runtime specifies the runtime environment, such as Python 3.
+    **app.yaml**:-It has three required parameters: runtime, handlers , and threadsafe. runtime specifies the runtime environment, such as Python3.
 
 	**cron.yaml**:-It is used to configure scheduled tasks for an application.
 
@@ -64,17 +65,17 @@ your instances, but you are also responsible for configuring managed instance gr
 
 **Load balancers** direct traffic only to responsive instances, and they use health checks to determine which instances are available to accept traffic.
 
-**global load balancers** are HTTP(S) Load Balancing, SSL Proxy, and TCP Proxy.
+  **global load balancers** are HTTP(S) Load Balancing, SSL Proxy, and TCP Proxy.
 
-**regional load balancers** are Network TCP/UDP, Internal TCP/UDP, and Internal HTTP(S)
+  **regional load balancers** are Network TCP/UDP, Internal TCP/UDP, and Internal HTTP(S)
 
 
 **persistent disks** are storage devices in the cloud that act like hard drives for your virtual machines (VMs). They are used to store data and files that your applications need to run and operate.
-- Persistent disks are used with *virtual machines* and would require additional cost and operational overhead to store this data on persistent disk.
-- Persistent Disks in GCP are **restricted to a specific region**, which means they cannot be accessed from instances in different regions, potentially limiting data availability and redundancy for multi-region setups.
-- Persistent Disks **not suitable for extremely high-performance workloads or applications that require ultra-low latency storage**. 
-- Persistent disks are used with **Compute Engine and Kubernetes Engine** to provide network based disk storage to VMs and containers and should not be used for **archival storage**.
-- Persistent disks have built-in redundancy for **high availability and reliability**, meaning your data is safe and **won't be lost even if your virtual machine is turned off or restarted**.
+  - Persistent disks are used with *virtual machines* and would require additional cost and operational overhead to store this data on persistent disk.
+  - Persistent Disks in GCP are **restricted to a specific region**, which means they cannot be accessed from instances in different regions, potentially limiting data availability and redundancy for multi-region setups.
+  - Persistent Disks **not suitable for extremely high-performance workloads or applications that require ultra-low latency storage**. 
+  - Persistent disks are used with **Compute Engine and Kubernetes Engine** to provide network based disk storage to VMs and containers and should not be used for **archival storage**.
+  - Persistent disks have built-in redundancy for **high availability and reliability**, meaning your data is safe and **won't be lost even if your virtual machine is turned off or restarted**.
 
 
 - *For high-throughput use cases*, enterprises can use **Cloud Interconnect**. Cloud Interconnect is available as a dedicated interconnect in which an enterprise directly connects to a Google endpoint and traffic flows directly between the two networks.
@@ -112,4 +113,3 @@ your instances, but you are also responsible for configuring managed instance gr
 
 - In summary, the Transfer Appliance is ideal for one-time or infrequent large-scale transfers, particularly when network limitations or security concerns make online transfers impractical. 
 - On the other hand, the Storage Transfer Service is better suited for scheduled, recurring, or online transfers between various storage providers.
-
