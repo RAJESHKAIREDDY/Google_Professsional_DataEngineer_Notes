@@ -14,7 +14,10 @@ Custom roles are especially important when implementing the principle of least p
 - It means permissions cannot be revoked at a higher level(Folder) if they were granted at a lower level(Resource).
 - Organization---->Folders--->Projects---->Resources
 
-**Principle of least Privilege**:- It is the practice of limiting user access to only the resources and actions that are necessary for them to perform their job
+**Principle of least Privilege**:- It is the practice of limiting user access to only the resources and actions that are necessary for them to perform their job.
+
+-  NAT purpose of a NAT (Network Address Translation) gateway is to allow private network resources to access the internet while maintaining security and preserving their private IP addresses.
+- It is primarily used for translating private IP addresses to public IP addresses and enabling communication between private networks and the internet.
 
 **Access Control Lists(ACL's)**:- They are used to control access to resources within a project or organization.
 ACLs define the permissions that a user or group has to perform specific actions on resources such as instances, disks, networks, and buckets.
@@ -71,4 +74,16 @@ by governments are adequately secure, reduce duplication of effort, and reduce r
 
 **General Data Protection Regulation(GDPR)**:- The purpose of this regulation is to standardize privacy protections across the EU, grant controls to individuals over their private information, and specify security practices required for organizations holding private information of EU citizens.
 
+**datalab vs dataprep**
 
+1. **Cloud Datalab**:
+   - Cloud Datalab is an interactive development environment for data exploration, analysis, and machine learning.
+   - It allows data analysts, data scientists, and developers to work with big data using Jupyter notebooks.
+   - Datalab provides support for various programming languages like Python, SQL, and JavaScript, making it versatile for data manipulation and visualization.
+   - Users can run queries against BigQuery, analyze data, create visualizations, and develop machine learning models all within the same environment.
+
+2. **Cloud Dataprep**:
+   - Cloud Dataprep, previously known as Trifacta, is a data preparation tool that helps clean, transform, and enrich raw data from diverse sources.
+   - It offers a visual interface for data wrangling, allowing users to clean and reshape data without writing code.
+   - Dataprep provides automated data transformation suggestions and highlights potential data quality issues, making the data preparation process more efficient.
+   - The tool can handle data from various sources, such as CSV, Excel, JSON, and relational databases.

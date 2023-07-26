@@ -4,14 +4,22 @@ Four key compute options:
 - App Engine
 - Cloud Functions
 
-**Compute Engine**:-It is a IaaS Product where users have full access to the VM's operating system.while using Compute Engine, you have the greatest level of control over 
-your instances, but you are also responsible for configuring managed instance groups, load balancers, and autoscalers. 
+**Compute Engine**:-It is a IaaS Product where users have full access to the VM's operating system.while using Compute Engine, you have the greatest level of control over your instances, but you are also responsible for configuring managed instance groups, load balancers, and autoscalers. 
 - when using Compute Engine, you are responsible for ensuring **high availability and scalability**.This is done with **managed instance groups (MIGs)**.
 
-**MIG**:-A managed instance group is a set of VMs with identical configurations that are managed as a single unit by compute engine. Managed instance groups are configured with a minimum and a maximum number of instances.
-- The configuration of a VM in a managed instance group is specified in a template, known as an instance template.
+**MIG**:-A managed instance group is a set of VMs with identical configurations that are managed as a single unit by compute engine.
+-  Managed instance groups are configured with a minimum and a maximum number of instances.
+- The configuration of a VM in a managed instance group is specified in a template, known as an **instance template**.
 - *advantages* of a managed instance group is that the number of VMs in the group can change according to **workload(AutoScaling)**.
-- unmanaged instance groups allow for heterogeneous VMs they should be used only when migrating legacy clusters from on-premises data centers
+- **Un-managed instance groups** allow for heterogeneous VMs they should be used only when migrating legacy clusters from on-premises data centers.
+
+**Preemptible VM's**:-
+- They are highly affordable, short-lived compute instances suitable for batch jobs and fault-tolerant workloads.
+- Preemptible VMs are significantly cheaper than regular VMs, making them an attractive option for cost-sensitive workloads.
+- Preemptible VMs have a maximum runtime of 24 hours. 
+- Use Preemptible VMs only for secondary workers as they do not run HDFS.
+- Use less than 30% preemptible Vm's for secondary workers.
+- Use Cloud Storage for persistent storage.
 
 **Kubernetes Engine**:- It is a Paas Product where it is a managed container orchestration platform that simplifies the deployment and management of containerized applications using Kubernetes.
 - Containers are increasingly used to process workloads because they have less overhead than VMs and allow for finer-grained allocation of resources than VMs.
@@ -61,6 +69,7 @@ your instances, but you are also responsible for configuring managed instance gr
 - Events such as **writing a message to a Cloud Pub/Sub topic or uploading a file to Cloud Storage can trigger the execution of a Cloud Function**. It is written using JavaScript, Python 3, and Go.
 - The parameter Timeout refers to the maximum allowed duration for a function to run before it is forcibly terminated. 
 - By default, the timeout period is set to **1 minute**, but it can be adjusted to a**maximum of 9 minutes**. If the function exceeds the timeout, it will be forcefully stopped.
+- cloud function handles one request at a time.
 
 
 **Load balancers** direct traffic only to responsive instances, and they use health checks to determine which instances are available to accept traffic.
@@ -78,7 +87,7 @@ your instances, but you are also responsible for configuring managed instance gr
   - Persistent disks have built-in redundancy for **high availability and reliability**, meaning your data is safe and **won't be lost even if your virtual machine is turned off or restarted**.
 
 
-- *For high-throughput use cases*, enterprises can use **Cloud Interconnect**. Cloud Interconnect is available as a dedicated interconnect in which an enterprise directly connects to a Google endpoint and traffic flows directly between the two networks.
+- *For high-throughput use cases*, enterprises can use **Cloud Interconnect**. Cloud Interconnect is available as a **dedicated interconnect** in which an enterprise directly connects to a Google endpoint and traffic flows directly between the two networks.
 - Cloud Interconnect for better security, higher speed, and entry into protected networks.
 
 **partner interconnect**, in which case data flows through a **third-party network but not over the Internet**.

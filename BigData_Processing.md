@@ -101,6 +101,29 @@
 ## Standard VS High Availability
 ![Alt text](image-2.png)
 
+**Dataproc best practices**:-
+- scale only secondary workers to avoid moving HDFS data and reduce the risk of cluster issues.
+- Set the graceful decommission period longer than the longest running job to avoid resource shortages during scaling.
+- For sensitive long-running workloads, consider separate ephemeral clusters, while keeping short jobs on a single auto scaling cluster.
+- Using Enhanced Flexibility Mode (EFM) for more aggressive auto scaling, especially when shuffle data is stored on primary worker nodes and secondary can be scaled up/down aggressively.
+- Use non-preemptible workers for the application master.
+- Zonal disks have higher read/write throughput than regional ones.
+- Local SSDs can provide faster read and write times than persistent disk
+- HDFS storage on Dataproc is built on top of persistent disks (PDs) attached to worker nodes.
+
+**Enhance Flexibility Mode**:-It improves performance and scalability by distributing data more evenly across storage nodes. It achieves this by breaking data into smaller chunks and distributing them across multiple nodes, ensuring better load balancing and data distribution.
+
+- EFM offloads shuffle data in one of two user-selectable modes:
+   **Primary-worker shuffle**:- Mappers write data to primary workers, and workers pull from those remote nodes during the reduce phase" mode is available and recommended exclusively for Spark jobs.
+   **HCFS (Hadoop Compatible File System) shuffle**:-  Mappers write data to an HCFS implementation (HDFS by default). As with primary worker mode, only primary workers participate in HDFS and HCFS implementations (if HCFS shuffle uses the Cloud Storage Connector, data is stored off-cluster). 
+   - This mode can benefit jobs with small amounts of data, but due to scaling limitations, it is not recommended for larger jobs.
+
+- Enhanced Flexibility mode is configured per execution engine, and must be configured during cluster creation.
+- both EFM modes do not store intermediate shuffle data on secondary workers.
+-  EFM is well suited to clusters that use preemptible VMs or only autoscale the secondary worker group.
+- Enhanced Flexibility Mode (EFM) is available only for regional buckets (not multi-regional or dual-regional buckets).
+- Once you enable EFM for a bucket, you cannot revert it to the traditional mode. The change is permanent.
+
 **Note**:- 
 - Only the number of worker nodes and preemptible worker nodes can change—master nodes are fixed
 - AutoScaling can cause problems and become unstable when used with high availability clusters, and it is not allowed to be used on a single node.
@@ -118,6 +141,10 @@
 - Cloud Pub/Sub **does not** maintain the **order of the messages**, and it is recommended to have it **timestamped or watermarked** from the publisher and ordered using Dataflow.
 - Cloud Pub/Sub has a deliver **at least once**  guarantee. It does **not have** deliver **at most once** guarantee.
 - Cloud Pub/Sub accepts messages in the *standard file formats* such as  **JSON,AVRO,PROTOBUF,RawBytes**.
+
+**default integrations services**:Compute Engine,Kubernetes Engine,App Engine,Cloud Functions,Cloud Pub/Sub, data proc, data flow, bigquery
+
+**needed plugin to integrate monitoring services**:- Cloud Storage, Cloud SQL, Cloud Spanner, Cloud Datastore, Cloud Bigtable
 
 ### Sliding Windows:- 
 - Windows that advance by a number of data points less than the width of the window are called sliding windows.
