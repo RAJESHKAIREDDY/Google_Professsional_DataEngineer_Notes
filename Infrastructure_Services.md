@@ -13,13 +13,6 @@ Four key compute options:
 - *advantages* of a managed instance group is that the number of VMs in the group can change according to **workload(AutoScaling)**.
 - **Un-managed instance groups** allow for heterogeneous VMs they should be used only when migrating legacy clusters from on-premises data centers.
 
-**Preemptible VM's**:-
-- They are highly affordable, short-lived compute instances suitable for batch jobs and fault-tolerant workloads.
-- Preemptible VMs are significantly cheaper than regular VMs, making them an attractive option for cost-sensitive workloads.
-- Preemptible VMs have a maximum runtime of 24 hours. 
-- Use Preemptible VMs only for secondary workers as they do not run HDFS.
-- Use less than 30% preemptible Vm's for secondary workers.
-- Use Cloud Storage for persistent storage.
 
 **Kubernetes Engine**:- It is a Paas Product where it is a managed container orchestration platform that simplifies the deployment and management of containerized applications using Kubernetes.
 - Containers are increasingly used to process workloads because they have less overhead than VMs and allow for finer-grained allocation of resources than VMs.

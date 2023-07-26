@@ -114,7 +114,9 @@
 **Enhance Flexibility Mode**:-It improves performance and scalability by distributing data more evenly across storage nodes. It achieves this by breaking data into smaller chunks and distributing them across multiple nodes, ensuring better load balancing and data distribution.
 
 - EFM offloads shuffle data in one of two user-selectable modes:
+
    **Primary-worker shuffle**:- Mappers write data to primary workers, and workers pull from those remote nodes during the reduce phase" mode is available and recommended exclusively for Spark jobs.
+   
    **HCFS (Hadoop Compatible File System) shuffle**:-  Mappers write data to an HCFS implementation (HDFS by default). As with primary worker mode, only primary workers participate in HDFS and HCFS implementations (if HCFS shuffle uses the Cloud Storage Connector, data is stored off-cluster). 
    - This mode can benefit jobs with small amounts of data, but due to scaling limitations, it is not recommended for larger jobs.
 
