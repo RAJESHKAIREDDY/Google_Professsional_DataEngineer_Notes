@@ -4,20 +4,8 @@ Four key compute options:
 - App Engine
 - Cloud Functions
 
-Certainly! I'll format the table for you so that it's easy to read in your `README.md` file:
-
-```
-## Comparison of Cloud Service Models
-
-This table provides a comparison of the three main cloud computing service models - IaaS, PaaS, and SaaS - along with examples of Google Cloud Platform (GCP) services for each category:
-
-| Aspect                       | IaaS (Infrastructure as a Service)                                                                                             | PaaS (Platform as a Service)                                                                                                      | SaaS (Software as a Service)                                                                                                   |
-|-----------------------------|---------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|
-| Description                 | Provides virtualized computing resources over the internet, allowing users to rent and manage virtual machines, storage, and networking components. Users are responsible for managing the applications, data, and runtime environments. | Offers a platform that includes infrastructure and development tools, allowing users to build, deploy, and manage applications without dealing with the complexities of underlying infrastructure. | Delivers fully functional applications over the internet on a subscription basis, with the software centrally hosted and managed by the service provider. |
-| User Control                | High level of control over the underlying infrastructure, including operating systems, applications, and networking configurations.                                                      | Moderate control over the application environment, as users can focus on developing and deploying applications, leaving infrastructure management to the platform.                    | Limited control over the software's underlying infrastructure, as the service provider manages the application and its backend infrastructure.                               |
-| Development Focus           | Infrastructure management, including OS updates, security, and scaling of virtual machines.                                                                                                 | Application development and deployment, utilizing the provided platform and services.                                                                                                          | Utilizing and accessing the software application's features and functionalities.                                              |
-| Scalability                 | Scalable, as users can provision and manage virtual machines to scale resources up or down based on demand.                                                                               | Scalable, as the platform automatically handles resource allocation and scaling of applications based on load.                                                                              | Scalable, with the service provider responsible for ensuring the application can handle varying levels of user demand.                                                                      |
-| Example GCP Services        | Google Compute Engine (GCE), Google Cloud Storage, Google Kubernetes Engine (GKE), Google Cloud Virtual Private Cloud (VPC), etc.                                                            | Google App Engine, Google Cloud Functions, Google Cloud Dataflow, Google Cloud Pub/Sub, etc.                                                                                                  | Google Workspace (formerly G Suite), Google Meet, Google Analytics, Google Drive, etc.                                                                                                      |
+![Alt text](IaasVsPaasVsSaas.png)
+![Alt text](iaas2.png)
 
 
 
