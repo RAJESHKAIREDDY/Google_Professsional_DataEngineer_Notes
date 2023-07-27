@@ -26,6 +26,8 @@ ACLs define the permissions that a user or group has to perform specific actions
 **Hash-based Message Authentication Code** (HMAC) keys are used to authenticate access to **Cloud Storage**. The permissions for 
 HMAC keys include creating, deleting, and listing keys as well as getting and updating metadata
 
+![Alt text](userVsJobusers.png)
+
 ### Bigtable and IAM
 Access controls for Cloud Bigtable can be configured at the project, instance, or table level.
 

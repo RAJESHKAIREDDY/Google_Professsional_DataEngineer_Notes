@@ -192,16 +192,16 @@
 
 ## <a id="cloud-firestore"></a>Cloud Firestore
 
-- Google Cloud Datastore is a NoSQL document database built for automatic scaling, high performance, and ease of application development and integrating well with App Engine.
+- Google Cloud Datastore is a **NoSQL document database** built for **automatic scaling, high performance**, and ease of application development and integrating well with **App Engine**.
 - Cloud Firestore is the managed document database that is replacing Cloud Datastore.Document databases are used when the structure of data can vary from one record to another.
-- Cloud Datastore offers Fully managed NoOps NoSQL solution which is suited for Semistructured data and ideal for product catalogs.
-- It also offers automatic scaling, high performance, and ease of application development and integrating well with App Engine.
+- Cloud Datastore offers **Fully managed NoOps NoSQL** solution which is **suited** for **Semistructured data and ideal for product catalogs**.
 - Cloud Datastore offers **automated backups** and the ability to restore data to any point within the last **30 days**.
-- It store highly structured objects in a document database, with support for ACID transactions and SQL-like queries. Cloud Firestore operates in one of two modes: 
+- It store highly structured objects in a document database, with support for **ACID transactions and SQL-like queries**.
+- Cloud Firestore operates in one of two modes: 
 	
-**Native Mode**:- the new data model, realtime updates, and mobile and web client library features are available only in Native Mode.
+    **Native Mode**:- the new data model, realtime updates, and mobile and web client library features are available only in Native Mode.
 
-**Cloud Datastore Mode**:- In Datastore mode, Firestore offers **strong consistency** and removes the limitations of 25 entity groups and one write per second to an entity group that were present in Datastore.
+    **Cloud Datastore Mode**:- In Datastore mode, Firestore offers **strong consistency** and removes the limitations of 25 entity groups and one write per second to an entity group that were present in Datastore.
 
 - Indexes are used when querying and must exist for any property referenced in filters
 - Cloud Firestore uses two kinds of indexes:
