@@ -1,13 +1,12 @@
 # Google_Professsional_DataEngineer_Notes
 - [GCP_Storage](GCP_Storage.md)
-  - [Cloud Storage](GCP_Storage.md#cloud-storage)
   - [Cloud SQL](/GCP_Storage.md#cloud-sql)
-  - [Datastore](/datastore/README.md)
-  - [Bigtable](GCP_Storage.md#bigtable)
-  - [BigQuery](GCP_Storage.md#bigquery)
   - [Cloud Spanner](GCP_Storage.md#cloud-spanner)
+  - [BigQuery](GCP_Storage.md#bigquery)
   - [Cloud Firestore](GCP_Storage.md#cloud-firestore)
+  - [Bigtable](GCP_Storage.md#bigtable)
   - [Cloud Memorystore](GCP_Storage.md#cloud-memorystore)
+  - [Cloud Storage](GCP_Storage.md#cloud-storage)
 
 - [Big Data Processing](BigData_Processing.md)
   - [BigQuery](/bigquery/README.md)
