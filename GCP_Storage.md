@@ -26,10 +26,10 @@
 
 - Cloud SQL and Cloud Spanner, provide mechanisms to restrict access to **tables and views**.
 
-## Cloud Spanner
+## <a id="cloud-spanner"></a>Cloud Spanner
 - Cloud Spanner is Google’s relational, horizontally scalable, global database. It also manages automatic replication.
 - Cloud Spanner is suitable for read/write operations.
-- Google recommends keeping CPU utilization **below 65 percent in regional instances** and **below 45 percent in multi-regional instances**. Also, each node can store up to 2 TB of data.
+- Google recommends keeping CPU utilization **below 65 percent in regional instances** and **below 45 percent in multi-regional instances**. Also, each node can store up to **2 TB of data**.
 - Spanner can compromise (A)Availability from CAP theorem.
 - Cloud Spanner **supports** both **primary and secondary indexes**.
 - Cloud Spanner provides for secondary indexes on columns or groups of columns other than the primary key.
@@ -61,7 +61,7 @@
 - Using Bit-Reverse Sequential Values.
 
 
-## BigQuery
+## <a id="bigquery"></a>BigQuery
 - BigQuery is fully managed, petabyte-scale, low-cost analytics data warehouse databases.
 - Standard SQL supports advanced SQL features, such as correlated subqueries, ARRAY and STRUCT data types, as well as complex join expressions.
 - BigQuery supports nested and repeated structures in rows. Nested data is represented in STRUCT type in SQL, and repeated types are represented in ARRAY types in SQL.
