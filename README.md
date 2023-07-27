@@ -3,9 +3,11 @@
   - [Cloud Storage](GCP_Storage.md#cloud-storage)
   - [Cloud SQL](/GCP_Storage.md#cloud-sql)
   - [Datastore](/datastore/README.md)
-  - [Bigtable](/bigtable/README.md)
+  - [Bigtable](GCP_Storage.md#bigtable)
   - [BigQuery](GCP_Storage.md#bigquery)
   - [Cloud Spanner](GCP_Storage.md#cloud-spanner)
+  - [Cloud Firestore](GCP_Storage.md#cloud-firestore)
+  - [Cloud Memorystore](GCP_Storage.md#cloud-memorystore)
 
 - [Big Data Processing](BigData_Processing.md)
   - [BigQuery](/bigquery/README.md)

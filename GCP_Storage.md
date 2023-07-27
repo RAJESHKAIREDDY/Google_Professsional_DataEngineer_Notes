@@ -190,7 +190,7 @@
 - **AVRO**:-It is the recommended format for data loading in BigQuery due to its ability to read data blocks in parallel, even when the file is compressed. Unlike CSV files, Avro does not have encoding issues, making it a preferred choice for efficient and reliable data loading.
 - **PARQUET**:-It is another data storage format that utilizes a columnar model. Uncompressed CSV and JSON files can be loaded faster compared to compressed files because they can be loaded in parallel. However, loading uncompressed files in parallel can result in higher storage costs when using Cloud Storage.
 
-## Cloud Firestore
+## <a id="cloud-firestore"></a>Cloud Firestore
 
 - Google Cloud Datastore is a NoSQL document database built for automatic scaling, high performance, and ease of application development and integrating well with App Engine.
 - Cloud Firestore is the managed document database that is replacing Cloud Datastore.Document databases are used when the structure of data can vary from one record to another.
@@ -216,7 +216,7 @@
 **Firestore** is a suitable choice if you need to store well-organized data in a document database, ensuring transactional integrity and the ability to perform SQL-like queries.
 - Datastore is designed for web applications of a small scale.
 
-## Cloud Big Table:-
+## <a id="bigtable"></a> Bigtable:-
 - Bigtable provides a scalable, fully-managed NoSQL wide-column database that is suitable for both real-time access and analytics workloads.
 - Cloud Bigtable supports up to **4 replicated clusters**.
 - Cloud Bigtable is used for **high-volume databases** that require **low millisecond (ms) latency**.
@@ -282,7 +282,7 @@
 - Cloud Bigtable tables are sparse—that is, if there is no data for a particular row/column/cell combination, then no storage is used.
 - Bigtable distributes **write operations based on the row key**, not one of the GCP load balancers
 
-## Cloud Memory Store:-
+## <a id="cloud-memorystore"></a>Cloud Memorystore
 - Cloud Memorystore is a fully managed Redis service, which is commonly used for caching.you can store data in key-value format.
 - **Memcached useCases**: Use Memcached when you need a *simple and fast caching solution* for key-value data without the need for advanced features.
 - **Redis Usecases**: Use Redis when you require a *versatile data store* with support for *complex data structures*, persistence, pub/sub messaging, and other advanced features beyond caching.
