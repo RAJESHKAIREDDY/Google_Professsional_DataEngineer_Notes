@@ -116,7 +116,7 @@
 - EFM offloads shuffle data in one of two user-selectable modes:
 
    **Primary-worker shuffle**:- Mappers write data to primary workers, and workers pull from those remote nodes during the reduce phase" mode is available and recommended exclusively for Spark jobs.
-   
+
    **HCFS (Hadoop Compatible File System) shuffle**:-  Mappers write data to an HCFS implementation (HDFS by default). As with primary worker mode, only primary workers participate in HDFS and HCFS implementations (if HCFS shuffle uses the Cloud Storage Connector, data is stored off-cluster). 
    - This mode can benefit jobs with small amounts of data, but due to scaling limitations, it is not recommended for larger jobs.
 
@@ -133,6 +133,8 @@
 - Dataproc **auto scaling** depends on **YARN metrics** - Allocated, Available and Pending memory
 - Spark Structured streaming not supported by autoscaling  because the underlying architecture of Spark Structured Streaming does not easily allow for dynamic scaling of resources based on the workload.
 - Outputs can be automatically pushed to **BigQuery,CloudStorage and BigTable**.
+- preemptible nodes can have persistent disks. Dataproc handles the addition and removal of preemptible nodes.preemptible workers cannot store the data. 	
+- **Production instances** have clusters with a minimum of **three nodes**; *development instances* have a **single node** and do not provide for high availability.
 
 ## Cloud Pub/sub
 - Cloud Pub/Sub is a **managed real-time messaging service**.It supports both push and pull subscription models.

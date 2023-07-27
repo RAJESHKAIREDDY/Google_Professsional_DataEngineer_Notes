@@ -193,8 +193,8 @@
 ## <a id="cloud-firestore"></a>Cloud Firestore
 
 - Google Cloud Datastore is a **NoSQL document database** built for **automatic scaling, high performance**, and ease of application development and integrating well with **App Engine**.
-- Cloud Firestore is the managed document database that is replacing Cloud Datastore.Document databases are used when the structure of data can vary from one record to another.
-- Cloud Datastore offers **Fully managed NoOps NoSQL** solution which is **suited** for **Semistructured data and ideal for product catalogs**.
+- Cloud Firestore is the managed document database that is replacing **Cloud Datastore**.Document databases are used when the structure of data can vary from one record to another.
+- Cloud Datastore offers **Fully managed No-Ops NoSQL** solution which is **suited** for **Semistructured data and ideal for product catalogs**.
 - Cloud Datastore offers **automated backups** and the ability to restore data to any point within the last **30 days**.
 - It store highly structured objects in a document database, with support for **ACID transactions and SQL-like queries**.
 - Cloud Firestore operates in one of two modes: 
@@ -206,9 +206,9 @@
 - Indexes are used when querying and must exist for any property referenced in filters
 - Cloud Firestore uses two kinds of indexes:
 
-**built-in indexes**:- Built-in indexes are created by default for each property in an entity. 
+    **built-in indexes**:- Built-in indexes are created by default for each property in an entity. 
 
-**composite indexes**:- They are used when there are multiple filter conditions in a query. They are defined in a configuration file called index.yaml
+    **composite indexes**:- They are used when there are multiple filter conditions in a query. They are defined in a configuration file called **index.yaml**.
 
 - Cloud Firestore in Datastore Mode is a managed document database that is well suited for applications that require semi-structured data but that do not require low-latency writes (< 10 ms).
 - When *low-latency writes* are needed, **Bigtable** is a better option.
@@ -221,7 +221,7 @@
 - Cloud Bigtable supports up to **4 replicated clusters**.
 - Cloud Bigtable is used for **high-volume databases** that require **low millisecond (ms) latency**.
 - Cloud Bigtable is used for **IoT, time-series, finance**, and similar applications.
-- Bigtable is a **managed service**, but it is not a NoOps service: like Cloud SQL and Cloud Spanner.
+- Bigtable is a **managed service**, but it is **not a No-Ops service**: like Cloud SQL and Cloud Spanner.
 - Bigtable also excels as a **storage engine** for **batch MapReduce operations, stream processing/analytics,and machine-learning applications**.
 - Data is stored in Bigtable lexicographically by row-key, which is the one indexed column in a Bigtable table.
 - goal when designing a row-key is to take advantage of the fact that **Bigtable stores data in a sorted order**.
@@ -231,12 +231,10 @@
 - Alternatively, you can use a Cloud Dataflow or Hadoop MapReduce job to copy the data from one instance to another.
 - It's important to note that migrating an entire instance takes time, and you may need to add nodes to your Cloud Bigtable clusters before initiating the migration.
 - The **dataset location cannot be changed** once created. The dataset needs to be copied using Cloud Storage.
-- preemptible nodes can have persistent disks. Dataproc handles the addition and removal of preemptible nodes.preemptible workers cannot store the data. 	
-- **Production instances** have clusters with a minimum of **three nodes**; *development instances* have a **single node** and do not provide for high availability.
 
 **App profiles** are configurations for handling client requests in Cloud Bigtable.
-- For strong consistency, specify single-cluster routing in the app configuration and avoid using other clusters except for failover.
-- To enable automatic failover in Cloud Bigtable when one region becomes unreachable, use multicluster routing.
+- For *strong consistency*, specify **single-cluster** routing in the app configuration and avoid using other clusters except for failover.
+- To enable automatic failover in Cloud Bigtable when one region becomes unreachable, use **multicluster routing**.
 
 **Key Visualizer** is a Cloud Bigtable tool for understanding usage patterns in a Cloud Bigtable database.
 - It generates visual reports for your tables that break down your usage based on the row keys that you access. 
@@ -279,14 +277,14 @@
 - Primary index is always based on the primary key of a table, which is a unique identifier for each row.  
 - Bigtable does **not** have **secondary indexes**.
 - By default, Bigtable returns the value in the cell with the **latest timestamp**
-- Cloud Bigtable tables are sparse—that is, if there is no data for a particular row/column/cell combination, then no storage is used.
+- Cloud Bigtable tables are **sparse**—that is, if there is no data for a particular row/column/cell combination, then no storage is used.
 - Bigtable distributes **write operations based on the row key**, not one of the GCP load balancers
 
 ## <a id="cloud-memorystore"></a>Cloud Memorystore
-- Cloud Memorystore is a fully managed Redis service, which is commonly used for caching.you can store data in key-value format.
-- **Memcached useCases**: Use Memcached when you need a *simple and fast caching solution* for key-value data without the need for advanced features.
-- **Redis Usecases**: Use Redis when you require a *versatile data store* with support for *complex data structures*, persistence, pub/sub messaging, and other advanced features beyond caching.
-- In Redis, if the memory usage surpasses 80 percent of the system memory, the instance is deemed to be under memory pressure. To alleviate this, several actions can be taken: 
+- Cloud Memorystore is a **fully managed Redis service**, which is commonly used for **caching**.you can store data in **key-value format**.
+    - **Memcached useCases**: Use Memcached when you need a *simple and fast caching solution* for key-value data without the need for advanced features.
+    - **Redis Usecases**: Use Redis when you require a *versatile data store* with support for *complex data structures*, **persistence, pub/sub messaging**, and other advanced features beyond caching.
+- In Redis, if the memory usage **surpasses 80 percent** of the system memory, the instance is deemed to be **under memory pressure*. To alleviate this, several actions can be taken: 
 
     **Scaling up the instance**: Increasing the resources allocated to the Redis instance can help accommodate higher memory requirements.
   
@@ -297,20 +295,23 @@
     **Setting time-to-live (TTL) parameters**: Applying TTL parameters to volatile keys specifies the duration for which a key should be retained in the cache before it becomes eligible for eviction.
 
    **Manually deleting data**: Removing data manually from the Redis instance can free up memory space and alleviate memory pressure.
-- By default, Redis evicts the least recently used keys with TTLs set
+- **By default, Redis evicts the least recently used keys with TTLs set**.
 
 ## <a id="cloud-storage"></a>Cloud Storage
 - Cloud Storage is a specialized storage system that primarily deals with **unstructured data**, including files, images, videos, backups, and various other types of data.
 - In Cloud Storage, data is organized and stored as individual objects, which are treated as atomic units. 
 - This means that each object is independent and self-contained, allowing for efficient storage and retrieval of unstructured data.
 - Google Cloud Storage is **not suitable** to handle **real time streaming data**.
-- A bucket is a group of objects that share access controls at the bucket level.Cloud Storage service does not use a filesystem.
+- A bucket is a group of objects that share access controls at the bucket level.**Cloud Storage service does not use a filesystem**.
 - Cloud Storage can be used as both the staging area for storing data immediately after ingestion and also as a long-term store for transformed data
 
 **Bucket Naming**:-
 - Do not use sequential names or timestamps if uploading files in parallel.
 -  Files with sequentially close names will likely be assigned to the same server. 
 - This can create a hotspot when writing files to Cloud Storage.
+- Bucket names can only contain lowercase letters, numeric characters, dashes (-), underscores (_), and dots (.). 
+- Spaces are not allowed. Bucket names cannot be represented as an IP address in dotted-decimal notation. 
+- Bucket names cannot begin with the "goog" prefix. Bucket names cannot contain "google" or close misspellings, such as "g00gle".
 
 ### Four types of Cloud Storage:-
 
