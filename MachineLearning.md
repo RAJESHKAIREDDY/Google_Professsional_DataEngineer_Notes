@@ -100,7 +100,8 @@ recall.
 ## ML API's
 
  **Vision**:- Allows you to derive insights from static images in the cloud or at edge,
-- Cloud Vision API
+
+**Cloud Vision API**: Cloud Vision API provides powerful image analysis capabilities, including Optical Character Recognition (OCR) technology, which can **extract text from images** of scanned documents, receipts, and other types of images
 - Cloud Video Intelligence API
 
 **Translation**:-
@@ -162,3 +163,5 @@ recall.
 - Cloud Vision offers both pretrained models via an API and the ability to build custom models using AutoML Vision to provide flexibility depending on your use case.
 - Cloud ML Engine is used to deploy models. It does not help to build the models.
 - Deep and wide models are ideal for a recommendation application.**Wide models** are used for memorization. **Deep models** are for generalization.
+- **TensorFlow Hub** is a repository of **reusable machine learning models** that have been **pre-trained **on large datasets and can be easily integrated into new applications with minimal effort.
+-  TensorFlow Hub provides a wide range of models for various tasks such as **natural language processing, image recognition, and object detection**.

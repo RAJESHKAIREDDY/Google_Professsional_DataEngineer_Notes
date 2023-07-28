@@ -4,13 +4,13 @@
 - Cloud Pub/Sub
 - Cloud Composer
 
-## Cloud DataFlow
+## <a id="cloud-dataflow"></a>Cloud DataFlow
 - It is a *managed* **stream and batch processing service**.
 - Cloud Dataflow pipelines are written using the Apache Beam API.Cloud Dataflow does not require you to configure instances or clusters—it is a **no-ops service**.
 - It directly integrates with **Cloud Pub/Sub, BigQuery,Cloud ML Engine, Bigtable and Apache Kafka**.
 - Cloud Dataflow is coding transformations in one of the languages supported by Apache Beam, which are currently **Java and Python**.
 
- **Event_Time**:- It refers to the Time that data element occurs is determined by timestamp on data element itself.
+ **Event_Time**:- It refers to the timestamp that indicates when that actual event occurred and the data element was created.
  - **Eg**:- if you're analyzing user activity on a website, the event time would represent the actual time when a user performed a specific action, such as clicking a button or submitting a form.
 
  **Processing time**:- It refers to the time at which an event or data point is processed or handled by a system or application.
@@ -45,7 +45,7 @@
 
  **User-defined functions**:-UDF are user-specified code for performing some operation, typically using a ParDo
 
- **Runner**:- Runners are software that executes pipelines as jobs. Dataflow supports different runners that execute the pipeline, including the Dataflow service in GCP, Apache Flink, and Apache Spark. The runner manages the pipeline execution, resource allocation, and fault tolerance.
+ **Runner**:- Runners are software that executes pipelines as jobs. Dataflow supports different runners that execute the pipeline, including the Dataflow service in GCP, Apache Flink, and Apache Spark. The **runner manages the pipeline execution, resource allocation, and fault tolerance**.
 
  **Triggers**:- Triggers define when and how often computations are performed on data within windows. They determine when to produce intermediate or final results based on event time progress or data arrival. 
 - Triggers enable fine-grained control over the processing behavior within windows
@@ -71,7 +71,7 @@
 - Use **less than 30% preemptible Vm's** for secondary workers.
 - Use **Cloud Storage** for persistent storage.
 
-## Cloud DataProc
+## <a id="cloud-dataproc"></a>Cloud DataProc
 - Cloud Dataproc is a *fully managed service* that allows you to run Apache Hadoop and Apache Spark clusters on GCP.
 -  Dataproc is great choice for quickly migrating Hadoop and Spark jobs into GCP.
 
@@ -122,7 +122,7 @@
 
 - Enhanced Flexibility mode is configured per execution engine, and must be configured during cluster creation.
 - both EFM modes do not store intermediate shuffle data on secondary workers.
--  EFM is well suited to clusters that use preemptible VMs or only autoscale the secondary worker group.
+-  **EFM is well suited to clusters that use preemptible VMs or only autoscale the secondary worker group**.
 - Enhanced Flexibility Mode (EFM) is available only for regional buckets (not multi-regional or dual-regional buckets).
 - Once you enable EFM for a bucket, you cannot revert it to the traditional mode. The change is permanent.
 
@@ -136,7 +136,7 @@
 - preemptible nodes can have persistent disks. Dataproc handles the addition and removal of preemptible nodes.preemptible workers cannot store the data. 	
 - **Production instances** have clusters with a minimum of **three nodes**; *development instances* have a **single node** and do not provide for high availability.
 
-## Cloud Pub/sub
+## <a id="cloud-pub/sub"></a>Cloud Pub/sub
 - Cloud Pub/Sub is a **managed real-time messaging service**.It supports both push and pull subscription models.
 - No server or cluster provisioning is required.**Automatic scaling** and **load partitioning** are handled by Cloud Pub/Sub.
 - Messages can stay in a topic for up to **seven days**.For guaranteed exactly once processing, use Cloud Dataflow PubsubIO.
@@ -181,7 +181,7 @@
 -  Data points with timestamps earlier than the watermark are considered on-time or early arriving data, while data points with timestamps later than the watermark are considered late arriving data.
 - late arriving data refers to data points arriving after their expected time, while watermarks are timestamps used to track the progress of event time and determine the completeness of data within a time window.
 
-## Cloud Composer
+## <a id="cloud-composer"></a>Cloud Composer
 
  Orchestration often refers to the automated configuration, coordination, and management of multiple interdependent computer systems and services.Orchestration jobs are used to manage and streamline complex processes involving multiple steps, dependencies, and interactions between various components or services. 
 

@@ -189,6 +189,7 @@
 -  To ensure proper loading, specify the correct encoding. Similarly, **JSON files need to be in UTF-8 encoding when loading into BigQuery**.
 - **AVRO**:-It is the recommended format for data loading in BigQuery due to its ability to read data blocks in parallel, even when the file is compressed. Unlike CSV files, Avro does not have encoding issues, making it a preferred choice for efficient and reliable data loading.
 - **PARQUET**:-It is another data storage format that utilizes a columnar model. Uncompressed CSV and JSON files can be loaded faster compared to compressed files because they can be loaded in parallel. However, loading uncompressed files in parallel can result in higher storage costs when using Cloud Storage.
+- Schema **auto-detection** is **not used with Avro files, Parquet files, ORC files, Firestore export files, or Datastore export files**.
 
 ## <a id="cloud-firestore"></a>Cloud Firestore
 
