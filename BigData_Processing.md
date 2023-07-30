@@ -65,6 +65,9 @@
 
 **Preemptible VM's**
 - They are highly affordable, short-lived compute instances suitable for **batch jobs and fault-tolerant workloads**.
+- Preemptible VMs on Google Cloud Platform (GCP) CAN be **interrupted at any time with 30 seconds** notice when they are preempted(terminated).
+- Preemptible VMs are **NOT suitable** for applications that **cannot tolerate interruptions or disruption**.
+- **Analytical batch jobs** that can be checkpointed and restarted are **good candidates** for Preemptible VMs
 - Preemptible VMs are significantly **cheaper than regular VMs**, making them an attractive option for cost-sensitive workloads.
 - Preemptible VMs have a maximum runtime of **24 hours**. 
 - Use Preemptible VMs only for **secondary workers as they do not run HDFS**.
@@ -82,6 +85,7 @@
 - Using preemptible VMs does not always save costs since preemptions can cause longer job execution with resulting higher job cost.
 - There are **three types of secondary workers**: spot VMs, standard preemptible VMs, and non-preemptible VMs. 
 - If you specify secondary workers for your cluster, they must be the **same type**. The **default Dataproc secondary worker type** is the **standard preemptible VM**.
+- Dataproc manages **secondary workers** using **Managed Instance Groups** (MIGs), which create VMs **asynchronously** as soon as they can be provisioned.
 
 - Cloud Dataproc clusters consist of **two types** of nodes: master nodes and worker nodes
 

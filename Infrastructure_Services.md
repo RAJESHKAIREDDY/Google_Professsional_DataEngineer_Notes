@@ -8,22 +8,9 @@ Four key compute options:
 ![Alt text](iaas2.png)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 **Compute Engine**:-It is a IaaS Product where users have full access to the VM's operating system.while using Compute Engine, you have the greatest level of control over your instances, but you are also responsible for configuring managed instance groups, load balancers, and autoscalers. 
 - when using Compute Engine, you are responsible for ensuring **high availability and scalability**.This is done with **managed instance groups (MIGs)**.
+- Compute Engine currently supports attaching up to **8 GPUs to a single instance**.
 
 **MIG**:-A managed instance group is a set of VMs with identical configurations that are managed as a single unit by compute engine.
 -  Managed instance groups are configured with a minimum and a maximum number of instances.
@@ -99,7 +86,8 @@ Four key compute options:
 
 
 - *For high-throughput use cases*, enterprises can use **Cloud Interconnect**. Cloud Interconnect is available as a **dedicated interconnect** in which an enterprise directly connects to a Google endpoint and traffic flows directly between the two networks.
-- Cloud Interconnect for better security, higher speed, and entry into protected networks.
+- Dedicated Interconnect provides a direct physical connection between an on-premises data center and a Google Cloud VPC, allowing for high-speed, low-latency, and secure data transfer.
+-  With Dedicated Interconnect, you can provision a dedicated **10 Gbps or 100 Gbps** connection between your on-premises network and your VPC.
 
 **partner interconnect**, in which case data flows through a **third-party network but not over the Internet**.
 
