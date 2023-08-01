@@ -117,3 +117,7 @@ Four key compute options:
 
 - In summary, the Transfer Appliance is ideal for one-time or infrequent large-scale transfers, particularly when network limitations or security concerns make online transfers impractical. 
 - On the other hand, the Storage Transfer Service is better suited for scheduled, recurring, or online transfers between various storage providers.
+- Transferring **from another cloud storage provider** Use **Storage Transfer Service**.
+- Transferring **less than 1 TB** from on-premises or from another Cloud Storage region Use **gsutil**.
+- Transferring **more than 1 TB** from on-premises Use **Transfer service for on-premises data**.
+

@@ -37,7 +37,8 @@
  **ParDo**:- ParDo is a **parallel processing operation** that runs a user-specified function on each element in a PCollection.ParDo transforms data in *parallel*.
 - ParDo can receive additional inputs from other PCollections through side inputs.Side inputs enable performing joins and accessing data from multiple PCollections within a ParDo.
 - ParDo produces a main output PCollection, but it can also generate additional output collections using side outputs.
-- Side outputs are useful for creating additional processing paths or handling data that doesn't meet certain criteria, such as using a side output for data that fails a validation check
+- Side outputs are useful for creating additional processing paths or handling data that doesn't meet certain criteria, such as using a side output for data that fails a validation check.
+- **side inputs** can be used to provide this **static reference data** to the pipeline, making it available for **enrichment** during data processing.
 
  **Pipeline I/O**:-These are transforms for reading data into a pipeline from a source and writing data to a sink
 
@@ -86,6 +87,7 @@
 - There are **three types of secondary workers**: spot VMs, standard preemptible VMs, and non-preemptible VMs. 
 - If you specify secondary workers for your cluster, they must be the **same type**. The **default Dataproc secondary worker type** is the **standard preemptible VM**.
 - Dataproc manages **secondary workers** using **Managed Instance Groups** (MIGs), which create VMs **asynchronously** as soon as they can be provisioned.
+- For best results, the number of preemptible workers in your cluster should be **less than 50%** of the total number of all workers (primary plus all secondary workers) in your cluster.
 
 - Cloud Dataproc clusters consist of **two types** of nodes: master nodes and worker nodes
 
