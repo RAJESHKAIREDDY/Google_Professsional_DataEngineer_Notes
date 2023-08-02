@@ -89,3 +89,5 @@ by governments are adequately secure, reduce duplication of effort, and reduce r
    - It offers a visual interface for data wrangling, allowing users to clean and reshape data without writing code.
    - Dataprep provides automated data transformation suggestions and highlights potential data quality issues, making the data preparation process more efficient.
    - The tool can handle data from various sources, such as CSV, Excel, JSON, and relational databases.
+   -  Cloud Dataprep is used to build and maintain the transformation recipes, and execute them on a scheduled basis
+

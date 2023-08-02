@@ -222,6 +222,8 @@
 
 **Firestore** is a suitable choice if you need to store well-organized data in a document database, ensuring transactional integrity and the ability to perform SQL-like queries.
 - Datastore is designed for web applications of a small scale.
+- If you use **VPC Service Controls**, you must use the **Firestore service agent** to fully protect import and export operations. 
+- VPC Service Controls is **not compatible** with the **App Engine service account**.
 
 ## <a id="bigtable"></a> Bigtable:-
 - Bigtable provides a scalable, fully-managed NoSQL wide-column database that is suitable for both real-time access and analytics workloads.

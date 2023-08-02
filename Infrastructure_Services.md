@@ -94,7 +94,7 @@ Four key compute options:
 ## Transfer Sevices in GCP
 
  **Transfer Appliance**:
-   - Use case: Transfer large volumes of data from your on-premises infrastructure to Google Cloud Storage.It would take more than one week to upload your data over the network.
+   - Use case: Use Transfer Appliance when you have a large volume of data (terabytes to petabytes) to transfer to Cloud Storage, and your outbound network capacity is limited or slow.It would take more than one week to upload your data over the network.
    - How it works: You request a Transfer Appliance from Google, load your data onto the device, and then ship it back to Google for the data to be transferred to your Google Cloud Storage account.
    - Benefits:
      - Fast and efficient transfer: It can handle large datasets that might take a long time to transfer over the internet.
@@ -106,6 +106,7 @@ Four key compute options:
 
  **Storage Transfer Service**:
    - Use case: Transfer data between different cloud storage providers or from on-premises systems to Google Cloud Storage.
+   - Use Storage Transfer Service when you have relatively smaller amounts of data (gigabytes to a few terabytes) to transfer to Cloud Storage, and you want a fully managed and automated data transfer process.
    - How it works: You configure a transfer job, specifying the source and destination storage providers, and schedule the transfers.
    - Benefits:
      - Automated transfers: Allows for scheduled and recurring data transfers.
