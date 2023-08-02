@@ -8,6 +8,7 @@ Four key compute options:
 ![Alt text](iaas2.png)
 
 
+## <a id="compute-engine"></a>Compute Engine
 **Compute Engine**:-It is a IaaS Product where users have full access to the VM's operating system.while using Compute Engine, you have the greatest level of control over your instances, but you are also responsible for configuring managed instance groups, load balancers, and autoscalers. 
 - when using Compute Engine, you are responsible for ensuring **high availability and scalability**.This is done with **managed instance groups (MIGs)**.
 - Compute Engine currently supports attaching up to **8 GPUs to a single instance**.
@@ -18,7 +19,7 @@ Four key compute options:
 - *advantages* of a managed instance group is that the number of VMs in the group can change according to **workload(AutoScaling)**.
 - **Un-managed instance groups** allow for heterogeneous VMs they should be used only when migrating legacy clusters from on-premises data centers.
 
-
+## <a id="kubernetes-engine"></a>Kubernetes Engine
 **Kubernetes Engine**:- It is a Paas Product where it is a managed container orchestration platform that simplifies the deployment and management of containerized applications using Kubernetes.
 - Containers are increasingly used to process workloads because they have less overhead than VMs and allow for finer-grained allocation of resources than VMs.
 
@@ -44,7 +45,7 @@ Four key compute options:
 - to adjust the number of replicas for a deployment named pde-example-application:**kubectl scale deployment pde-example-application --replicas 6**
 
 
-
+## <a id="app-engine"></a>App Engine
 **App Engine**:- It is also a Paas product which is designed to allow developers to focus on application development while minimizing their need to support the infrastructure that runs their applications.
 - It is a good option when your application is developed in one of the supported languages and needs to scale up and down based on workload.They are 2 versions:
 
@@ -62,7 +63,7 @@ Four key compute options:
 
 	**dispatch.yaml**:- It is a place for specifying routing rules to send incoming requests to a specific service based on the URL.
 
-
+## <a id="cloud-functions"></a>Cloud Functions
 **Cloud Functions**:- It is a **serverless, managed compute service** for running code in response to *events* that occur in the cloud.
 - Events such as **writing a message to a Cloud Pub/Sub topic or uploading a file to Cloud Storage can trigger the execution of a Cloud Function**. It is written using JavaScript, Python 3, and Go.
 - The parameter Timeout refers to the maximum allowed duration for a function to run before it is forcibly terminated. 
