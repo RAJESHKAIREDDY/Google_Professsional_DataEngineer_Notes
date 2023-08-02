@@ -123,7 +123,8 @@
 - Transferring **less than 1 TB** from on-premises or from another Cloud Storage region Use **gsutil**.
 - Transferring **more than 1 TB** from on-premises Use **Transfer service for on-premises data**.
 
-**BigQuery Data Transfer Service**:- It is a fully managed service that automates the transfer of data from SaaS applications like Google Analytics, into BigQuery. 
+**BigQuery Data Transfer Service**:- 
+   - It is a fully managed service that automates the transfer of data from SaaS applications like Google Analytics, into BigQuery. 
    - This service simplifies the process of importing data from Google Analytics and provides features like scheduling, monitoring, and error handling.
    - It automate the data movement from data sources such as Google Ads and Google AD Manager.
    -  BigQuery Transfer Service has a **restrictive destination** - it can only load data into BigQuery datasets and **cannot transfer the ingested data anywhere else outside of BigQuery**.
