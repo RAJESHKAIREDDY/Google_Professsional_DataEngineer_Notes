@@ -1,4 +1,4 @@
-Four key compute options:
+## Four key compute options:
 - Compute Engine
 - Kubernetes Engine
 - App Engine
