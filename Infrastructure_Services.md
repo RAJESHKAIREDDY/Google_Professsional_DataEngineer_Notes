@@ -134,7 +134,8 @@
 - Query performance for **external data sources may not be as high** as querying data in a native BigQuery table.
 - If query speed is a priority, load the data into BigQuery instead of setting up an external data source. 
 - Federated storage is used to query data stored in Cloud Storage, Bigtable, or Google Drive,Cloud SQL,Cloud Spanner.
-- An external data source (also known as a **federated data source**) is a data source that allows you to query directly even though the data is not stored in BigQuery.using external tables in BigQuery is useful for such cases:
+- An external data source (also known as a **federated data source**) is a data source that allows you to query directly even though the data is not stored in BigQuery.
+- using external tables in BigQuery is useful for such cases:
   - Perform ETL operations on data.
   - Frequently changed data.
   - Data is being ingested periodically.
