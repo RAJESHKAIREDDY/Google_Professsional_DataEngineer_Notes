@@ -74,28 +74,8 @@
 **Data Lakes**: These are less structured data stores for raw and lightly processed data.
 
 - **BigQuery** is designed to support **data warehouses and data marts**.
+
 - **Data lakes** may be implemented using object storage, such as **Cloud Storage**, or NoSQL databases, such as **Cloud Bigtable**.
-
-**BigQuery Data Transfer Service**:- It is a fully managed service that automates the transfer of data from SaaS applications like Google Analytics, into BigQuery. 
-   - This service simplifies the process of importing data from Google Analytics and provides features like scheduling, monitoring, and error handling.
-   - It automate the data movement from data sources such as Google Ads and Google AD Manager.
-   -  BigQuery Transfer Service has a **restrictive destination** - it can only load data into BigQuery datasets and **cannot transfer the ingested data anywhere else outside of BigQuery**.
-
-
-- BigQuery has two different mechanisms for querying external data: **external tables and federated queries**.
-- Query performance for **external data sources may not be as high** as querying data in a native BigQuery table.
-- If query speed is a priority, load the data into BigQuery instead of setting up an external data source. 
-- Federated storage is used to query data stored in Cloud Storage, Bigtable, or Google Drive,Cloud SQL,Cloud Spanner.
-- An external data source (also known as a **federated data source**) is a data source that allows you to query directly even though the data is not stored in BigQuery.using external tables in BigQuery is useful for such cases:
-  - Perform ETL operations on data.
-  - Frequently changed data.
-  - Data is being ingested periodically.
-  - Temporary tables will be available for approximately 24 hours.
-- When accessing external data, you can create either **permanent or temporary external tables**.
-  - Permanent external tables are linked to external sources and created in datasets with access controls. Useful for ongoing access.
-  - Temporary external tables are created in a special dataset and last ~24 hours. Useful for one-time operations like data loading.
-  - Permanent tables allow dataset-level access controls. Temporary tables do not support access controls.
-- BigQuery maintains a **seven-day** history of changes so that you can query a past snapshot(versions) of data.
 
 
  **Streaming inserts** in BigQuery provide best effort de-duplication. By including an insertID that uniquely identifies a record, BigQuery can detect duplicates and prevent them from being inserted. However, if no insertID is provided, BigQuery does not attempt to de-duplicate the data.

@@ -21,8 +21,8 @@
   - [Translation API](/translation-api/README.md)
   - [TensorFlow](/tensorflow/README.md)
 
-- [Infrastrucutre Services](Infrastrucutre_Services.md)
+- [Infrastructure Services](Infrastrucutre_Services.md)
   - [Compute Engine](/Infrastructure_Services.md#compute-engine)
   - [Kubernetes Engine](/Infrastructure_Services.md#kubernetes-engine)
   - [App Engine](/Infrastructure_Services.md#app-engine)
-  
+  - [Transfer Servies in GCP](/Infrastructure_Services.md#transfer-sevices-in-gcp)
