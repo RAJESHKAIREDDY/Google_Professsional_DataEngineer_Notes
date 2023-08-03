@@ -148,7 +148,7 @@
 - BigQuery BI Engine is an **in-memory analysis** service for Google BigQuery, designed to accelerate business intelligence (BI) workloads and enhance query performance.
 - It provides high-speed analytics capabilities by caching and processing data in-memory, reducing query response times significantly.
 
-**Authorized Views vs Materialized views**
+### Authorized Views vs Materialized views
 
 **Authorized Views**:Authorized views in Google BigQuery are virtual views that provide an additional layer of access control on top of the underlying tables or datasets.
 - These views allow you to control what data users can access and what operations they can perform on the data without granting direct access to the underlying tables.
