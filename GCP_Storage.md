@@ -148,15 +148,15 @@
 - BigQuery BI Engine is an **in-memory analysis** service for Google BigQuery, designed to accelerate business intelligence (BI) workloads and enhance query performance.
 - It provides high-speed analytics capabilities by caching and processing data in-memory, reducing query response times significantly.
 
-**authorized Views vs materialized views**
+**Authorized Views vs Materialized views**
 
-**authorized Views**:Authorized views in Google BigQuery are virtual views that provide an additional layer of access control on top of the underlying tables or datasets.
+**Authorized Views**:Authorized views in Google BigQuery are virtual views that provide an additional layer of access control on top of the underlying tables or datasets.
 - These views allow you to control what data users can access and what operations they can perform on the data without granting direct access to the underlying tables.
 - When you create the view, it must be created in a dataset separate from the source data queried by the view.
 - You cannot grant permissions on only authorized views as the lowest permission level is data set.
 - No need to copy tables when you can use authorized views.
 
-**materilaized views**:A materialized view is a special type of database view that stores the results of a query as a physical table. This means that the query results are computed once and stored in the materialized view, so future queries can directly access the precomputed data without re-evaluating the query.
+**Materilaized views**:A materialized view is a special type of database view that stores the results of a query as a physical table. This means that the query results are computed once and stored in the materialized view, so future queries can directly access the precomputed data without re-evaluating the query.
 - cost of storing the materialized results is much less than the cost of processing large amounts of data.
 
 **Non-Materialized Views**: On the other hand, non-materialized views (sometimes called regular views) are just saved queries that don't store the query results as physical tables. When you query a non-materialized view, the database performs the query calculations each time you access the view.

@@ -65,7 +65,7 @@ Access controls for Cloud Bigtable can be configured at the project, instance, o
 - GCP uses a combination of authenticating sources and encryption to protect data in transit
 - Data within the boundaries of the Google network is authenticated but may not be encrypted. 
 - Data moving into and out of the physical boundaries of the Google network is encrypted
-- Google uses Application Layer Transport Security (ALTS) for authentication and encryption within the Google Cloud Infrastructure.
+- Google uses **Application Layer Transport Security (ALTS)** for **authentication and encryption** within the Google Cloud Infrastructure.
 - GCP offers encryption at rest and encryption in transit by default
 
 **Server-side encryption**: Server-side encryption is a method where the encryption and decryption processes are handled by the cloud service provider (GCP) on the server side.When server-side encryption is enabled, GCP automatically encrypts the data at rest, meaning the data stored on disks or in backups.
@@ -79,7 +79,6 @@ GCP provides multiple options for server-side encryption, including:
 
 **Client-side encryption**: Client-side encryption is a method where the encryption and decryption processes are performed by the client (application or user) before the data is sent to the server (GCP).With client-side encryption, the data is encrypted on the client side using encryption algorithms and keys chosen by the client. Since the encryption process occurs before the data reaches the server, GCP only sees and stores the encrypted data without having access to the encryption keys or the ability to decrypt the data
 
-- Google uses **Application Layer Transport Security (ALTS)** for **authentication and encryption**.
 
 **Data Loss Prevention(DLP) API**:- It is a service that can detect sensitive information in text and images, redact or mask sensitive information, and perform risk analysis. Two types of Data Loss Prevention jobs: 
 - **Inspection jobs** scan content for sensitive information using InfoTypes that you specify and generate reports on the location and type of sensitive information found.
