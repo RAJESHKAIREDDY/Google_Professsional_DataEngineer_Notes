@@ -48,6 +48,12 @@ Access controls for Cloud Bigtable can be configured at the project, instance, o
   - **roles/bigtable.reader** provides **read access to actual Bigtable data at the project or instance level via the Bigtable APIs**.
   - **roles/bigtable.viewer** only **allows viewing the Bigtable section** in the GCP Console UI.But **roles/bigtable.viewer does NOT grant permission to use the Bigtable client libraries or APIs to access any data**.
 
+### DataFlow and IAM
+  - **roles/dataflow.admin:** Gives permissions to create and manage jobs
+  - **roles/dataflow.developer**: Gives permissions to execute and modify jobs
+  - **roles/dataflow.viewer**: Gives permissions for read-only access to all Cloud Dataflow resources
+  - **roles/dataflow.worker**: Gives permissions to a Compute Engine service account to execute work units of a pipeline
+
 ### Encryption at Rest
 
 - Data at rest is encrypted by default in Google Cloud Platform.
@@ -73,6 +79,7 @@ GCP provides multiple options for server-side encryption, including:
 
 **Client-side encryption**: Client-side encryption is a method where the encryption and decryption processes are performed by the client (application or user) before the data is sent to the server (GCP).With client-side encryption, the data is encrypted on the client side using encryption algorithms and keys chosen by the client. Since the encryption process occurs before the data reaches the server, GCP only sees and stores the encrypted data without having access to the encryption keys or the ability to decrypt the data
 
+- Google uses **Application Layer Transport Security (ALTS)** for **authentication and encryption**.
 
 **Data Loss Prevention(DLP) API**:- It is a service that can detect sensitive information in text and images, redact or mask sensitive information, and perform risk analysis. Two types of Data Loss Prevention jobs: 
 - **Inspection jobs** scan content for sensitive information using InfoTypes that you specify and generate reports on the location and type of sensitive information found.
