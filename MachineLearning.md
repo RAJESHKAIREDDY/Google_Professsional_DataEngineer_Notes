@@ -50,6 +50,9 @@ with high variance tend to overfit training data.
 - models should have both **low bias and low variance**, and this is achieved by **lowering the mean squared error (MSE)** of the model by working through multiple training datasets.
 
  **Underfitting** creates a model that is not able to predict values of training data correctly or new data that was not used during training.
+ - Underfitting would have resulted in poor performance with training data.  
+ - Insufficiently complex models can lead to underfitting.
+ - Underfitting occurs when a model does not capture relationships.
 
  **Overfitting** occurs when an ML model is trained too well on a particulart dataset & unable to generalize new data.This happens when 
 there is noise in the data and the model fits the noise as well as the correct data points.To solve the overfitting problem in the scenario, you need to:
@@ -111,7 +114,7 @@ recall.
 **Conversation**:-
 - Cloud Text-to-Speech API
 - Speech-to-text
-- Dialogflow
+- Dialogflow:-  To understand intents behind customer commands and integrate with backend systems
 
 **Speech-to-Text** can be used to convert short duration audio in **synchronous** calls. As well as it is recommended **not to re-sample** the data, if it is coming at a lower sampling rate from the source.
 - To process a speech recognition request for *long audio*, use **Asynchronous** Speech Recognition.
@@ -165,3 +168,4 @@ recall.
 - Deep and wide models are ideal for a recommendation application.**Wide models** are used for memorization. **Deep models** are for generalization.
 - **TensorFlow Hub** is a repository of **reusable machine learning models** that have been **pre-trained **on large datasets and can be easily integrated into new applications with minimal effort.
 -  TensorFlow Hub provides a wide range of models for various tasks such as **natural language processing, image recognition, and object detection**.
+- Cloud Vertex AI is a **fully-managed machine learning platform** provided by Google Cloud that provides tools for building and deploying **custom ML models**. 

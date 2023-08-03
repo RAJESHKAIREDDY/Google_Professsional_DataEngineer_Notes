@@ -1,4 +1,5 @@
 # IAM Roles
+
 **1.Primitive Roles**:- Prior to Cloud IAM, primitive roles like Owner, Editor, and Viewer existed at the project level, providing coarse-grained access controls. 
 - **viewer role**:- grants read-only access.
 - **Editor role**:- Viewer permissions +  ability to modify the state of a resource.
@@ -11,6 +12,7 @@
 
 **3.Custom Roles**:- you can assign one or more permissions to a role and then assign that role to a user, group, or service account.
 Custom roles are especially important when implementing the principle of least privilege, which states that users should be granted the minimal set of permissions needed for them to perform their jobs.**IAM is additive only**. 
+- Users must have the **iam.roles.create permission** to be able to **create a custom role**.
 - It means permissions cannot be revoked at a higher level(Folder) if they were granted at a lower level(Resource).
 - Organization---->Folders--->Projects---->Resources
 
@@ -28,6 +30,13 @@ HMAC keys include creating, deleting, and listing keys as well as getting and up
 
 ![Alt text](userVsJobusers.png)
 
+## Service Account:-
+- Service accounts are a type of identity often used with **VM instances and applications**, which are able to **make API calls** authorized by roles assigned to the service account.
+- Service accounts **do not have passwords** and cannot be used to log in interactively via a browser. These accounts are **authenticated by a pair of public/private keys**.
+
+- Use **service accounts** to grant permissions **to applications and processes running on non-human entities**,They are commonly used for authenticating and authorizing applications to access GCP services and resources without requiring human intervention.
+- while use **IAM** to manage access control for **human users** and to set permissions for specific actions on GCP resources. It is used to manage who can do what in GCP and set permissions for actions like creating, modifying, or deleting resources.
+
 ### Bigtable and IAM
 Access controls for Cloud Bigtable can be configured at the project, instance, or table level.
 
@@ -36,6 +45,8 @@ Access controls for Cloud Bigtable can be configured at the project, instance, o
   - **User Role**: Allows for read and write access to tables.
   - **Reader Role**: Allows for read-only access to data in tables.
   - **Viewer Role**: Restricted to accessing the GCP console for Bigtable.
+  - **roles/bigtable.reader** provides **read access to actual Bigtable data at the project or instance level via the Bigtable APIs**.
+  - **roles/bigtable.viewer** only **allows viewing the Bigtable section** in the GCP Console UI.But **roles/bigtable.viewer does NOT grant permission to use the Bigtable client libraries or APIs to access any data**.
 
 ### Encryption at Rest
 
