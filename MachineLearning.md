@@ -10,7 +10,7 @@
 ## Unsupervised Learning:- 
 - These algorithms learn by starting with unlabeled data and then identifying salient features, such as groups or clusters, and anomalies in a data stream.
 - Eg:- K-means Clusering,K-Nearest Neighbour,Principal Component Analysis,Anomaly Detection Algorithms
-    - **Clustering**: It is the process of grouping instances together based on common features.
+    - **Clustering**: It is the process of grouping instances together based on common features. 
     - **Anomaly Detection**: It is a process of identifying unexpected patterns ins data.
     - **Collaborative Filtering**: It is widely used in recommendation systems such as netflix,google to provide personalized recommendations to users based on their past behavior and preferences.
 
@@ -92,6 +92,12 @@ recall.
 	- F1 Score = 2 * [(Precision * Recall) / (Precision + Recall)]
 
 
+- **Artificial Neural Network(ANN)**  is one of the simplest variants of neural networks. They pass information in one direction, through various input nodes, until it makes it to the output node.
+- Commonly used for regression and classification tasks.
+
+-  **Recurrent Neural Networks (RNNs)** may not be suitable for **image classification tasks**, as they are more suitable for **sequential data or time series data** , such as **natural language processing**. 
+
+- **Convolutional Neural Networks(CNN)** is designed for computer vision tasks, leveraging convolution operations to extract meaningful features from grid-like data, especially images.
 
 ## Online vs Batch Prediction
 ![Alt text](image-3.png)

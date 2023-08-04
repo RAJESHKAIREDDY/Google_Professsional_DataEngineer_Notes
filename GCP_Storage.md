@@ -47,11 +47,8 @@
 
 - Cloud Spanner uses a voting mechanism to determine writes.Regional instances use only read-only replicas; multi-regional instances use all three types:
 
-**Read-write replicas**:- maintain full copies of data and serve read operations, and they can vote on write operations
+![Alt text](image-4.png)
 
-**Read-only replicas**:-  maintain full copies of data and serve read operations, but they do not vote on write operation
-
-**Witness replicas**:- Witness replicas do not keep full copies of data but do participate in write votes. Witness replicas are helpful in achieving a majority when voting.
 - Avoid hotspots by not using consecutive values for primary keys.  
 
 **Recommended ways to avoid hotspots for a primary key**:
@@ -314,8 +311,9 @@
 
  **Cloud Storage Archive class storage** It is a storage class provided by Google Cloud Storage. It is designed for data that is accessed infrequently and requires long-term retention at a lower cost compared to other storage classes**365days**
 
-- All storage classes have the same latency to return the first byte of data, but the costs to access data and 
-the per-operation costs are higher than regional storage.
+- If you **don't specify a default storage**class when you create a bucket, that bucket's **default storage** class is set to **Standard storage**.
+- **Standard storage** is best for data that is **frequently accessed ("hot" data) and/or stored for only brief periods of time**.
+- All storage classes have the same latency to return the first byte of data, but the costs to access data and the per-operation costs are higher than regional storage.
 
 
 
