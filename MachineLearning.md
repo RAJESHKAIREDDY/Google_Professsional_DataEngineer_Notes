@@ -74,6 +74,14 @@ be used when you want outlier instances to have weights close to zero, which is 
  -   Cost Function & Loss Function are often interchangeable terms in ML.
  -   Cost Function more commonly used in ML.
  -   Loss Function more commonly used in Deep Learning.
+ 
+ 
+- **Artificial Neural Network(ANN)**  is one of the simplest variants of neural networks. They pass information in one direction, through various input nodes, until it makes it to the output node.
+- Commonly used for regression and classification tasks.
+
+-  **Recurrent Neural Networks (RNNs)** may not be suitable for **image classification tasks**, as they are more suitable for **sequential data or time series data** , such as **natural language processing**. 
+
+- **Convolutional Neural Networks(CNN)** is designed for computer vision tasks, leveraging convolution operations to extract meaningful features from grid-like data, especially images.
 
 ## Evaluation models:-
 
@@ -92,12 +100,6 @@ recall.
 	- F1 Score = 2 * [(Precision * Recall) / (Precision + Recall)]
 
 
-- **Artificial Neural Network(ANN)**  is one of the simplest variants of neural networks. They pass information in one direction, through various input nodes, until it makes it to the output node.
-- Commonly used for regression and classification tasks.
-
--  **Recurrent Neural Networks (RNNs)** may not be suitable for **image classification tasks**, as they are more suitable for **sequential data or time series data** , such as **natural language processing**. 
-
-- **Convolutional Neural Networks(CNN)** is designed for computer vision tasks, leveraging convolution operations to extract meaningful features from grid-like data, especially images.
 
 ## Online vs Batch Prediction
 ![Alt text](image-3.png)
