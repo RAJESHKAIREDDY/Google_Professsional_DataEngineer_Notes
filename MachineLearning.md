@@ -75,7 +75,8 @@ be used when you want outlier instances to have weights close to zero, which is 
  -   Cost Function more commonly used in ML.
  -   Loss Function more commonly used in Deep Learning.
  
- 
+## Neural Networks and its types
+
 - **Artificial Neural Network(ANN)**  is one of the simplest variants of neural networks. They pass information in one direction, through various input nodes, until it makes it to the output node.
 - Commonly used for regression and classification tasks.
 
