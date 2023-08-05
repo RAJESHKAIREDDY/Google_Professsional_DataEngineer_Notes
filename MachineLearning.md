@@ -69,6 +69,11 @@ be used when you want outlier instances to have weights close to zero, which is 
 
  **Gradient Descent**: It is an optimization algorithm that helps us find the best parameters for our model by iteratively adjusting them in the direction that reduces the prediction errors, ultimately leading to better and more accurate predictions.
  -  Gradient descent is used to find the minimal RMSE or cost function.
+ - **Batch Gradient Descent**: The **entire training dataset** is used to compute the gradients of the cost function with respect to the model parameters in each iteration.Also known as **vanilla gradient descent**.
+
+ - **Stochastic Gradient Descent**: It is a variant of gradient descent that updates the model parameters for **each training example in the dataset**.
+ 
+ - **Mini-batch Gradient Descent**: the gradients are computed on a **small random subset of the training dataset**, typically between 10 and 1000 examples
 
  **Backpropagation** is the most widely used algorithm for training neural networks, and it uses the error and the rate of change in the error to 
 calculate weight adjustments.
