@@ -30,6 +30,7 @@
  **Feature engineering** is the process of identifying which features are useful for building models. It also includes adding new features derived from existing features.
   - One Hot Encoding
 
+
 - An **epoch** is the term used to describe one full pass over a training dataset by the training algorithm.
 
  **Learning rate**:- It is a hyperparameter that controls how much weights of a neural network are adjusted with each iteration during training.
@@ -59,12 +60,12 @@ there is noise in the data and the model fits the noise as well as the correct d
 
  **Regularization**:- It is used to prevent overfitting & improve the generalization performance of a model. It helps to reduce the complexity of model, preventing overfitting which will improve accuracy & robustness of ML models.
 
-  **L1 regularization** calculates a penalty based on the absolute value of the weights.L1 regularization should be used when you want less relevant features to have weights close to zero.
+  - **L1 regularization** calculates a penalty based on the absolute value of the weights.L1 regularization should be used when you want less relevant features to have weights close to zero.
 
-  **L2 regularization** calculates a penalty based on the sum-of-the-squares of the weights. L2 regularization should 
+  - **L2 regularization** calculates a penalty based on the sum-of-the-squares of the weights. L2 regularization should 
 be used when you want outlier instances to have weights close to zero, which is especially useful when working with linear models.
 
-  **Dropout Regularization**: It is a regularization method to remove a random selection of the fixed number of units in a neural network layer. More units dropped out, the stronger the regularization.
+  - **Dropout Regularization**: It is a regularization method to remove a random selection of the fixed number of units in a neural network layer. More units dropped out, the stronger the regularization.
 
  **Gradient Descent**: It is an optimization algorithm that helps us find the best parameters for our model by iteratively adjusting them in the direction that reduces the prediction errors, ultimately leading to better and more accurate predictions.
  -  Gradient descent is used to find the minimal RMSE or cost function.
