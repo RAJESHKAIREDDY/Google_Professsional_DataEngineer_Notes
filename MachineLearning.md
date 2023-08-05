@@ -28,11 +28,9 @@
 - eg:- Rectified Linear Unit(RELU),hyperbolic tangent function,Sigmoid Function.
 
  **Feature engineering** is the process of identifying which features are useful for building models. It also includes adding new features derived from existing features.
+   - One Hot Encoding
 
 - An **epoch** is the term used to describe one full pass over a training dataset by the training algorithm.
-
- **Backpropagation** is the most widely used algorithm for training neural networks, and it uses the error and the rate of change in the error to 
-calculate weight adjustments.
 
  **Learning rate**:- It is a hyperparameter that controls how much weights of a neural network are adjusted with each iteration during training.
 
@@ -70,6 +68,9 @@ be used when you want outlier instances to have weights close to zero, which is 
  **Gradient Descent**: It is an optimization algorithm that helps us find the best parameters for our model by iteratively adjusting them in the direction that reduces the prediction errors, ultimately leading to better and more accurate predictions.
  -  Gradient descent is used to find the minimal RMSE or cost function.
 
+ **Backpropagation** is the most widely used algorithm for training neural networks, and it uses the error and the rate of change in the error to 
+calculate weight adjustments.
+
  **Cost Function** : It measures the error between predicted output of the model and the actual output.
  -   Cost Function & Loss Function are often interchangeable terms in ML.
  -   Cost Function more commonly used in ML.
@@ -100,7 +101,7 @@ recall.
 -  It is also a good metric to use when evaluating models built with imbalanced training sets.
 	- F1 Score = 2 * [(Precision * Recall) / (Precision + Recall)]
 
-
+- validation data set is used to tune hyperparameters.
 
 ## Online vs Batch Prediction
 ![Alt text](image-3.png)
