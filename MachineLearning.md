@@ -104,13 +104,31 @@ be used when you want outlier instances to have weights close to zero, which is 
 
 - **F1 Score**: It is harmonic mean of precision & recall.F1 scores are useful when you want to optimize a model to have balanced precision and 
 recall.
--  It is also a good metric to use when evaluating models built with imbalanced training sets.
+-  It is also a good metric to use when evaluating models built with **imbalanced training sets**.
 	- F1 Score = 2 * [(Precision * Recall) / (Precision + Recall)]
 
+- data that is used for *evaluating hyperparameter choices* is known as **validation data**. 
 - validation data set is used to tune hyperparameters.
+-  **Test data**is **not used** for either **training or hyperparameter tuning**.
 
 ## Online vs Batch Prediction
 ![Alt text](image-3.png)
+
+
+
+**Graphics Processing Units(GPU)**:- They  are accelerators that have multiple arithmetic logic units (ALUs), which implement adders and multipliers
+- It is well suited to workloads that benefit from **massive parallelization**, such as **training deep learning models**.
+- GPUs have high-bandwidth memory and typically outperform CPUs on fl oating-point operations.
+
+**Tensor Processing Units**:- They are specialized accelerators based on ASICs and created by Google to improve the training of deep neural networks.
+- TPUs perform **low-precision computation** with as little as 8-bit precision. Using low-precision computation allows for **high throughput**.
+- TPUs can be used with **Compute Engine, Kubernetes Engine, and AI Engine**.
+-  TPUs are **not recommended** for workloads that require **high-precision arithmetic**. 
+- TensorFlow Lite, which is a framework for running machine learning models on mobile and IoT devices. 
+- **1 TPU was 27 times faster at training than 8 GPUs**.
+
+**Edge Computing**:- is the practice of moving compute and storage resources closer to the location at which it is needed.
+- Edge computing is used when low-latency data processing is needed.
 
 
 
@@ -120,8 +138,10 @@ recall.
 
  **Vision**:- Allows you to derive insights from static images in the cloud or at edge,
 
-**Cloud Vision API**: Cloud Vision API provides powerful image analysis capabilities, including Optical Character Recognition (OCR) technology, which can **extract text from images** of scanned documents, receipts, and other types of images
-- Cloud Video Intelligence API
+**Cloud Vision API**: Cloud Vision API provides powerful image analysis capabilities, including Optical Character Recognition (OCR) technology, which can **extract text from images** of scanned documents, receipts, and other types of images.
+- Vision AI API also provides for **batch processing**.
+
+- **Cloud Video Intelligence API**: It provides models that can extract metadata; identify key persons, places, and things; and annotate video content. This service has pretrained models that automatically recognize objects in videos.
 
 **Translation**:-
 - Cloud Translation API
@@ -130,7 +150,8 @@ recall.
 **Conversation**:-
 - Cloud Text-to-Speech API
 - Speech-to-text
-- Dialogflow:-  To understand intents behind customer commands and integrate with backend systems
+- Dialogflow:- is used for chatbots, interactive voice response (IVR), and other dialogue based interactions with human speech. To understand intents behind customer commands and integrate with backend systems.
+- Dialogflow is accessible through REST, gRPC, and client libraries. Client libraries are available for C#, Go, Java, Node.js, PHP, Python, and Ruby.
 
 **Speech-to-Text** can be used to convert short duration audio in **synchronous** calls. As well as it is recommended **not to re-sample** the data, if it is coming at a lower sampling rate from the source.
 - To process a speech recognition request for *long audio*, use **Asynchronous** Speech Recognition.
