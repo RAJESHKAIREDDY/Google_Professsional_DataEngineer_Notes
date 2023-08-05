@@ -75,7 +75,7 @@ be used when you want outlier instances to have weights close to zero, which is 
  
  - **Mini-batch Gradient Descent**: the gradients are computed on a **small random subset of the training dataset**, typically between 10 and 1000 examples
 
- **Backpropagation** is an algorithm used to train neural networks that calculates the **gradient of loss with respect to each weight** in the network using chain rule, propagating these gradients backwards from the output layer to update weights and minimize loss
+ **Backpropagation** is an algorithm used to train neural networks that calculates the **gradient of loss with respect to each weight** in the network using chain rule, propagating these gradients **backwards** from the output layer to update weights and minimize loss.
 
  **Cost Function** : It measures the error between predicted output of the model and the actual output.
  -   Cost Function & Loss Function are often interchangeable terms in ML.
@@ -182,6 +182,6 @@ recall.
 - Cloud Vision offers both pretrained models via an API and the ability to build custom models using AutoML Vision to provide flexibility depending on your use case.
 - Cloud ML Engine is used to deploy models. It does not help to build the models.
 - Deep and wide models are ideal for a recommendation application.**Wide models** are used for memorization. **Deep models** are for generalization.
-- **TensorFlow Hub** is a repository of **reusable machine learning models** that have been **pre-trained **on large datasets and can be easily integrated into new applications with minimal effort.
+- **TensorFlow Hub** is a repository of **reusable machine learning models** that have been **pre-trained** on large datasets and can be easily integrated into new applications with minimal effort.
 -  TensorFlow Hub provides a wide range of models for various tasks such as **natural language processing, image recognition, and object detection**.
 - Cloud Vertex AI is a **fully-managed machine learning platform** provided by Google Cloud that provides tools for building and deploying **custom ML models**. 
