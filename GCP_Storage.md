@@ -13,9 +13,10 @@
 
  ### Read Replicas:- 
  - A read replica is a copy of a primary database that is **asynchronously replicated** from the *primary database*.
- - A replica database that enables parallel read operations, improving read performance and scalability by offloading read traffic from the primary database. Read replicas must be in the same region as the primary instance
- - Read replicas are not intended for failover purposes and do not automatically take over in case of a primary database failure.
- - replica is used only for **high availability**, not scalability.
+ - A replica database that enables **parallel read operations, improving read performance and scalability by offloading read traffic from the primary database**. Read replicas must be in the **same region** as the primary instance.
+ -  A read replica to be used for **read-heavy workloads, such as running complex SQL queries for data analysis or machine learning modeling**.
+ - Read replicas are **not intended** for **failover purposes and do not automatically take over in case of a primary database failure**.
+ 
  
   **Binary logging** must be enabled to support read replicas. we  *cannot perform* backups on a read replica.
 - It's important to note that read replicas are **not** *intended for high availability or disaster recovery purposes*. They are primarily used for **scaling read workloads and improving performance,scalability**.
