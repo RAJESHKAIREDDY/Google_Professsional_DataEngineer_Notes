@@ -75,8 +75,7 @@ be used when you want outlier instances to have weights close to zero, which is 
  
  - **Mini-batch Gradient Descent**: the gradients are computed on a **small random subset of the training dataset**, typically between 10 and 1000 examples
 
- **Backpropagation** is the most widely used algorithm for training neural networks, and it uses the error and the rate of change in the error to 
-calculate weight adjustments.
+ **Backpropagation** is an algorithm used to train neural networks that calculates the **gradient of loss with respect to each weight** in the network using chain rule, propagating these gradients backwards from the output layer to update weights and minimize loss
 
  **Cost Function** : It measures the error between predicted output of the model and the actual output.
  -   Cost Function & Loss Function are often interchangeable terms in ML.
