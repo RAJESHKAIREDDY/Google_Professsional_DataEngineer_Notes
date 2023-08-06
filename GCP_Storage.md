@@ -28,8 +28,8 @@
 - Cloud SQL and Cloud Spanner, provide mechanisms to restrict access to **tables and views**.
 
 ## <a id="cloud-spanner"></a>Cloud Spanner
-- Cloud Spanner is Google’s relational, horizontally scalable, global database. It also manages automatic replication.
-- Cloud Spanner is suitable for read/write operations.
+- Cloud Spanner is **Google’s relational, horizontally scalable, global database**. It also manages automatic replication.
+- Cloud Spanner is suitable for **read/write operations**.
 - Google recommends keeping CPU utilization **below 65 percent in regional instances** and **below 45 percent in multi-regional instances**. Also, each node can store up to **2 TB of data**.
 - Spanner can compromise (A)Availability from CAP theorem.
 - Cloud Spanner **supports** both **primary and secondary indexes**.
@@ -306,11 +306,11 @@
 
  **Multi-regional Storage:** To mitigate the risk of a regional outage, multi-regional storage stores replicas of objects in multiple regions. It provides greater resilience and is recommended for globally distributed applications.
 
- **Nearline Storage:** If data is accessed less than once in 30 days, Nearline storage is a suitable option. It offers cost-effective storage with slightly higher latency compared to regional storage. It is well-suited for backup and archival data.**30days**.
+ **Nearline Storage:** If data is accessed less than once in 30 days, Nearline storage is a suitable option. It offers cost-effective storage with slightly higher latency compared to regional storage. It is well-suited for backup and archival data(**30days**).
 
- **Coldline Storage:** Data accessed less than once a year is a good fit for Coldline storage. It provides the most cost-effective archival storage option, although with slightly higher access latency. Coldline storage is ideal for long-term retention of infrequently accessed data**90days**
+ **Coldline Storage:** Data accessed less than once a year is a good fit for Coldline storage. It provides the most cost-effective archival storage option, although with slightly higher access latency. Coldline storage is ideal for long-term retention of infrequently accessed data(**90days**).
 
- **Cloud Storage Archive class storage** It is a storage class provided by Google Cloud Storage. It is designed for data that is accessed infrequently and requires long-term retention at a lower cost compared to other storage classes**365days**
+ **Cloud Storage Archive class storage** It is a storage class provided by Google Cloud Storage. It is designed for data that is accessed infrequently and requires long-term retention at a lower cost compared to other storage classes(**365days**).
 
 - If you **don't specify a default storage**class when you create a bucket, that bucket's **default storage** class is set to **Standard storage**.
 - **Standard storage** is best for data that is **frequently accessed ("hot" data) and/or stored for only brief periods of time**.

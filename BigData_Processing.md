@@ -197,6 +197,7 @@
 - Cron jobs are scheduled tasks that run at predetermined intervals or specific times on a recurring basis.
 -  They are typically used for simpler, standalone tasks that don't have complex dependencies or interactions.
 - Cron jobs are used for automating repetitive tasks, such as backups, log rotations, data updates, or other periodic activities.
+
 **Eg**:- Cloud Scheduler
 
 ### Google Cloud Platform offers a number of tools and services for orchestration:
