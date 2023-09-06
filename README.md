@@ -1,3 +1,6 @@
+
+
+![Alt text](GCP_certificate.png)
 # Google_Professsional_DataEngineer_Notes
 - [GCP_Storage](GCP_Storage.md)
   - [Cloud SQL](/GCP_Storage.md#cloud-sql)
@@ -27,4 +30,3 @@
   - [App Engine](/Infrastructure_Services.md#app-engine)
   - [Transfer Servies in GCP](/Infrastructure_Services.md#transfer-sevices-in-gcp)
 
-![Alt text](GCP_certificate.png)
